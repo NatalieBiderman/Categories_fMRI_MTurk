@@ -1,0 +1,1098 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Columbia University Psychology Experiment</title>
+    <script src="/static/jspsych-6.0.5/jspsych.js"></script>
+    <script src="/static/Tools/Functions.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-instructions.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-text.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-likert.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-multi-choice.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-html-slider-response.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-fullscreen.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-html-button-response.js"></script>
+    <script src="/static/jquery-3.3.1/jquery.min.js"></script>
+    <link href="/static/jspsych-6.0.5/css/jspsych.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/Tools/myCSSstyle.css" rel="stylesheet" type="text/css"/>
+    <style> </style>
+  </head>
+  <body> </body>
+  <script>
+
+// =============================================================================
+// SET PARAMETERS
+// =============================================================================
+
+var is_debug              = 1;
+var is_scanner            = {{ is_scanner|tojson }}; //"mturk"; // "scanner" or "mturk"
+var run_category_learning = {{ run_category_learning|safe }}; //1;
+var run_category_memory   = {{ run_category_memory|safe }}; // 1;
+var start_t               = {{ start_t|safe }}; //0; // take into account 5 practice trials
+var end_t                 = {{ end_t|safe }}; // 364;
+var start_t_category_memory = {{ start_t_category_memory|safe }}; //0;
+var end_t_category_memory = {{ end_t_category_memory|safe }}; // 35;
+var subID                 = {{ subID|safe }}; // 1;
+
+var randomize_old_trials  = 0; // do we want to choose any old trials. if not, we give priority for within-category trials
+var n_practice_trials     = 5;
+var n_category_learning_trials = 360; // we want new trials within a block to be divided by 10 (the number of trial types)
+var n_blocks              = 6;
+var n_trials_per_block    = n_category_learning_trials/n_blocks;
+var old_stims_within_a_block = 1; // 1 if we want to limit the old items to be used from the same block
+var timing_max_choice     = 1500;
+var timing_confirmation   = 0;//500;
+var timing_feedback       = 1000;
+var timing_warning        = timing_feedback;
+var n_blocks_back_within_category = 1;
+var percent_bonus         = 0.05; // what is the percentage of winnings participants get as bonus money
+if (is_scanner == "scanner"){
+  var max_earnings = 12; // maximum dollar earnings
+} else {
+  var max_earnings = 3; // maximum dollar earnings
+}
+var keys_instructions     = [' '];
+var keys_start_run        = ['t'];
+var timeline              = [];
+var category_learning_timeline = { timeline: []};
+var category_memory_timeline = { timeline: []};
+var onset                 = 0;
+var duration              = 0;
+
+// assign folders
+var static_folder         = '/static/Category_learning/'
+var data_folder           = '/data/Category_learning/Individual_data/'
+var tools_folder          = '/static/Tools'
+
+// assign decision keys
+if (is_scanner == "scanner") {
+  var keys_decision = ['2', '3']; // 2 - left, 3 - right
+  var continue_key_text = "pointer finger"
+} else {
+  var keys_decision = ['D', 'K']; // D - left, K - right
+  var continue_key_text = "D key"
+}
+
+// =============================================================================
+// SETUP
+// =============================================================================
+
+// create a subject id for mturk subs
+if (is_scanner == "mturk"){
+  var subID = Math.floor(Math.random() * 90000) + 10000; // random 5-digit number
+}
+
+// =============================================================================
+// PRE LOAD TASK IMAGES
+// =============================================================================
+
+// load task images
+var category_learning_stims_csv;
+readTextFile(static_folder+'Stimuli/Stimuli_list/category_learning_stimuli.csv', function(text){category_learning_stims_csv = text;});
+var category_learning_stims = csvJSON(category_learning_stims_csv);
+category_learning_stims = category_learning_stims.filter(a => a.is_test_item==0).filter(a => typeof a.category !== 'undefined')
+
+// load practice images
+var practice_category_learning_stims_csv;
+readTextFile(static_folder+'Stimuli/Stimuli_list/practice_category_learning_stimuli.csv', function(text){practice_category_learning_stims_csv = text;});
+var practice_category_learning_stims = csvJSON(practice_category_learning_stims_csv);
+practice_category_learning_stims = practice_category_learning_stims.filter(a => typeof a.category !== 'undefined')
+
+// read out value stimuli
+Values_stimuli = [static_folder+'Stimuli/Values/100.png',
+                  static_folder+'Stimuli/Values/80.png',
+                  static_folder+'Stimuli/Values/60.png',
+                  static_folder+'Stimuli/Values/40.png',
+                  static_folder+'Stimuli/Values/20.png',
+                  static_folder+'Stimuli/Values/0.png',
+                  static_folder+'Stimuli/Values/blank.png'];
+
+Instructions_stimuli = [static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning1.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning2.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning3.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning4.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning5.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning6.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning7.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/category_memory1.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/category_memory2.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/category_memory3.png'];
+
+// prepare pre-loaded images
+images = []; practice_images = [];
+for(i = 0; i < category_learning_stims.length; i++){
+  images[i] = static_folder+'Stimuli/Experimental_stims/' + category_learning_stims[i].category + '/' + category_learning_stims[i].img;
+}
+for(i = 0; i < practice_category_learning_stims.length; i++){
+  practice_images[i] = static_folder+'Stimuli/Practice_stims/' + practice_category_learning_stims[i].category + '/' + practice_category_learning_stims[i].img;
+}
+images = images.concat(practice_images).concat(Instructions_stimuli).concat(Values_stimuli);
+
+
+// =============================================================================
+// LOAD CATEGORY LEARNING DATA FRAME
+// =============================================================================
+
+// Load df
+// MAKE SURE TO SAVE EVERY DATA FRAME AS UNICODE 8
+var category_learning_trials_csv;
+var counterbalanced_df = (subID % 4) + 1; // we use the subject id to assign the relevant df
+readTextFile(static_folder+'Design_matrix/category_learning_trials_v' + counterbalanced_df + '.csv', function(text){
+    category_learning_trials_csv = text;
+});
+category_learning_trials_csv = category_learning_trials_csv.replaceAll('"', '') // we remove strings that cause an error in uploading of the csvs
+var category_learning_trials = csvJSON(category_learning_trials_csv);
+
+// convert all numeric columns to numbers (they were transformed to strings)
+num_cols = ["trial_num","block","is_practice","old_trial","high_cat_on_left","isi","iti","left_category_value","left_exemplar_value","left_stim_index","right_category_value","right_exemplar_value","right_stim_index"];
+for (i=0; i<num_cols.length; i++){
+  category_learning_trials.forEach((element, index) => {category_learning_trials[index][num_cols[i]] = Number(category_learning_trials[index][num_cols[i]])});
+}
+
+// add image path columns
+for (t=0; t<category_learning_trials.length; t++){
+  if (category_learning_trials[t].is_practice==1){
+    category_learning_trials[t].right_img_path = static_folder+'Stimuli/Practice_stims/' + category_learning_trials[t].right_category + '/' + category_learning_trials[t].right_img
+    category_learning_trials[t].left_img_path = static_folder+'Stimuli/Practice_stims/' + category_learning_trials[t].left_category + '/' + category_learning_trials[t].left_img
+  } else {
+    category_learning_trials[t].right_img_path = static_folder+'Stimuli/Experimental_stims/' + category_learning_trials[t].right_category + '/' + category_learning_trials[t].right_img
+    category_learning_trials[t].left_img_path = static_folder+'Stimuli/Experimental_stims/' + category_learning_trials[t].left_category + '/' + category_learning_trials[t].left_img
+  }
+}
+category_learning_trials.forEach(object => {delete object['right_img_path\r'];});
+category_learning_trials.forEach(object => {delete object['left_img_path\r'];});
+
+// remove the last extra trial
+category_learning_trials = category_learning_trials.filter(a => a.is_practice != null)
+category_learning_trials = category_learning_trials.filter(a => !isNaN(a.is_practice))
+
+// add value information to stims df from the decisions trials
+for (i=0; i<category_learning_stims.length; i++){
+  curr_decision_trial = category_learning_trials.filter(a => a.left_img == category_learning_stims[i].img | a.right_img == category_learning_stims[i].img)
+  if (curr_decision_trial.length > 0){ // the variable isn't empty
+    if (category_learning_stims[i].img == curr_decision_trial[0].left_img){
+      category_learning_stims[i].category_value = curr_decision_trial[0].left_category_value;
+      category_learning_stims[i].exemplar_value = curr_decision_trial[0].left_exemplar_value;
+    } else {
+      category_learning_stims[i].category_value = curr_decision_trial[0].right_category_value;
+      category_learning_stims[i].exemplar_value = curr_decision_trial[0].right_exemplar_value;
+    }
+  }
+}
+
+// add practice info
+for (i=0; i<(category_learning_trials.length-1); i++){
+  if (category_learning_trials[i].is_practice==1 & category_learning_trials[i+1].is_practice==0){
+    category_learning_trials[i].end_practice = 1
+  } else {
+    category_learning_trials[i].end_practice = 0
+  }
+}
+
+// debug mode - only the last block
+/*if (is_debug == 1){
+  category_learning_trials = category_learning_trials.filter(a => a.block == 6)
+  //run_category_learning = 0;
+}*/
+// =============================================================================
+// LOAD CATEGORY MEMORY DATA FRAME
+// =============================================================================
+
+// Load df
+// MAKE SURE TO SAVE EVERY DATA FRAME AS UNICODE 8
+var category_memory_trials_csv;
+var counterbalanced_df = (subID % 4) + 1; // we use the subject id to assign the relevant df
+readTextFile(static_folder+'Design_matrix/category_memory_trials_v' + counterbalanced_df + '.csv', function(text){
+    category_memory_trials_csv = text;
+});
+category_memory_trials_csv = category_memory_trials_csv.replaceAll('"', '') // we remove strings that cause an error in uploading of the csvs
+var category_memory_trials = csvJSON(category_memory_trials_csv);
+//console.log(category_memory_trials); // ALICE
+
+// convert all numeric columns to numbers (they were transformed to strings)
+num_cols = ["trial_num","category_group_value"];
+for (i=0; i<num_cols.length; i++){
+  category_memory_trials.forEach((element, index) => {category_memory_trials[index][num_cols[i]] = Number(category_memory_trials[index][num_cols[i]])});
+}
+//category_memory_trials = category_memory_trials.filter(a => !isNaN(a.category))
+category_memory_trials = category_memory_trials.filter(a => a.category != null)
+
+// =============================================================================
+// START EXPERIMENT IN THE MIDDLE
+// =============================================================================
+
+// we use the start_t and end_t parameters to assign the length of the data frame
+// this will allow us to start the exp at any trial, in case the run stops in the middle
+//category_learning_trials = category_learning_trials.slice(start_t, end_t+1);
+
+// if we did not start the experiment from the begining, we fill up chosen stims
+// array with previously chosen stimuli from the subject df
+if (start_t > n_practice_trials){
+  // load subject df
+  var sub_df_csv;
+  readTextFile(data_folder+"Data/Individual_data/category_data_sub_" + subID + ".csv", function(text){sub_df_csv = text;});
+  sub_df_csv = sub_df_csv.replaceAll('"', '') // we remove strings that cause an error in uploading of the csvs
+  var sub_df = csvJSON(sub_df_csv);
+  sub_df_choices = sub_df.filter(a => a.ttype == "choice" & a.rt != 'null') // we look only at decision trials and remove non responses
+  // find chosen exemplars
+  chosen_exemplars = sub_df_choices.slice(n_practice_trials, start_t).filter(a => Number(a.is_practice)==0).map(a => a.chosen_exemplar)
+  old_trials = sub_df_choices.slice(n_practice_trials, start_t).filter(a => Number(a.is_practice)==0 & Number(a.old_trial)==1)
+  old_stims = old_trials.map(a => a.chosen_exemplar).concat(old_trials.map(a => a.unchosen_exemplar))
+  // remove old_stims from chosen_stims
+  chosen_exemplars = chosen_exemplars.filter(a => !old_stims.includes(a));
+  chosen_stims = JSON.parse(JSON.stringify(category_learning_stims)).map(function(value,index) { return value; }).filter(a => chosen_exemplars.includes(a.exemplar))
+  // add block info
+  for (i=0; i<chosen_stims.length; i++){
+    curr_item = chosen_stims[i].exemplar;
+    curr_trial = sub_df_choices.filter(a => Number(a.old_trial)==0 & a.chosen_exemplar == curr_item)
+    chosen_stims[i].block = Number(curr_trial[0].block)
+  }
+} else {
+  chosen_stims = [];
+}
+
+
+// =============================================================================
+// CSS FOR STIMS PRESENTATION
+// =============================================================================
+
+// these are css for stimuli presentation. I insert the stimuli within a table,
+// such that the first rows include some prompt, and the second row includes
+// the actual stimuli: two objects from both sides of a fixation place holder
+var decision_trial_stims = '<table class="table">\
+                            <tr><p>{0}</p></tr>\
+                            <td> <img class="object" src="{1}"></img></td>\
+                            <td class="fixation"></td>\
+                            <td> <img class="object" src="{2}"></img></td>\
+                            </tr></table>';
+var choice_confirm_stims  = '<table class="table"><tr>\
+                            <tr><p>{0}</p></tr>\
+                            <td> <img class="{1}" src="{2}"></img> </td>\
+                            <td class="fixation"></td>\
+                            <td> <img class="{3}" src="{4}"></img></td>\
+                            </tr></table>';
+var fixation_stim         = '<table class="table"><tr>\
+                            <td class="object fixation"> </td>\
+                            <td class="fixation">+</td>\
+                            <td class="object fixation"> </td></tr></table>';
+var propmt_decision       = '';
+
+
+// =============================================================================
+// CREATE DIFFERENT TRIAL TYPES
+// =============================================================================
+
+// ------------------------------ Full Screen ----------------------------------
+
+var fullscreen = {
+  type: 'fullscreen',
+  fullscreen_mode: true,
+  on_start: function(trial){
+    if (is_scanner=="mturk"){
+      trial.message = '<p>Welcome to our study!<br>' +
+      'Our study requires your undivided attention throughout the entire experiment.</br>'+
+      'Please note that exiting full screen mode, responding randomly, or responding to fewer than 90% of trials will cause your HIT to be rejected.<br></br>'+
+      'To switch to full screen and start the experiment, please press the button below.</p>'
+    }
+  },
+  data: {ttype: 'full_screen', start_time: timeStamp()}
+}
+
+timeline.push(fullscreen);
+
+// ------------------------------ Start run ---------------------------------
+
+var start_run = {
+    type: 'html-keyboard-response',
+    stimulus: "Great, you're ready to start.<br></br>{0}",
+    choices: keys_start_run,
+    response_ends_trial: true,
+    data: {ttype: "start_run"},
+    trial_duration:null,
+    on_start: function(trial){
+      if (is_scanner=="scanner"){
+        start_run_prompt = "Please remember to stay as still as possible throughout the scan.</br></br>The task will begin shortly..."
+      } else {
+        start_run_prompt = "Please press the T key to start"
+      }
+      trial.stimulus = String.format(trial.stimulus, start_run_prompt);
+    },
+    on_finish: function(data){
+      onset = 0; // restart onset in the beginning of every run
+      // add columns to data
+      jsPsych.data.addProperties({
+        warning: 0,
+        missed_checkup: 0,
+        PID: subID })
+    }
+}
+
+// ------------------------------ Instructions ---------------------------------
+
+// repeat instructions screen
+var missed_instruction_checkup = {
+      type: 'html-keyboard-response',
+      data: {ttype: 'missed_instruction_checkup'},
+      stimulus: "Sorry, you missed one or more questions.</br></br>"+
+                "Please press the "+continue_key_text+" to repeat the instructions.",
+      choices: keys_decision[0],
+      response_ends_trial: true,
+      on_finish: function(data){
+        data.missed_checkup = 1
+      } // on_finish
+    } // missed_instruction_checkup
+
+  // If participants pass the comprehension check, they can start the phase.
+  // For scanned participants, this appears immediately after the quiz end.
+  var passed_instructions = {
+      type: 'html-keyboard-response',
+      stimulus: "Great, you're ready to start.</br></br>"+
+                "Please press the "+continue_key_text+" to start.",
+      choices: keys_decision[0],
+      response_ends_trial: true,
+      trial_duration:null,
+  }
+
+  // Instructions
+  var category_learning_instructions = {
+        type: 'instructions',
+        pages: ['<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning1.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning2.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning3.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning4.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning5.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning6.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_learning7.png"</img></div>'],
+        data: {ttype: "category_learning_instructions"},
+        show_clickable_nav: true
+      };
+
+  // quiz questions
+  var quiz_qs = {category_learning:
+    [{prompt: "True or False: You will choose between objects to make more bonus money",
+      options: ["True", "False"]},
+     {prompt: "True or False: The dollar value of the chosen object ranges from 0&#162 to &#36;1",
+      options: ["True", "False"]},
+     {prompt: "Some of the objects will repeat. When this happents, the dollar value of the repeated cards will _____ ",
+      options: ["Stay the same", "Change"]},
+     {prompt: "What keys should you press to make your decision?",
+      options: ["pointer finger for left and middle finger for right", "middle finger for left and pointer finger for right", "Use a mouse"]}]};
+  var quiz_answers = {category_learning: ["True", "True","Stay the same","pointer finger for left and middle finger for right"]};
+
+  if (is_scanner == "mturk"){
+    quiz_qs.category_learning[3].options = ["D for left and K for right", "K for left and D for right", "Use a mouse"];
+    quiz_answers.category_learning[3] = "D for left and K for right";
+  }
+  // activate function to present a looping quiz (loops until you get all answers correctly)
+  repeat_category_learning_instructions = present_quiz_instructions(category_learning_instructions, 'category_learning_comprehension_check', quiz_qs.category_learning, quiz_answers.category_learning, is_scanner)
+
+  // we push the instruction only when the experiment begins from the beginning (not from the middle)
+  if (start_t == 0){
+    category_learning_timeline.timeline.push(repeat_category_learning_instructions,passed_instructions)
+  }
+
+
+  // ------------------------------- Decision ----------------------------------
+
+var block_counter = 1;
+var block = 0;
+var no_response_iti = 0;
+var no_response_isi = 0;
+
+for (t = start_t; t < end_t+1; t++){
+
+    // ------------------------------- decision --------------------------------
+
+    decisions_trial = {
+      type: 'html-keyboard-response',
+      data: {ttype: 'choice',
+             index: t},
+      stimulus: decision_trial_stims,
+      choices: keys_decision,
+      response_ends_trial: true,
+      trial_duration: timing_max_choice,
+      on_start: function(trial){
+
+
+        // construct old trials if the current trial is old and this is a non repeated trial
+        // (if it is a repeated trial, we will use the information already appearing in category learning mat)
+        if (category_learning_trials[trial.data.index].old_trial==1 & category_learning_trials[trial.data.index].pair_type == "NaN"){
+
+          // we only use the chosen_stims from the current block and the previous one
+          curr_block = category_learning_trials[trial.data.index].block;
+          curr_chosen_stims = JSON.parse(JSON.stringify(chosen_stims)).map(function(value,index) { return value; })
+          curr_chosen_stims = curr_chosen_stims.filter(a => range(curr_block-n_blocks_back_within_category,curr_block).includes(a.block))
+
+          // do we want to sample the occurance of within_category trials
+          // (this is preferable if number of old trials isn't high)
+          if (randomize_old_trials==1){
+            array = [0,1];
+            is_within_category =  array[Math.floor(Math.random() * array.length)];
+          } else {
+            is_within_category = 1;
+          }
+
+          // we first try to find within category stims. to do so, we check which
+          // of the categories in chosen_stims matrix have more than one exemplar
+          var counts = curr_chosen_stims.reduce((p, c) => {
+            var category = c.category;
+            if (!p.hasOwnProperty(category)) {
+              p[category] = 0;
+            }
+            p[category]++;
+            return p;
+          }, {});
+          countsExtended = Object.keys(counts).map(k => {return {category: k, count: counts[k]}; });
+          countsExtended = countsExtended.filter(a => a.count > 1);
+          // if indeed there are categories with more than one exemplar, we
+          // randomly select one of them, and randomly select two exemplars
+          if (countsExtended.length > 0 & is_within_category == 1){
+            old_category = shuffle(countsExtended)[0].category;
+            old_category_stims = shuffle(curr_chosen_stims.filter(a => a.category == old_category))
+            left_stim = old_category_stims[0]
+            right_stim = old_category_stims[1]
+          } else {
+            // if there are no categories with at least two exemplars, we
+            // randomly select two chosen stims
+            old_category_stims = shuffle(curr_chosen_stims)
+            left_stim = old_category_stims[0]
+            right_stim = old_category_stims[1]
+          }
+
+          // add within-category parameter
+          if (left_stim.category == right_stim.category){
+            category_learning_trials[trial.data.index].within_category = 1;
+          } else {
+            category_learning_trials[trial.data.index].within_category = 0;
+          }
+
+          // assign trial type
+          if (left_stim.category_value > right_stim.category_value){
+            pair_type = right_stim.category_value.toString() + "-" + left_stim.category_value.toString()
+          } else {
+            pair_type = left_stim.category_value.toString() + "-" + right_stim.category_value.toString()
+          }
+
+          // insert trial info to matrix
+          category_learning_trials[trial.data.index].pair_type = pair_type,
+          category_learning_trials[trial.data.index].left_category = left_stim.category,
+          category_learning_trials[trial.data.index].right_category = right_stim.category,
+          category_learning_trials[trial.data.index].left_category_value = left_stim.category_value,
+          category_learning_trials[trial.data.index].right_category_value = right_stim.category_value,
+          category_learning_trials[trial.data.index].left_exemplar = left_stim.exemplar,
+          category_learning_trials[trial.data.index].right_exemplar = right_stim.exemplar,
+          category_learning_trials[trial.data.index].left_exemplar_value = left_stim.exemplar_value,
+          category_learning_trials[trial.data.index].right_exemplar_value = right_stim.exemplar_value,
+          category_learning_trials[trial.data.index].left_img = left_stim.img,
+          category_learning_trials[trial.data.index].right_img = right_stim.img,
+          category_learning_trials[trial.data.index].left_img_path = static_folder+'Stimuli/Experimental_stims/'+left_stim.category+'/'+left_stim.img,
+          category_learning_trials[trial.data.index].right_img_path = static_folder+'Stimuli/Experimental_stims/'+right_stim.category+'/'+right_stim.img
+
+        }
+
+        // trial stimulus
+        trial.stimulus = String.format(trial.stimulus, propmt_decision, category_learning_trials[trial.data.index].left_img_path, category_learning_trials[trial.data.index].right_img_path);
+
+        // ------ save trial parameters ------
+
+        trial.data.trial_num = category_learning_trials[trial.data.index].trial_num;
+        trial.data.isi = category_learning_trials[trial.data.index].isi;
+        trial.data.iti = category_learning_trials[trial.data.index].iti;
+        trial.data.is_practice = category_learning_trials[trial.data.index].is_practice;
+        trial.data.block = category_learning_trials[trial.data.index].block;
+        trial.data.old_trial = category_learning_trials[trial.data.index].old_trial;
+        trial.data.pair_type = category_learning_trials[trial.data.index].pair_type;
+        trial.data.within_category = category_learning_trials[trial.data.index].within_category;
+        trial.data.high_cat_on_left = category_learning_trials[trial.data.index].high_cat_on_left;
+        trial.data.left_category = category_learning_trials[trial.data.index].left_category;
+        trial.data.right_category = category_learning_trials[trial.data.index].right_category;
+        trial.data.left_category_value = category_learning_trials[trial.data.index].left_category_value;
+        trial.data.right_category_value = category_learning_trials[trial.data.index].right_category_value;
+        trial.data.left_exemplar = category_learning_trials[trial.data.index].left_exemplar;
+        trial.data.right_exemplar = category_learning_trials[trial.data.index].right_exemplar;
+        trial.data.left_exemplar_value = category_learning_trials[trial.data.index].left_exemplar_value;
+        trial.data.right_exemplar_value = category_learning_trials[trial.data.index].right_exemplar_value;
+        trial.data.left_img = category_learning_trials[trial.data.index].left_img;
+        trial.data.right_img = category_learning_trials[trial.data.index].right_img;
+        trial.data.left_img_path = category_learning_trials[trial.data.index].left_img_path;
+        trial.data.right_img_path = category_learning_trials[trial.data.index].right_img_path;
+
+      },
+
+      on_finish: function(data){
+
+        // add to block counter
+        if (category_learning_trials[data.index].is_practice == 0){
+          block_counter = block_counter + 1;
+        }
+
+        // find current index
+        var curr_ind = jsPsych.data.get().last(1).values()[0].index;
+
+        //console.log(curr_ind); // ALICE
+        //console.log(block_counter); // ALICE
+
+        // ------ register choices ------
+
+        if(data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(keys_decision[0])) { // 'f' (left) was chosen
+          data.left_chosen = 1;
+          data.chosen_category = jsPsych.data.get().last(1).values()[0].left_category;
+          data.unchosen_category = jsPsych.data.get().last(1).values()[0].right_category;
+          data.chosen_category_value = jsPsych.data.get().last(1).values()[0].left_category_value;
+          data.unchosen_category_value = jsPsych.data.get().last(1).values()[0].right_category_value;
+          data.chosen_exemplar = jsPsych.data.get().last(1).values()[0].left_exemplar;
+          data.unchosen_exemplar = jsPsych.data.get().last(1).values()[0].right_exemplar;
+          data.chosen_exemplar_value = jsPsych.data.get().last(1).values()[0].left_exemplar_value;
+          data.unchosen_exemplar_value = jsPsych.data.get().last(1).values()[0].right_exemplar_value;
+          category_learning_trials[curr_ind].chosen_exemplar = jsPsych.data.get().last(1).values()[0].left_exemplar;
+        } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(keys_decision[1])){ // 'k' (right) was chosen
+          data.left_chosen = 0;
+          data.chosen_category = jsPsych.data.get().last(1).values()[0].right_category;
+          data.unchosen_category = jsPsych.data.get().last(1).values()[0].left_category;
+          data.chosen_category_value = jsPsych.data.get().last(1).values()[0].right_category_value;
+          data.unchosen_category_value = jsPsych.data.get().last(1).values()[0].left_category_value;
+          data.chosen_exemplar = jsPsych.data.get().last(1).values()[0].right_exemplar;
+          data.unchosen_exemplar = jsPsych.data.get().last(1).values()[0].left_exemplar;
+          data.chosen_exemplar_value = jsPsych.data.get().last(1).values()[0].right_exemplar_value;
+          data.unchosen_exemplar_value = jsPsych.data.get().last(1).values()[0].left_exemplar_value;
+          category_learning_trials[curr_ind].chosen_exemplar = jsPsych.data.get().last(1).values()[0].right_exemplar;
+        } // else
+        if (data.key_press === null){
+          data.no_response = 1;
+        } else {
+          data.no_response = 0;
+        }
+        //console.log("no response:" + data.no_response)
+
+        // end practice after a response was made
+        if ((category_learning_trials[data.index].end_practice == 1) & (data.key_press !== null)){
+          data.end_practice = 1
+        }
+
+        // add a chosen stim from novel trials to chosen_stims matrix
+        // change chosen_stims matrix according to trial type (but only if there was a button press).
+        if (data.no_response !== 1 & data.is_practice==0){
+          // here we decide whether we should limit the pool of old stim items to the same block only,
+          // if so, we will remove the previous block items from chosen_stim matrix
+          /*if (old_stims_within_a_block==1 & curr_ind > 0){
+            if (category_learning_trials[curr_ind].block != category_learning_trials[curr_ind-1].block){
+              chosen_stims = [];
+            }
+          }*/
+          // for novel trials - we add the chosen item to chosen_stims matrix
+          if (data.old_trial == 0){
+            //console.log(curr_ind); // ALICE
+            chosen_novel_stim = category_learning_stims.filter(a => a.exemplar == category_learning_trials[curr_ind].chosen_exemplar)[0];
+            chosen_novel_stim.block = category_learning_trials[curr_ind].block;
+            chosen_stims = chosen_stims.concat(chosen_novel_stim);
+          } else {
+            // for old items we remove the two items from chosen_stims, so they will not be used again
+            // we now remove the stims from chosen_stims matrix
+            chosen_stims = chosen_stims.filter(a => a.exemplar !== category_learning_trials[curr_ind].left_exemplar & a.exemplar !== category_learning_trials[curr_ind].right_exemplar);
+          }
+        }
+        //console.log(chosen_stims)
+
+        // save onset and duration
+        if (data.key_press === null){
+          duration = timing_max_choice/1000;
+        } else {
+          duration = jsPsych.data.get().last(1).values()[0].rt/1000;
+        }
+        onset = onset + duration;
+        data.onset = onset;
+        data.duration = duration;
+
+        // update block info
+        block = data.block;
+
+      } // on_finish
+    } // decision trial
+
+// ------------------------------- confirmation --------------------------------
+
+confirmation_trial = {
+  type: 'html-keyboard-response',
+  data: {ttype: 'confirmation',
+         index: t},
+  stimulus: choice_confirm_stims,
+  choices: jsPsych.NO_KEYS,
+  trial_duration: timing_confirmation,
+  response_ends_trial: false,
+  on_start: function(trial){
+
+    // decide on timing of confirmation trial - we add to the confirmation timing
+    // the extra RT from the decision trial (that will add up to 1.5 sec)
+    decision_rt = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].rt;
+    extra_confirmation_rt = timing_max_choice - decision_rt;
+    trial.trial_duration = timing_confirmation + extra_confirmation_rt;
+
+    // assign trial duration to onset and duration
+    duration = timing_confirmation/1000 + extra_confirmation_rt/1000;
+    onset = onset + duration;
+    trial.data.duration = duration;
+    trial.data.onset = onset;
+
+    // decide on which stimulus recieves a confirmation rectangle
+    curr_ind = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].index;
+    if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].left_chosen==1){
+    // we decide which css object to include according to the decision of the subject.
+    // for the chosen object we use the class "object confirm"
+      trial.stimulus = String.format(trial.stimulus,
+        propmt_decision,
+        "object chosen",
+        category_learning_trials[curr_ind].left_img_path,
+        "object unchosen",
+        category_learning_trials[curr_ind].right_img_path)
+      } else if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].left_chosen == 0){
+        trial.stimulus = String.format(trial.stimulus,
+          propmt_decision,
+          "object unchosen",
+          category_learning_trials[curr_ind].left_img_path,
+          "object chosen",
+          category_learning_trials[curr_ind].right_img_path)
+      }
+    }
+  } // confirmation trial
+
+  // present confirmation only if there was a response
+  var if_confirmation = {
+    timeline: [confirmation_trial],
+    conditional_function: function(){
+      if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].key_press){
+        return true;
+      } else {
+        return false;
+      } // else
+    } // conditional function
+  } // if_confirmation
+
+// ------------------------------- isi ---------------------------------
+
+  // Fixation for jitter and ITI
+  var choice_isi_trial = {
+        type: 'html-keyboard-response',
+        stimulus: fixation_stim,
+        choices: jsPsych.NO_KEYS,
+        data: {ttype: 'isi'},
+        on_start: function(trial){
+          // assign jitter timing
+          curr_isi = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].isi;
+          // if the previous trial was a no-response trial, then use the iti of
+          // the block's last trial (which was deleted), so we could keep the
+          // timing of the experiment constant
+          if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].is_practice==0){
+            if (jsPsych.data.get().filter({ttype: 'choice'}).last(2).values()[0].no_response==1){
+              curr_isi = no_response_isi;
+            }
+          }
+          if (is_debug == 1) {
+            trial.trial_duration = 100;
+          } else {
+            trial.trial_duration = curr_isi;
+          }
+          //console.log(curr_isi)
+          // assign trial duration to onset and duration
+          duration = curr_isi/1000;
+          onset = onset + duration;
+          trial.data.duration = duration;
+          trial.data.onset = onset;
+        }
+  }
+
+// ------------------------------- feedback --------------------------------
+
+  feedback_trial = {
+    type: 'html-keyboard-response',
+    data: {ttype: 'feedback',
+           index: t},
+    stimulus: choice_confirm_stims,
+    choices: jsPsych.NO_KEYS,
+    trial_duration: timing_feedback,
+    response_ends_trial: false,
+    on_start: function(trial){
+
+      // decide what value to present
+      if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].left_chosen==1){
+      // we decide which css object to include according to the decision of the subject.
+      // for the chosen object we use the class "object confirm"
+        chosen_value = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].left_exemplar_value;
+        trial.stimulus = String.format(trial.stimulus,
+          propmt_decision,
+          "object chosen",
+          static_folder + 'Stimuli/Values/' + chosen_value + '.png',//jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].exemplar_val_left,
+          "object unchosen",
+          static_folder + 'Stimuli/Values/blank.png')
+        } else if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].left_chosen == 0){
+          chosen_value = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].right_exemplar_value;
+          trial.stimulus = String.format(trial.stimulus,
+            propmt_decision,
+            "object unchosen",
+            static_folder + 'Stimuli/Values/blank.png',
+            "object chosen",
+            static_folder + 'Stimuli/Values/' + chosen_value + '.png')//jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].exemplar_val_right)
+        }
+
+        // assign trial duration to onset and duration
+        duration = timing_feedback/1000;
+        onset = onset + duration;
+        trial.data.duration = duration;
+        trial.data.onset = onset;
+      }
+    } // confirmation trial
+
+  // present feedback only if there was a response
+  var if_feedback_trial = {
+    timeline: [feedback_trial],
+    conditional_function: function(){
+      if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].key_press){
+        return true;
+      } else {
+        return false;
+      } // else
+    } // conditional function
+  } // if_confirmation
+
+
+// ------------------------------- no response ---------------------------------
+
+// respond faster
+var no_response_trial = {
+      type: 'html-keyboard-response',
+      data: {ttype: "no_response"},
+      stimulus: '<div style="font-size: 120%">TOO SLOW</div>',
+      choices: jsPsych.NO_KEYS,
+      trial_duration: timing_warning,
+      on_finish: function(data){
+        // tag the current trial so we can know there was a repeat
+        data.warning = 1;
+        // find the last trial in the current block and remove it, only for non-practice trials
+        if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].is_practice == 0) {
+
+          // remove last trial of the current block from category_learning_trials data frame
+          curr_block = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].block;
+          curr_block_mat = category_learning_trials.filter(a => a.block==curr_block)
+          last_trial_of_curr_block = curr_block_mat[curr_block_mat.length-1].trial_num
+          last_trial_index = category_learning_trials.map(a => a.trial_num).indexOf(last_trial_of_curr_block)
+
+          // take isi and iti from last trial to be used in the next trial
+          no_response_iti = curr_block_mat.filter(a => a.trial_num==last_trial_of_curr_block)[0].iti;
+          no_response_isi = curr_block_mat.filter(a => a.trial_num==last_trial_of_curr_block)[0].isi;
+
+          //console.log(curr_block_mat.filter(a => a.trial_num==last_trial_of_curr_block)[0])
+
+          // remove last trial
+          category_learning_trials.splice(last_trial_index, 1)
+
+          // remove last trial of the current block from timeline
+          n_trials_before_decisions_trials = 2; // first two trials include instructions and such
+          var timeline_trials = JSON.parse(JSON.stringify(timeline)).map(function(value,index) { return value; })[1].timeline;
+          timeline_trials.splice(0,n_trials_before_decisions_trials) // remove the non decisions trials
+          ind_of_last_trial = timeline_trials.map(i => i.timeline[0].timeline[0].data.index).indexOf(last_trial_of_curr_block)
+          ind_of_last_trial = ind_of_last_trial + n_trials_before_decisions_trials // we bring back the index
+          timeline[1].timeline.splice(ind_of_last_trial,1)
+
+
+        }
+
+        // assign trial duration to onset and duration
+        duration = timing_warning/1000;
+        onset = onset + duration;
+        data.duration = duration;
+        data.onset = onset;
+      } // on_finish
+  } // no_response_trial faster trial
+
+
+var if_no_response = {
+  timeline: [no_response_trial],
+  conditional_function: function(data){
+    if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].key_press){
+      return false;
+    } else {
+      return true;
+    } // else
+  } // conditional function
+} // if_confirmation
+
+// ------------------------------- ITI ---------------------------------
+
+  // Fixation for jitter and ITI
+  var iti_trial = {
+        type: 'html-keyboard-response',
+        stimulus: fixation_stim,
+        choices: jsPsych.NO_KEYS,
+        data: {ttype: 'iti'},
+        on_start: function(trial){
+          // assign jitter timing
+          curr_iti = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].iti;
+          // if the previous trial was a no-response trial, then use the iti of
+          // the block's last trial (which was deleted), so we could keep the
+          // timing of the experiment constant
+          if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].is_practice==0){
+            if (jsPsych.data.get().filter({ttype: 'choice'}).last(2).values()[0].no_response==1){
+              curr_iti = no_response_iti;
+            }
+          }
+          if (is_debug==1){
+            trial.trial_duration = 100;
+          } else {
+            trial.trial_duration = curr_iti;
+          }
+          //console.log("curr trial iti:"+curr_iti)
+
+          // assign trial duration to onset and duration
+          duration = curr_iti/1000;
+          onset = onset + duration;
+          trial.data.duration = duration;
+          trial.data.onset = onset;
+        }
+  }
+
+// ------------------------- practice block over -------------------------------
+
+var practice_over = {
+    type: 'html-keyboard-response',
+    data: {ttype: 'practice_over',
+           index: t},
+    stimulus: "The practice block is over <br></br>"+
+              "You will now start the actual experiment.</br></br>"+
+              "When you are ready to start, please press the "+continue_key_text,
+    choices: keys_decision[0],
+    response_ends_trial: true,
+}
+
+var if_practice_over = {
+    timeline: [practice_over, start_run],
+    conditional_function: function(){
+      if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].end_practice == 1){
+      // make changes only here and in block over trials. we can find the index of the current trial num, and then try to add that?
+      /*var curr_ind = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].index;
+        if ((category_learning_trials[curr_ind].is_practice == 1) & (category_learning_trials[curr_ind+1].is_practice==0) & (category_learning_trials[curr_ind+1].block==1)){*/
+          return true;
+        } else { return false; }
+      } // conditional_function
+  } // if_practice_over
+
+// ---------------------------- block over -------------------------------------
+
+// present block over text + the winnings gathered until this point
+var block_over_trial = {
+    type: 'html-keyboard-response',
+    data: {ttype: 'block_over',
+           index: t},
+    stimulus: "The current block is over</br></br>"+
+              "You have earned extra &#36;{0} in the previous block</br></br>"+
+              "When you are ready to start the next block, please press the "+continue_key_text,
+    choices: keys_decision[0],
+    response_ends_trial: true,
+  on_start: function(trial){
+
+    // compute earnings in the past block
+    block_earnings = jsPsych.data.get().filter({ttype: 'choice'}).values().filter(a => a.block == jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].block).map(a => a.chosen_exemplar_value).filter(a => !isNaN(a));
+    sum_earnings = block_earnings.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    block_bonus = sum_earnings / 100 * percent_bonus;
+    block_bonus = block_bonus.toFixed(2);
+    trial.stimulus = String.format(trial.stimulus, block_bonus);
+
+    // save data on every block
+    // save data frame at the end of the task
+    if (is_scanner == "scanner"){
+      save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
+      save_local_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv()) // ALICE NOTE: this is ignored bc a POST request is sent to the server
+    } else {
+      save_server_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
+      save_server_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder) // ALICE NOTE: this is ignored bc a POST request is sent to the server
+    }
+  }
+}
+
+var if_decisions_block_over = {
+    timeline: [block_over_trial, start_run],
+    conditional_function: function(){
+      // we don't present the end of block screen for the last block.
+      if ((block_counter == n_trials_per_block+1) & (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].block != n_blocks)){
+        return true;
+      } else { return false; } // the next block is similar to the current one
+    }, // conditional_function
+    on_finish: function(){
+      block_counter = 1;
+    }
+  } // if_block_over
+  //timeline.push(if_decisions_block_over)
+
+// ----------------------- repeat the entire trial -----------------------------
+
+// for no responses, we repeat the entire trial again, because we need chosen items for old trials.
+  var repeat_decision_trial = {
+    timeline: [decisions_trial, if_confirmation, choice_isi_trial, if_feedback_trial, if_no_response, iti_trial, if_practice_over, if_decisions_block_over],
+    loop_function: function(){
+      if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0]["key_press"]){
+        return false;
+      } else {
+        return true;
+      } // else
+    } // loop_function function
+  } // repeat_deliberation_trial
+
+
+// ----------------------- if node for a decision trial -----------------------------
+
+var if_decision_trial_node = {
+    timeline: [repeat_decision_trial],
+    conditional_function: function(){
+      if ((block_counter == n_trials_per_block+1) & (block == n_blocks)){
+          return false;
+      } else {
+          return true;
+      }
+    }
+}
+
+  category_learning_timeline.timeline.push(if_decision_trial_node)
+
+} // t trials
+
+// ======================== End Category Learning Phase ========================
+
+  var final_tally = {
+    type: "html-keyboard-response",
+    data: {ttype: 'final_tally'},
+    stimulus: function() {
+      earnings = jsPsych.data.get().filter({ttype: 'choice'}).values().map(a => a.chosen_exemplar_value).filter(a => !isNaN(a));
+      sum_earnings = earnings.reduce(function(a, b){
+          return a + b;
+      }, 0);
+      decisions_bonus = sum_earnings / 100 * percent_bonus;
+      total_bonus = decisions_bonus;
+      total_bonus = total_bonus.toFixed(2);
+      if (total_bonus > max_earnings){total_bonus = max_earnings}
+      jsPsych.data.get().addToLast({total_bonus_tally: total_bonus});
+      return 'You have completed the Objects game.<br></br>' +
+             'Congratulations! You earned extra $' +  total_bonus + ' across the game.<br></br>'  +
+             'Press the '+continue_key_text+' to continue.'
+       },
+    choices: keys_decision[0],
+    response_ends_trial: true
+    /*on_finish: function() {
+      if (is_scanner == "scanner"){
+        save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
+        save_local_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
+      } else {
+        save_server_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
+        save_server_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder)
+      }
+    } // on_finish*/
+  }
+
+  var if_final_tally = {
+      timeline: [final_tally],
+      conditional_function: function(){
+        // we don't present the end of block screen for the last block.
+        if ((block_counter == n_trials_per_block+1) & (block == n_blocks)){
+          return true;
+        } else { return false; } // the next block is similar to the current one
+      }, // conditional_function
+    } // if_final_tally
+
+  // ========================== Category memort phase ==========================
+
+  // Category memory instructions
+  var category_memory_instructions = {
+        type: 'instructions',
+        pages: [
+            '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_memory1.png"</img></div>',
+            '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_memory2.png"</img></div>',
+            '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/category_memory3.png"</img></div>'],
+        data: {ttype: "category_memory_instructions"},
+        show_clickable_nav: true
+      };
+
+  if (start_t_category_memory == 0){
+    category_memory_timeline.timeline.push(category_memory_instructions)
+  }
+
+  // -----------------------------------------------------------------------------
+
+  // memory trial
+  for (t = start_t_category_memory; t < end_t_category_memory+1; t++){
+
+    var category_memory_trial = {
+      type: 'survey-text',
+      data: {ttype: 'category_memory',
+             index: t},
+      preamble: '<div> What is the value of this category?<br>{0} a number between 0&#162 to 100&#162</br></div><br><div style="font-size:3em">{1}</div></br>',
+      questions: [{
+        prompt: '',//'<div style="font-size:3em">{0}</div></br>',
+        columns: 3,
+        rows: 3}],
+      //trial_duration: max_memory_time,
+      on_start: function(trial) {
+        // assign stimulus
+        if (is_scanner=="scanner"){
+          trial.preamble = String.format(trial.preamble, "Say", category_memory_trials[trial.data.index].category);
+        } else {
+          trial.preamble = String.format(trial.preamble, "Insert", category_memory_trials[trial.data.index].category);
+        }
+      },
+      on_finish: function(data) {
+        // register response
+        data.category = category_memory_trials[data.index].category;
+        data.category_group_value = category_memory_trials[data.index].category_group_value;
+        data.category_value_response = Number(jsPsych.data.get().filter({ttype: 'category_memory'}).last(1).values()[0].responses.match(/\d+/g)[1]);
+      }
+    } // category_memory_trial
+
+    repeat_category_memory_trial = response_not_entered(category_memory_trial, "category_memory", "category_value_response")
+
+    category_memory_timeline.timeline.push(repeat_category_memory_trial)
+
+  } // for trials
+
+  // ============================ Initiate timeline ============================
+
+  // create timelines
+  if (run_category_learning==1){
+    timeline.push(category_learning_timeline);
+    timeline = timeline.concat(if_final_tally);
+  }
+  if (run_category_memory==1){
+    timeline.push(category_memory_timeline);
+  }
+
+  // start the experiment
+  jsPsych.init({
+    timeline: timeline,
+    preload_images: images,
+    //show_progress_bar: true, // should i include this?
+    /*exclusions: {min_width: 1000,
+                min_height: 700},*/
+    on_interaction_data_update: function(data){
+      data.PID = subID;
+    },
+    on_finish: function() {
+      if (is_scanner == "scanner"){
+        save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
+        save_local_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
+      } else {
+        save_server_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
+        save_server_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder)
+      }
+      // ALICE - counterbalancing for now
+      if (subID % 2 == 0) {
+        window.location.replace("/size_judgement?subID="+subID+"&is_scanner="+is_scanner);
+      } else {
+        window.location.replace("/simple_rl?subID="+subID+"&is_scanner="+is_scanner);
+      }
+
+    } // on_finish
+
+
+  });
+
+</script>
+
+</html>

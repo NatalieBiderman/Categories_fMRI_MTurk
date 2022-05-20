@@ -1,0 +1,366 @@
+trial_num,block,is_practice,old_trial,pair_type,left_category_value,right_category_value,delta_category_value,high_cat_on_left,iti,isi,left_category,right_category,left_exemplar,right_exemplar,left_exemplar_value,right_exemplar_value,left_stim_index,right_stim_index,left_img,right_img,left_img_path,right_img_path
+0,0,1,0,20-80,20,80,-60,0,1000,1500,bagel,dumbbell,bagel1,dumbbell1,0,80,0,7,bagels_pumpernickel_large.jpg,31B64EN68AL._AA280_.jpg,Stimuli/Practice_stims/bagel/bagels_pumpernickel_large.jpg,Stimuli/Practice_stims/dumbbell/31B64EN68AL._AA280_.jpg
+1,0,1,0,20-40,40,20,20,1,1500,3000,calculator,bagel,calculator2,bagel2,20,20,4,1,22829064.thl.jpg,bagels_cinnraisin_large.jpg,Stimuli/Practice_stims/calculator/22829064.thl.jpg,Stimuli/Practice_stims/bagel/bagels_cinnraisin_large.jpg
+2,0,1,0,60-80,60,80,-20,0,3000,2000,clock,dumbbell,clock2,dumbbell2,60,100,6,8,26373355.thl.jpg,31K8MR6TMBL._SS500_.jpg,Stimuli/Practice_stims/clock/26373355.thl.jpg,Stimuli/Practice_stims/dumbbell/31K8MR6TMBL._SS500_.jpg
+3,0,1,0,40-80,40,60,-20,0,2000,1000,calculator,clock,calculator1,clock1,40,40,3,5,22829184.thl.jpg,Aalarmclock2.jpg,Stimuli/Practice_stims/calculator/22829184.thl.jpg,Stimuli/Practice_stims/clock/Aalarmclock2.jpg
+4,0,1,0,20-60,80,20,60,1,2500,2500,dumbbell,bagel,dumbbell3,bagel3,100,40,9,2,41K7QVRX50L._SS500_.jpg,photo-169.jpg,Stimuli/Practice_stims/dumbbell/41K7QVRX50L._SS500_.jpg,Stimuli/Practice_stims/bagel/photo-169.jpg
+5,1,0,0,40-80,80,40,40,1,2000,2000,desk,patio lounge chair,desk1,patio lounge chair15,100,40,68,354,ADESK11.jpg,phpThumb.jpg,Stimuli/Experimental_stims/desk/ADESK11.jpg,Stimuli/Experimental_stims/patio lounge chair/phpThumb.jpg
+6,1,0,0,40-60,40,60,-20,0,1500,3000,poker card,tent,poker card12,tent9,20,60,385,518,22865676.thl.jpg,Red Canyon Tent.jpg,Stimuli/Experimental_stims/poker card/22865676.thl.jpg,Stimuli/Experimental_stims/tent/Red Canyon Tent.jpg
+7,1,0,0,40-60,40,60,-20,0,1000,2000,pen,tent,pen6,tent6,20,80,362,515,executive_pen2.jpg,lighthouse_tent_edited_1-1.jpg,Stimuli/Experimental_stims/pen/executive_pen2.jpg,Stimuli/Experimental_stims/tent/lighthouse_tent_edited_1-1.jpg
+8,1,0,0,20-60,60,20,40,1,1000,1000,tent,lipstick,tent14,lipstick5,60,0,523,242,inflatable-tent.jpg,P35719_hero.jpg,Stimuli/Experimental_stims/tent/inflatable-tent.jpg,Stimuli/Experimental_stims/lipstick/P35719_hero.jpg
+9,1,0,0,20-60,60,20,40,1,1000,1000,watch,frame,watch8,frame6,60,40,585,158,2239.jpg,AFRAME123.jpg,Stimuli/Experimental_stims/watch/2239.jpg,Stimuli/Experimental_stims/frame/AFRAME123.jpg
+10,1,0,1,NaN,NA,NA,NA,NA,2000,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+11,1,0,0,40-60,60,40,20,1,2000,1000,tape,nail polish,tape12,nail polish5,60,40,487,310,Frog-Tape-Dispenser_F02218A2.jpg,182_t.jpg,Stimuli/Experimental_stims/tape/Frog-Tape-Dispenser_F02218A2.jpg,Stimuli/Experimental_stims/nail polish/182_t.jpg
+12,1,0,0,20-60,60,20,40,1,1500,3500,tape,makeup compact,tape7,makeup compact6,60,40,482,260,tape dispenser.jpg,P0754_hero.jpg,Stimuli/Experimental_stims/tape/tape dispenser.jpg,Stimuli/Experimental_stims/makeup compact/P0754_hero.jpg
+13,1,0,0,20-80,80,20,60,1,1500,2000,bowl,microscope,bowl3,microscope15,60,40,53,286,ABOWL8.jpg,Amicroscope23.jpg,Stimuli/Experimental_stims/bowl/ABOWL8.jpg,Stimuli/Experimental_stims/microscope/Amicroscope23.jpg
+14,1,0,0,40-80,80,40,40,1,2000,1000,door knob,necklace,door knob10,necklace14,80,20,94,336,c02a578d-c6cc-44ca-8dd2-de8901e30bd7_4.jpg,necklascenew05.jpg,Stimuli/Experimental_stims/door knob/c02a578d-c6cc-44ca-8dd2-de8901e30bd7_4.jpg,Stimuli/Experimental_stims/necklace/necklascenew05.jpg
+15,1,0,0,20-40,20,40,-20,0,1500,1000,motorcycle,sofa,motorcycle10,sofa5,20,60,298,446,motorcycle17.jpg,ALOVSEA14.jpg,Stimuli/Experimental_stims/motorcycle/motorcycle17.jpg,Stimuli/Experimental_stims/sofa/ALOVSEA14.jpg
+16,1,0,0,60-60,60,60,0,NA,3000,1000,telescope,yarn,telescope6,yarn15,80,80,498,609,LO-telescope-89769.jpg,rainbowscarf-600x394.jpg,Stimuli/Experimental_stims/telescope/LO-telescope-89769.jpg,Stimuli/Experimental_stims/yarn/rainbowscarf-600x394.jpg
+17,1,0,0,20-20,20,20,0,NA,2000,1500,license plate,makeup compact,license plate10,makeup compact7,40,0,230,261,pa-nfn-011.jpg,P187133_hero.jpg,Stimuli/Experimental_stims/license plate/pa-nfn-011.jpg,Stimuli/Experimental_stims/makeup compact/P187133_hero.jpg
+18,1,0,1,NaN,NA,NA,NA,NA,2000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+19,1,0,1,NaN,NA,NA,NA,NA,1500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+20,1,0,0,40-80,40,80,-40,0,1000,2000,patio lounge chair,bongo,patio lounge chair11,bongo1,60,100,350,34,51830.jpg,ABONGO22.jpg,Stimuli/Experimental_stims/patio lounge chair/51830.jpg,Stimuli/Experimental_stims/bongo/ABONGO22.jpg
+21,1,0,1,NaN,NA,NA,NA,NA,1500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+22,1,0,0,40-80,80,40,40,1,2000,2000,baby carriage,seashell,baby carriage6,seashell2,60,20,5,409,Baby_Stroller-1.jpg,ph_stri_seashell.jpg,Stimuli/Experimental_stims/baby carriage/Baby_Stroller-1.jpg,Stimuli/Experimental_stims/seashell/ph_stri_seashell.jpg
+23,1,0,0,20-80,80,20,60,1,1000,1000,dresser,hat,dresser12,hat4,80,20,113,190,ADRESSE58.jpg,JS370.jpg,Stimuli/Experimental_stims/dresser/ADRESSE58.jpg,Stimuli/Experimental_stims/hat/JS370.jpg
+24,1,0,0,20-80,80,20,60,1,2000,2000,door knob,hammer,door knob13,hammer15,100,0,97,184,500_CLAWALBC.jpg,Vaughan-32-oz-Hickory-Handle-Ball-Pein-Hammer-S432-B0001LRUJM-L-ARCQ0EBO8TR73_.jpg,Stimuli/Experimental_stims/door knob/500_CLAWALBC.jpg,Stimuli/Experimental_stims/hammer/Vaughan-32-oz-Hickory-Handle-Ball-Pein-Hammer-S432-B0001LRUJM-L-ARCQ0EBO8TR73_.jpg
+25,1,0,0,20-40,20,40,-20,0,1500,1000,hammer,nail polish,hammer7,nail polish12,40,40,176,317,hammer01.jpg,laquerdUP.jpg,Stimuli/Experimental_stims/hammer/hammer01.jpg,Stimuli/Experimental_stims/nail polish/laquerdUP.jpg
+26,1,0,0,20-60,60,20,40,1,1000,3500,stool,makeup compact,stool4,makeup compact5,40,40,462,259,ASTOOL22.jpg,P109965_hero.jpg,Stimuli/Experimental_stims/stool/ASTOOL22.jpg,Stimuli/Experimental_stims/makeup compact/P109965_hero.jpg
+27,1,0,0,40-80,80,40,40,1,3500,1500,flashlight,small table,flashlight12,small table8,80,60,147,432,new05.jpg,ATABLE8.jpg,Stimuli/Experimental_stims/flashlight/new05.jpg,Stimuli/Experimental_stims/small table/ATABLE8.jpg
+28,1,0,1,NaN,NA,NA,NA,NA,3000,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+29,1,0,0,20-80,80,20,60,1,1000,3500,bongo,key chain,bongo8,key chain10,80,0,41,213,26390661.thl.jpg,Smurfs_Keychains_Smurf_Row_Boat.jpg,Stimuli/Experimental_stims/bongo/26390661.thl.jpg,Stimuli/Experimental_stims/key chain/Smurfs_Keychains_Smurf_Row_Boat.jpg
+30,1,0,0,60-80,60,80,-20,0,2000,1000,tape,baby carriage,tape15,baby carriage10,80,100,490,9,MMMC15BK.jpg,peg_perego_uno_blu.jpg,Stimuli/Experimental_stims/tape/MMMC15BK.jpg,Stimuli/Experimental_stims/baby carriage/peg_perego_uno_blu.jpg
+31,1,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+32,1,0,0,20-60,20,60,-40,0,1000,1000,frame,vase,frame4,vase9,40,60,156,569,AFRAME125.jpg,Avasewithang2.jpg,Stimuli/Experimental_stims/frame/AFRAME125.jpg,Stimuli/Experimental_stims/vase/Avasewithang2.jpg
+33,1,0,0,40-40,40,40,0,NA,1500,1000,power strip,necklace,power strip5,necklace3,60,20,395,325,93e4a283-bcd6-4ad1-8add-339658cda0fc_400.jpg,26388201.thl.jpg,Stimuli/Experimental_stims/power strip/93e4a283-bcd6-4ad1-8add-339658cda0fc_400.jpg,Stimuli/Experimental_stims/necklace/26388201.thl.jpg
+34,1,0,0,40-60,40,60,-20,0,3000,2000,patio lounge chair,yarn,patio lounge chair14,yarn8,40,40,353,602,2987951.jpg,smonlineyarn-285x250.jpg,Stimuli/Experimental_stims/patio lounge chair/2987951.jpg,Stimuli/Experimental_stims/yarn/smonlineyarn-285x250.jpg
+35,1,0,1,NaN,NA,NA,NA,NA,3500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+36,1,0,1,NaN,NA,NA,NA,NA,2000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+37,1,0,0,60-60,60,60,0,NA,1000,1000,tape,train,tape10,train6,80,40,485,532,26377601.thl.jpg,train9.jpg,Stimuli/Experimental_stims/tape/26377601.thl.jpg,Stimuli/Experimental_stims/train/train9.jpg
+38,1,0,0,40-80,40,80,-40,0,3500,1500,patio lounge chair,bowl,patio lounge chair8,bowl6,20,80,347,56,43-1.jpg,Abowl59.jpg,Stimuli/Experimental_stims/patio lounge chair/43-1.jpg,Stimuli/Experimental_stims/bowl/Abowl59.jpg
+39,1,0,1,NaN,NA,NA,NA,NA,2000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+40,1,0,0,40-60,40,60,-20,0,1500,1000,nail polish,watch,nail polish14,watch15,20,80,319,592,38031405.JPG,20-171-6.jpg,Stimuli/Experimental_stims/nail polish/38031405.JPG,Stimuli/Experimental_stims/watch/20-171-6.jpg
+41,1,0,0,20-20,20,20,0,NA,3000,1500,hammer,license plate,hammer5,license plate14,20,0,174,234,hammer02.jpg,fl-hel-bel.jpg,Stimuli/Experimental_stims/hammer/hammer02.jpg,Stimuli/Experimental_stims/license plate/fl-hel-bel.jpg
+42,1,0,0,40-40,40,40,0,NA,1000,1500,poker card,necklace,poker card15,necklace9,40,60,388,331,9816946.thl.jpg,ANECKLACE.jpg,Stimuli/Experimental_stims/poker card/9816946.thl.jpg,Stimuli/Experimental_stims/necklace/ANECKLACE.jpg
+43,1,0,0,20-20,20,20,0,NA,3500,1000,microscope,hammer,microscope5,hammer11,0,0,276,180,emMicroscope.jpg,8oz-hammer-copy.jpg,Stimuli/Experimental_stims/microscope/emMicroscope.jpg,Stimuli/Experimental_stims/hammer/8oz-hammer-copy.jpg
+44,1,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+45,1,0,0,80-80,80,80,0,NA,1500,1000,baby carriage,fan,baby carriage8,fan7,60,80,7,125,peg_perego_uno_revi_black.jpg,250679_lg.jpg,Stimuli/Experimental_stims/baby carriage/peg_perego_uno_revi_black.jpg,Stimuli/Experimental_stims/fan/250679_lg.jpg
+46,1,0,0,40-60,40,60,-20,0,1000,2000,seashell,telescope,seashell1,telescope12,40,40,408,504,Aseashe34.jpg,Junior Land and Sky Telescope.jpg,Stimuli/Experimental_stims/seashell/Aseashe34.jpg,Stimuli/Experimental_stims/telescope/Junior Land and Sky Telescope.jpg
+47,1,0,0,20-40,40,20,20,1,1000,2000,small table,hat,small table2,hat7,60,20,426,193,Atable126.jpg,ASTRHATFL.jpg,Stimuli/Experimental_stims/small table/Atable126.jpg,Stimuli/Experimental_stims/hat/ASTRHATFL.jpg
+48,1,0,0,20-60,60,20,40,1,1500,1000,tape,hammer,tape2,hammer10,40,40,477,179,Tape_Dispenser.jpg,Tabla Hammer.JPG,Stimuli/Experimental_stims/tape/Tape_Dispenser.jpg,Stimuli/Experimental_stims/hammer/Tabla Hammer.JPG
+49,1,0,1,NaN,NA,NA,NA,NA,1500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+50,1,0,1,NaN,NA,NA,NA,NA,1000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+51,1,0,0,20-80,80,20,60,1,1500,3500,bench,frame,bench6,frame7,60,20,22,159,26370121.thl.jpg,AFRAME152.jpg,Stimuli/Experimental_stims/bench/26370121.thl.jpg,Stimuli/Experimental_stims/frame/AFRAME152.jpg
+52,1,0,0,20-80,80,20,60,1,1000,1000,bench,motorcycle,bench5,motorcycle7,60,20,21,295,APARKBEN8.jpg,MotoSmall.jpg,Stimuli/Experimental_stims/bench/APARKBEN8.jpg,Stimuli/Experimental_stims/motorcycle/MotoSmall.jpg
+53,1,0,0,60-60,60,60,0,NA,2000,2000,stool,yarn,stool9,yarn9,60,40,467,603,ASTOOL7.jpg,Aballofyarn26.jpg,Stimuli/Experimental_stims/stool/ASTOOL7.jpg,Stimuli/Experimental_stims/yarn/Aballofyarn26.jpg
+54,1,0,0,60-80,60,80,-20,0,1000,1000,stool,bench,stool7,bench7,60,100,465,23,ASTOOL25.jpg,ACONBENCH.jpg,Stimuli/Experimental_stims/stool/ASTOOL25.jpg,Stimuli/Experimental_stims/bench/ACONBENCH.jpg
+55,1,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+56,1,0,0,40-60,60,40,20,1,1000,3000,train,poker card,train11,poker card6,80,40,537,379,train1.jpg,22864212.thl.jpg,Stimuli/Experimental_stims/train/train1.jpg,Stimuli/Experimental_stims/poker card/22864212.thl.jpg
+57,1,0,0,80-80,80,80,0,NA,1500,1000,door knob,baby carriage,door knob7,baby carriage9,60,100,91,8,doorknob2.jpg,Antique baby Carriage 7.jpg,Stimuli/Experimental_stims/door knob/doorknob2.jpg,Stimuli/Experimental_stims/baby carriage/Antique baby Carriage 7.jpg
+58,1,0,1,NaN,NA,NA,NA,NA,1000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+59,1,0,0,60-80,60,80,-20,0,1000,3500,watch,bench,watch9,bench10,40,100,586,26,mens-diamond-watches-euro-48733-ab.jpg,APARKBE16.jpg,Stimuli/Experimental_stims/watch/mens-diamond-watches-euro-48733-ab.jpg,Stimuli/Experimental_stims/bench/APARKBE16.jpg
+60,1,0,0,40-40,40,40,0,NA,1000,1500,pen,necklace,pen8,necklace12,60,40,364,334,1383_1749_popup copy.jpg,necklascenew07.jpg,Stimuli/Experimental_stims/pen/1383_1749_popup copy.jpg,Stimuli/Experimental_stims/necklace/necklascenew07.jpg
+61,1,0,0,20-60,60,20,40,1,1000,1000,train,hammer,train15,hammer14,40,40,541,183,master-TD006.jpg,hammer.jpg,Stimuli/Experimental_stims/train/master-TD006.jpg,Stimuli/Experimental_stims/hammer/hammer.jpg
+62,1,0,0,20-80,80,20,60,1,1000,1000,dresser,key chain,dresser13,key chain7,80,40,114,210,ADRESSE70.jpg,keychain-gentoo-linux.jpg,Stimuli/Experimental_stims/dresser/ADRESSE70.jpg,Stimuli/Experimental_stims/key chain/keychain-gentoo-linux.jpg
+63,1,0,1,NaN,NA,NA,NA,NA,3500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+64,1,0,0,40-80,40,80,-40,0,2000,1500,sofa,fan,sofa9,fan15,20,60,450,133,ALOVSEAT9.jpg,n_hsf.jpg,Stimuli/Experimental_stims/sofa/ALOVSEAT9.jpg,Stimuli/Experimental_stims/fan/n_hsf.jpg
+65,2,0,0,20-60,60,20,40,1,1000,3500,telescope,key chain,telescope4,key chain14,60,0,496,217,TELESCOPE_BLACK_GOOD_SMALL.jpg,Jif Keychain 285.jpg,Stimuli/Experimental_stims/telescope/TELESCOPE_BLACK_GOOD_SMALL.jpg,Stimuli/Experimental_stims/key chain/Jif Keychain 285.jpg
+66,2,0,0,20-60,20,60,-40,0,1000,2000,key chain,yarn,key chain3,yarn2,20,80,206,596,Keychain_Voice_Recorder.jpg,Aballofyarn66.jpg,Stimuli/Experimental_stims/key chain/Keychain_Voice_Recorder.jpg,Stimuli/Experimental_stims/yarn/Aballofyarn66.jpg
+67,2,0,0,40-60,40,60,-20,0,1000,1000,small table,watch,small table15,watch2,60,60,439,579,ATABLE20.jpg,AL0004-03E_MED.jpg,Stimuli/Experimental_stims/small table/ATABLE20.jpg,Stimuli/Experimental_stims/watch/AL0004-03E_MED.jpg
+68,2,0,0,40-60,60,40,20,1,1000,3500,yarn,necklace,yarn11,necklace7,60,60,605,329,Aballofpinky2.jpg,Anecklace12.jpg,Stimuli/Experimental_stims/yarn/Aballofpinky2.jpg,Stimuli/Experimental_stims/necklace/Anecklace12.jpg
+69,2,0,0,20-80,80,20,60,1,1000,1500,bongo,hat,bongo10,hat3,60,0,43,189,22945915.thl.jpg,Astrawhat49.jpg,Stimuli/Experimental_stims/bongo/22945915.thl.jpg,Stimuli/Experimental_stims/hat/Astrawhat49.jpg
+70,2,0,1,NaN,NA,NA,NA,NA,1500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+71,2,0,1,NaN,NA,NA,NA,NA,1000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+72,2,0,0,20-60,20,60,-40,0,2000,1000,microscope,telescope,microscope12,telescope14,0,80,283,506,usbdigitalmicroscope1_small1.jpg,T09748dt.jpg,Stimuli/Experimental_stims/microscope/usbdigitalmicroscope1_small1.jpg,Stimuli/Experimental_stims/telescope/T09748dt.jpg
+73,2,0,0,20-80,80,20,60,1,1000,1000,bench,hat,bench13,hat14,80,0,29,200,ABROWNBE4.jpg,Ahat136.jpg,Stimuli/Experimental_stims/bench/ABROWNBE4.jpg,Stimuli/Experimental_stims/hat/Ahat136.jpg
+74,2,0,1,NaN,NA,NA,NA,NA,1000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+75,2,0,0,20-20,20,20,0,NA,2000,1000,motorcycle,hat,motorcycle6,hat13,40,0,294,199,motorcycle45364t4t.jpg,Ahatwithfeath.jpg,Stimuli/Experimental_stims/motorcycle/motorcycle45364t4t.jpg,Stimuli/Experimental_stims/hat/Ahatwithfeath.jpg
+76,2,0,0,40-80,80,40,40,1,1000,1000,desk,patio lounge chair,desk4,patio lounge chair13,80,20,71,352,AbbeyMiniRadialBIG(1).jpg,grosfillex-bahia-resin-chaise-lounges.jpg,Stimuli/Experimental_stims/desk/AbbeyMiniRadialBIG(1).jpg,Stimuli/Experimental_stims/patio lounge chair/grosfillex-bahia-resin-chaise-lounges.jpg
+77,2,0,1,NaN,NA,NA,NA,NA,1500,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+78,2,0,0,20-40,40,20,20,1,1000,2000,patio lounge chair,hat,patio lounge chair7,hat2,40,40,346,188,lg_Serenity_Riviera[1].jpg,Ahatwithfeat7.jpg,Stimuli/Experimental_stims/patio lounge chair/lg_Serenity_Riviera[1].jpg,Stimuli/Experimental_stims/hat/Ahatwithfeat7.jpg
+79,2,0,1,NaN,NA,NA,NA,NA,2000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+80,2,0,0,20-80,20,80,-60,0,1500,1000,hat,flashlight,hat9,flashlight7,40,60,195,142,Astrawhat44.jpg,11900.jpg,Stimuli/Experimental_stims/hat/Astrawhat44.jpg,Stimuli/Experimental_stims/flashlight/11900.jpg
+81,2,0,0,40-60,60,40,20,1,1500,2000,telescope,sofa,telescope2,sofa15,60,40,494,456,Brass-telescope-60700.jpg,APEACHLOV.jpg,Stimuli/Experimental_stims/telescope/Brass-telescope-60700.jpg,Stimuli/Experimental_stims/sofa/APEACHLOV.jpg
+82,2,0,0,20-60,60,20,40,1,1000,2000,train,makeup compact,train2,makeup compact15,80,40,528,269,iron_train.jpg,05086681402.jpg,Stimuli/Experimental_stims/train/iron_train.jpg,Stimuli/Experimental_stims/makeup compact/05086681402.jpg
+83,2,0,0,40-40,40,40,0,NA,1000,3500,sofa,power strip,sofa4,power strip11,20,60,445,401,ALOVSEA15.jpg,41Bw7Tl1G7L._AA262_.jpg,Stimuli/Experimental_stims/sofa/ALOVSEA15.jpg,Stimuli/Experimental_stims/power strip/41Bw7Tl1G7L._AA262_.jpg
+84,2,0,0,20-80,20,80,-60,0,1000,1500,hammer,bongo,hammer2,bongo3,0,100,171,36,hammer04.jpg,26390697.thl.jpg,Stimuli/Experimental_stims/hammer/hammer04.jpg,Stimuli/Experimental_stims/bongo/26390697.thl.jpg
+85,2,0,0,40-60,60,40,20,1,1000,1500,trumpet,power strip,trumpet10,power strip15,60,20,553,405,trumpet2.jpg,31oz6aGZN7L._AA262_.jpg,Stimuli/Experimental_stims/trumpet/trumpet2.jpg,Stimuli/Experimental_stims/power strip/31oz6aGZN7L._AA262_.jpg
+86,2,0,1,NaN,NA,NA,NA,NA,2000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+87,2,0,1,NaN,NA,NA,NA,NA,1500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+88,2,0,0,20-20,20,20,0,NA,1500,1000,key chain,motorcycle,key chain13,motorcycle14,0,20,216,302,Fancy_Liquid_Column_Shape_Key_Ring_with_Floater.jpg,motorcycle11.jpg,Stimuli/Experimental_stims/key chain/Fancy_Liquid_Column_Shape_Key_Ring_with_Floater.jpg,Stimuli/Experimental_stims/motorcycle/motorcycle11.jpg
+89,2,0,0,40-80,40,80,-40,0,2000,2000,small table,fan,small table14,fan11,40,80,438,129,Awoodtable13.jpg,n_sf.jpg,Stimuli/Experimental_stims/small table/Awoodtable13.jpg,Stimuli/Experimental_stims/fan/n_sf.jpg
+90,2,0,0,40-80,80,40,40,1,3500,2000,baby carriage,patio lounge chair,baby carriage1,patio lounge chair6,100,40,0,345,babycarriage16.jpg,Lounge_Chair_with_Pillow.jpg,Stimuli/Experimental_stims/baby carriage/babycarriage16.jpg,Stimuli/Experimental_stims/patio lounge chair/Lounge_Chair_with_Pillow.jpg
+91,2,0,0,40-80,40,80,-40,0,2000,1000,patio lounge chair,bowl,patio lounge chair10,bowl2,20,100,349,52,51831.jpg,AMIXBOWL2.jpg,Stimuli/Experimental_stims/patio lounge chair/51831.jpg,Stimuli/Experimental_stims/bowl/AMIXBOWL2.jpg
+92,2,0,0,60-80,60,80,-20,0,1500,1500,tent,dresser,tent12,dresser10,40,60,521,111,31316-AZU_m.jpg,ADRESSE14.jpg,Stimuli/Experimental_stims/tent/31316-AZU_m.jpg,Stimuli/Experimental_stims/dresser/ADRESSE14.jpg
+93,2,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+94,2,0,0,40-80,40,80,-40,0,1000,1500,necklace,fan,necklace5,fan9,60,80,327,127,necklascenew08.jpg,FT-40A.jpg,Stimuli/Experimental_stims/necklace/necklascenew08.jpg,Stimuli/Experimental_stims/fan/FT-40A.jpg
+95,2,0,1,NaN,NA,NA,NA,NA,1500,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+96,2,0,0,60-60,60,60,0,NA,3500,2000,train,watch,train10,watch5,60,60,536,582,train3.jpg,B000GB0Q2K.01-A4LKQQKJ91IUZ._AA280_SCLZZZZZZZ_V66976251_.jpg,Stimuli/Experimental_stims/train/train3.jpg,Stimuli/Experimental_stims/watch/B000GB0Q2K.01-A4LKQQKJ91IUZ._AA280_SCLZZZZZZZ_V66976251_.jpg
+97,2,0,0,40-60,40,60,-20,0,1500,1000,small table,stool,small table11,stool14,40,40,435,472,ATABLE83.jpg,hjscott-sbs-b-bar-stool.jpg,Stimuli/Experimental_stims/small table/ATABLE83.jpg,Stimuli/Experimental_stims/stool/hjscott-sbs-b-bar-stool.jpg
+98,2,0,0,40-60,40,60,-20,0,1000,1000,small table,stool,small table9,stool8,60,80,433,466,ATABLE79.jpg,ASTOOL33.jpg,Stimuli/Experimental_stims/small table/ATABLE79.jpg,Stimuli/Experimental_stims/stool/ASTOOL33.jpg
+99,2,0,0,20-60,60,20,40,1,2000,1000,tent,microscope,tent5,microscope1,80,20,514,272,Dome Tentnb87r67.jpg,digital-blue-microscope-qx5-md.jpg,Stimuli/Experimental_stims/tent/Dome Tentnb87r67.jpg,Stimuli/Experimental_stims/microscope/digital-blue-microscope-qx5-md.jpg
+100,2,0,1,NaN,NA,NA,NA,NA,1500,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+101,2,0,0,20-60,60,20,40,1,1000,1000,telescope,key chain,telescope5,key chain4,80,40,497,207,digimarc.jpg,Gumby_Green-Keychain.jpg,Stimuli/Experimental_stims/telescope/digimarc.jpg,Stimuli/Experimental_stims/key chain/Gumby_Green-Keychain.jpg
+102,2,0,0,20-80,80,20,60,1,2000,3000,bongo,motorcycle,bongo2,motorcycle13,60,0,35,301,26390663.thl.jpg,2005-Buell-FireboltXB12R.jpg,Stimuli/Experimental_stims/bongo/26390663.thl.jpg,Stimuli/Experimental_stims/motorcycle/2005-Buell-FireboltXB12R.jpg
+103,2,0,0,20-60,20,60,-40,0,3000,1000,microscope,tent,microscope9,tent4,20,60,280,513,AMICROS34.jpg,Atent12.jpg,Stimuli/Experimental_stims/microscope/AMICROS34.jpg,Stimuli/Experimental_stims/tent/Atent12.jpg
+104,2,0,1,NaN,NA,NA,NA,NA,2000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+105,2,0,0,20-60,60,20,40,1,1500,1000,telescope,lipstick,telescope7,lipstick4,40,20,499,241,telescope-talm.jpg,P145703_hero.jpg,Stimuli/Experimental_stims/telescope/telescope-talm.jpg,Stimuli/Experimental_stims/lipstick/P145703_hero.jpg
+106,2,0,1,NaN,NA,NA,NA,NA,3000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+107,2,0,1,NaN,NA,NA,NA,NA,3500,3500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+108,2,0,0,20-80,80,20,60,1,3500,1500,bongo,makeup compact,bongo4,makeup compact11,80,20,37,265,26390708.thl.jpg,P190255_hero.jpg,Stimuli/Experimental_stims/bongo/26390708.thl.jpg,Stimuli/Experimental_stims/makeup compact/P190255_hero.jpg
+109,2,0,0,80-80,80,80,0,NA,2000,2000,door knob,desk,door knob6,desk9,100,60,90,76,30fdcb17-b0fd-4f26-8cd8-11adde46fb79_4.jpg,desk 189dr96dr chr.jpg,Stimuli/Experimental_stims/door knob/30fdcb17-b0fd-4f26-8cd8-11adde46fb79_4.jpg,Stimuli/Experimental_stims/desk/desk 189dr96dr chr.jpg
+110,2,0,0,40-80,80,40,40,1,3500,2000,fan,power strip,fan2,power strip3,100,20,120,393,507349_sk_lg.jpg,67a59858-df1d-43a9-a833-cfeaca77ade9_400.jpg,Stimuli/Experimental_stims/fan/507349_sk_lg.jpg,Stimuli/Experimental_stims/power strip/67a59858-df1d-43a9-a833-cfeaca77ade9_400.jpg
+111,2,0,0,20-80,80,20,60,1,1000,3500,desk,motorcycle,desk2,motorcycle2,80,0,69,290,AA Luffield Radial crescent Desk 1600mm x 1200mm.jpg,motorcycle33.jpg,Stimuli/Experimental_stims/desk/AA Luffield Radial crescent Desk 1600mm x 1200mm.jpg,Stimuli/Experimental_stims/motorcycle/motorcycle33.jpg
+112,2,0,0,40-60,40,60,-20,0,3000,1000,sofa,yarn,sofa1,yarn3,60,80,442,597,sofa-Nicholassingleseater-th.jpg,Aballofblueya.jpg,Stimuli/Experimental_stims/sofa/sofa-Nicholassingleseater-th.jpg,Stimuli/Experimental_stims/yarn/Aballofblueya.jpg
+113,2,0,0,40-80,40,80,-40,0,3000,1500,power strip,bowl,power strip7,bowl15,40,60,397,65,412YZ25RFBL._AA262_.jpg,Awhitebowl2.jpg,Stimuli/Experimental_stims/power strip/412YZ25RFBL._AA262_.jpg,Stimuli/Experimental_stims/bowl/Awhitebowl2.jpg
+114,2,0,0,40-60,40,60,-20,0,1000,1000,seashell,trumpet,seashell5,trumpet2,20,40,412,545,429345994_b87bb03366.jpg,Matt-Stevens-Pocket-Trumpet.jpg,Stimuli/Experimental_stims/seashell/429345994_b87bb03366.jpg,Stimuli/Experimental_stims/trumpet/Matt-Stevens-Pocket-Trumpet.jpg
+115,2,0,0,60-60,60,60,0,NA,2000,1000,yarn,vase,yarn4,vase10,40,60,598,570,amethyst dreaming boho hy sml.jpg,Avase143.jpg,Stimuli/Experimental_stims/yarn/amethyst dreaming boho hy sml.jpg,Stimuli/Experimental_stims/vase/Avase143.jpg
+116,2,0,0,40-80,40,80,-40,0,2000,1000,poker card,bench,poker card2,bench14,20,80,375,30,22864716.thl.jpg,APARKBENC.jpg,Stimuli/Experimental_stims/poker card/22864716.thl.jpg,Stimuli/Experimental_stims/bench/APARKBENC.jpg
+117,2,0,1,NaN,NA,NA,NA,NA,1500,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+118,2,0,1,NaN,NA,NA,NA,NA,2000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+119,2,0,0,80-80,80,80,0,NA,1000,1000,door knob,baby carriage,door knob2,baby carriage14,80,80,86,13,500_DECWHIPB.jpg,peg_perego_uno_verde.jpg,Stimuli/Experimental_stims/door knob/500_DECWHIPB.jpg,Stimuli/Experimental_stims/baby carriage/peg_perego_uno_verde.jpg
+120,2,0,0,40-40,40,40,0,NA,1000,3000,seashell,necklace,seashell7,necklace13,60,40,414,335,seashell34.jpg,Anecklace19.jpg,Stimuli/Experimental_stims/seashell/seashell34.jpg,Stimuli/Experimental_stims/necklace/Anecklace19.jpg
+121,2,0,0,80-80,80,80,0,NA,1500,2000,bongo,fan,bongo12,fan6,100,60,45,124,26686609.thl.jpg,30090.fpx.jpg,Stimuli/Experimental_stims/bongo/26686609.thl.jpg,Stimuli/Experimental_stims/fan/30090.fpx.jpg
+122,2,0,0,20-80,20,80,-60,0,1000,3000,license plate,dresser,license plate6,dresser7,20,60,226,108,ak-cru-684.jpg,ADRESSE43.jpg,Stimuli/Experimental_stims/license plate/ak-cru-684.jpg,Stimuli/Experimental_stims/dresser/ADRESSE43.jpg
+123,2,0,0,20-40,20,40,-20,0,1000,1000,frame,nail polish,frame9,nail polish2,40,40,161,307,AFRAME188.jpg,froggy_t.jpg,Stimuli/Experimental_stims/frame/AFRAME188.jpg,Stimuli/Experimental_stims/nail polish/froggy_t.jpg
+124,2,0,0,60-80,80,60,20,1,1500,1000,fan,train,fan5,train14,100,60,123,540,Table_Fan.jpg,images-products-childcraft-g83501.jpg,Stimuli/Experimental_stims/fan/Table_Fan.jpg,Stimuli/Experimental_stims/train/images-products-childcraft-g83501.jpg
+125,3,0,0,80-80,80,80,0,NA,3500,2000,bench,door knob,bench8,door knob5,100,60,24,89,APARKBE14.jpg,Parth_Portofino_500.jpg,Stimuli/Experimental_stims/bench/APARKBE14.jpg,Stimuli/Experimental_stims/door knob/Parth_Portofino_500.jpg
+126,3,0,0,60-60,60,60,0,NA,1000,2000,watch,tape,watch11,tape1,80,40,588,476,B00020ODHO.01-A2E7J74KJYV9ZH._AA280_SCLZZZZZZZ_V65957276_.jpg,aktotape_01.jpg,Stimuli/Experimental_stims/watch/B00020ODHO.01-A2E7J74KJYV9ZH._AA280_SCLZZZZZZZ_V65957276_.jpg,Stimuli/Experimental_stims/tape/aktotape_01.jpg
+127,3,0,0,40-80,40,80,-40,0,2000,1000,small table,dresser,small table12,dresser11,20,80,436,112,ATABLE54.jpg,ADRESSE66.jpg,Stimuli/Experimental_stims/small table/ATABLE54.jpg,Stimuli/Experimental_stims/dresser/ADRESSE66.jpg
+128,3,0,0,20-60,60,20,40,1,1000,1000,trumpet,hammer,trumpet13,hammer4,60,0,556,173,JUPITER+JTR1600GS.jpg,hammernew01.jpg,Stimuli/Experimental_stims/trumpet/JUPITER+JTR1600GS.jpg,Stimuli/Experimental_stims/hammer/hammernew01.jpg
+129,3,0,0,40-80,80,40,40,1,2000,2000,flashlight,seashell,flashlight8,seashell11,60,60,143,418,Streamlight-Stinger-Rechargeable-Flashlight-with-Charger-Black-75014-B00008BFSI-L.jpg,ASEASH12.jpg,Stimuli/Experimental_stims/flashlight/Streamlight-Stinger-Rechargeable-Flashlight-with-Charger-Black-75014-B00008BFSI-L.jpg,Stimuli/Experimental_stims/seashell/ASEASH12.jpg
+130,3,0,0,60-60,60,60,0,NA,3500,1500,train,tape,train1,tape4,60,40,527,479,Model_Train.jpg,70924.jpg,Stimuli/Experimental_stims/train/Model_Train.jpg,Stimuli/Experimental_stims/tape/70924.jpg
+131,3,0,0,20-20,20,20,0,NA,1000,2000,key chain,lipstick,key chain9,lipstick8,20,20,212,245,sfx8832-ferrari-shield-keychain.jpg,P174215_hero.jpg,Stimuli/Experimental_stims/key chain/sfx8832-ferrari-shield-keychain.jpg,Stimuli/Experimental_stims/lipstick/P174215_hero.jpg
+132,3,0,0,60-80,80,60,20,1,1000,1500,baby carriage,tape,baby carriage5,tape11,80,40,4,486,Baby_Stroller.jpg,41FZA73H4JL._AA280_.jpg,Stimuli/Experimental_stims/baby carriage/Baby_Stroller.jpg,Stimuli/Experimental_stims/tape/41FZA73H4JL._AA280_.jpg
+133,3,0,1,NaN,NA,NA,NA,NA,3500,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+134,3,0,0,40-80,80,40,40,1,1000,2000,bongo,sofa,bongo5,sofa7,60,20,38,448,ABONGDRUM.jpg,JACKSON-MS6007loveseat59X36X33.jpg,Stimuli/Experimental_stims/bongo/ABONGDRUM.jpg,Stimuli/Experimental_stims/sofa/JACKSON-MS6007loveseat59X36X33.jpg
+135,3,0,0,20-80,80,20,60,1,1500,1500,dresser,key chain,dresser14,key chain2,60,40,115,205,Adressertabl3.jpg,superman_returns_pewter_keychain_2.jpg,Stimuli/Experimental_stims/dresser/Adressertabl3.jpg,Stimuli/Experimental_stims/key chain/superman_returns_pewter_keychain_2.jpg
+136,3,0,0,40-60,40,60,-20,0,2000,1500,small table,stool,small table7,stool3,40,60,431,461,ATABLE89.jpg,ASTOOL44.jpg,Stimuli/Experimental_stims/small table/ATABLE89.jpg,Stimuli/Experimental_stims/stool/ASTOOL44.jpg
+137,3,0,1,NaN,NA,NA,NA,NA,3000,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+138,3,0,1,NaN,NA,NA,NA,NA,3500,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+139,3,0,0,40-80,40,80,-40,0,2000,2000,small table,bowl,small table5,bowl14,20,80,429,64,Atable145.jpg,Aredglassbowl.jpg,Stimuli/Experimental_stims/small table/Atable145.jpg,Stimuli/Experimental_stims/bowl/Aredglassbowl.jpg
+140,3,0,0,40-60,40,60,-20,0,1500,1000,seashell,trumpet,seashell14,trumpet1,20,40,421,544,ASEASHE17.jpg,JUPITER+TROMPETTE+606MRL.JPG,Stimuli/Experimental_stims/seashell/ASEASHE17.jpg,Stimuli/Experimental_stims/trumpet/JUPITER+TROMPETTE+606MRL.JPG
+141,3,0,0,20-80,20,80,-60,0,1000,1000,lipstick,fan,lipstick9,fan4,0,100,246,122,P189145_hero.jpg,AFAN39.jpg,Stimuli/Experimental_stims/lipstick/P189145_hero.jpg,Stimuli/Experimental_stims/fan/AFAN39.jpg
+142,3,0,0,80-80,80,80,0,NA,2000,1000,flashlight,bench,flashlight1,bench2,100,80,136,18,Graphite3D.jpg,26369969.thl.jpg,Stimuli/Experimental_stims/flashlight/Graphite3D.jpg,Stimuli/Experimental_stims/bench/26369969.thl.jpg
+143,3,0,0,40-40,40,40,0,NA,1000,1500,sofa,poker card,sofa14,poker card3,60,60,455,376,HENRY-Sofa-falg8068-05-72X34X34.jpg,9817131.thl.jpg,Stimuli/Experimental_stims/sofa/HENRY-Sofa-falg8068-05-72X34X34.jpg,Stimuli/Experimental_stims/poker card/9817131.thl.jpg
+144,3,0,0,40-80,40,80,-40,0,1000,1000,sofa,desk,sofa8,desk15,60,60,449,82,allegro-leather-sofa-med2.jpg,ADESK21.jpg,Stimuli/Experimental_stims/sofa/allegro-leather-sofa-med2.jpg,Stimuli/Experimental_stims/desk/ADESK21.jpg
+145,3,0,0,20-60,20,60,-40,0,2000,1000,frame,tape,frame3,tape5,40,60,155,480,AFRAME132.jpg,910372_sk_lg.jpg,Stimuli/Experimental_stims/frame/AFRAME132.jpg,Stimuli/Experimental_stims/tape/910372_sk_lg.jpg
+146,3,0,1,NaN,NA,NA,NA,NA,1500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+147,3,0,0,60-60,60,60,0,NA,1000,1000,trumpet,train,trumpet5,train7,60,60,548,533,408l.jpg,thomas-tank-pedal-car-lg.jpg,Stimuli/Experimental_stims/trumpet/408l.jpg,Stimuli/Experimental_stims/train/thomas-tank-pedal-car-lg.jpg
+148,3,0,0,20-80,80,20,60,1,3500,3500,bench,lipstick,bench4,lipstick12,60,40,20,249,30892819.thl.jpg,P173709_hero.jpg,Stimuli/Experimental_stims/bench/30892819.thl.jpg,Stimuli/Experimental_stims/lipstick/P173709_hero.jpg
+149,3,0,1,NaN,NA,NA,NA,NA,1500,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+150,3,0,0,20-40,20,40,-20,0,2000,2000,key chain,seashell,key chain6,seashell9,0,40,209,416,highboy_keychain_ItemCA75384.jpg,ASEASH5.jpg,Stimuli/Experimental_stims/key chain/highboy_keychain_ItemCA75384.jpg,Stimuli/Experimental_stims/seashell/ASEASH5.jpg
+151,3,0,0,40-60,60,40,20,1,2000,3500,stool,pen,stool6,pen10,40,20,464,366,ASTOOL30.jpg,VP-Raden-FP-L copy.jpg,Stimuli/Experimental_stims/stool/ASTOOL30.jpg,Stimuli/Experimental_stims/pen/VP-Raden-FP-L copy.jpg
+152,3,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+153,3,0,0,20-80,80,20,60,1,2000,1500,bongo,hammer,bongo13,hammer1,100,0,46,170,26388718.thl.jpg,fosnaugh.hammer.jpg,Stimuli/Experimental_stims/bongo/26388718.thl.jpg,Stimuli/Experimental_stims/hammer/fosnaugh.hammer.jpg
+154,3,0,0,40-60,60,40,20,1,1500,2000,watch,poker card,watch7,poker card13,60,40,584,386,0900631b80baee56M.jpg,9817197.thl.jpg,Stimuli/Experimental_stims/watch/0900631b80baee56M.jpg,Stimuli/Experimental_stims/poker card/9817197.thl.jpg
+155,3,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+156,3,0,1,NaN,NA,NA,NA,NA,1000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+157,3,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+158,3,0,1,NaN,NA,NA,NA,NA,3000,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+159,3,0,0,20-80,80,20,60,1,1000,3000,dresser,makeup compact,dresser8,makeup compact3,100,0,109,257,Adresser14.jpg,P181006_hero.jpg,Stimuli/Experimental_stims/dresser/Adresser14.jpg,Stimuli/Experimental_stims/makeup compact/P181006_hero.jpg
+160,3,0,0,40-60,60,40,20,1,2000,3500,tent,sofa,tent10,sofa10,40,40,519,451,TENT-DUTCH-GD1-1.jpg,AREDCOUC5.jpg,Stimuli/Experimental_stims/tent/TENT-DUTCH-GD1-1.jpg,Stimuli/Experimental_stims/sofa/AREDCOUC5.jpg
+161,3,0,0,20-60,20,60,-40,0,1500,2000,microscope,vase,microscope4,vase4,20,80,275,564,55071208.JPG,Avase111.jpg,Stimuli/Experimental_stims/microscope/55071208.JPG,Stimuli/Experimental_stims/vase/Avase111.jpg
+162,3,0,0,20-40,20,40,-20,0,1000,1000,lipstick,power strip,lipstick15,power strip8,20,40,252,398,P9436_hero.jpg,3118YGHQWXL._AA262_.jpg,Stimuli/Experimental_stims/lipstick/P9436_hero.jpg,Stimuli/Experimental_stims/power strip/3118YGHQWXL._AA262_.jpg
+163,3,0,0,40-60,60,40,20,1,1000,1500,vase,sofa,vase15,sofa6,40,20,575,447,catphoto.jpg,wilkie-sofa-250h-new-cd.jpg,Stimuli/Experimental_stims/vase/catphoto.jpg,Stimuli/Experimental_stims/sofa/wilkie-sofa-250h-new-cd.jpg
+164,3,0,0,40-60,60,40,20,1,2000,1500,vase,patio lounge chair,vase12,patio lounge chair12,80,60,572,351,Abluevase2.jpg,rw-mendocinoultrachaisepc032-lg.jpg,Stimuli/Experimental_stims/vase/Abluevase2.jpg,Stimuli/Experimental_stims/patio lounge chair/rw-mendocinoultrachaisepc032-lg.jpg
+165,3,0,0,20-80,20,80,-60,0,1000,2000,microscope,dresser,microscope14,dresser3,40,100,285,104,AMICROS40.jpg,ADRESSE79.jpg,Stimuli/Experimental_stims/microscope/AMICROS40.jpg,Stimuli/Experimental_stims/dresser/ADRESSE79.jpg
+166,3,0,0,20-40,40,20,20,1,1500,1000,nail polish,makeup compact,nail polish9,makeup compact9,60,0,314,263,8037_O.jpg,b_102019.jpg,Stimuli/Experimental_stims/nail polish/8037_O.jpg,Stimuli/Experimental_stims/makeup compact/b_102019.jpg
+167,3,0,0,20-20,20,20,0,NA,1500,1000,license plate,lipstick,license plate5,lipstick1,20,40,225,238,va-eew.jpg,P170102_hero.jpg,Stimuli/Experimental_stims/license plate/va-eew.jpg,Stimuli/Experimental_stims/lipstick/P170102_hero.jpg
+168,3,0,0,20-60,20,60,-40,0,1500,1000,motorcycle,tape,motorcycle11,tape3,40,80,299,478,sportmotorcycle.jpg,ATAPEDIS7.jpg,Stimuli/Experimental_stims/motorcycle/sportmotorcycle.jpg,Stimuli/Experimental_stims/tape/ATAPEDIS7.jpg
+169,3,0,1,NaN,NA,NA,NA,NA,1000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+170,3,0,1,NaN,NA,NA,NA,NA,1000,3500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+171,3,0,0,60-80,60,80,-20,0,1500,1500,train,flashlight,train8,flashlight15,80,100,534,150,PL51190.jpg,freeplay-xray-wind-up-led-flashlight.jpg,Stimuli/Experimental_stims/train/PL51190.jpg,Stimuli/Experimental_stims/flashlight/freeplay-xray-wind-up-led-flashlight.jpg
+172,3,0,0,20-80,80,20,60,1,1500,1000,door knob,license plate,door knob14,license plate15,80,40,98,235,500_CLANYKAB.jpg,hi-hwr-837.jpg,Stimuli/Experimental_stims/door knob/500_CLANYKAB.jpg,Stimuli/Experimental_stims/license plate/hi-hwr-837.jpg
+173,3,0,0,60-80,80,60,20,1,1500,1500,desk,stool,desk5,stool12,100,40,72,470,ADESK6.jpg,henrybar_stool1.jpg,Stimuli/Experimental_stims/desk/ADESK6.jpg,Stimuli/Experimental_stims/stool/henrybar_stool1.jpg
+174,3,0,0,40-40,40,40,0,NA,1000,2000,seashell,poker card,seashell12,poker card8,60,20,419,381,groscoquilagecreux.jpg,22864392.thl.jpg,Stimuli/Experimental_stims/seashell/groscoquilagecreux.jpg,Stimuli/Experimental_stims/poker card/22864392.thl.jpg
+175,3,0,0,40-80,80,40,40,1,1000,3500,bongo,patio lounge chair,bongo7,patio lounge chair3,80,20,40,342,26461075.thl.jpg,Lounge_Chair.jpg,Stimuli/Experimental_stims/bongo/26461075.thl.jpg,Stimuli/Experimental_stims/patio lounge chair/Lounge_Chair.jpg
+176,3,0,0,20-20,20,20,0,NA,2000,1000,motorcycle,license plate,motorcycle4,license plate9,20,20,292,229,motorcycle46.jpg,nm-dhg089.jpg,Stimuli/Experimental_stims/motorcycle/motorcycle46.jpg,Stimuli/Experimental_stims/license plate/nm-dhg089.jpg
+177,3,0,1,NaN,NA,NA,NA,NA,2000,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+178,3,0,0,20-60,60,20,40,1,1500,1000,tent,microscope,tent3,microscope8,60,20,512,279,73697pp.jpg,AMICROS21.jpg,Stimuli/Experimental_stims/tent/73697pp.jpg,Stimuli/Experimental_stims/microscope/AMICROS21.jpg
+179,3,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+180,3,0,0,40-80,80,40,40,1,3000,1000,baby carriage,poker card,baby carriage2,poker card1,100,20,1,374,Baby_Carriage.jpg,22864704.thl.jpg,Stimuli/Experimental_stims/baby carriage/Baby_Carriage.jpg,Stimuli/Experimental_stims/poker card/22864704.thl.jpg
+181,3,0,1,NaN,NA,NA,NA,NA,3000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+182,3,0,0,40-40,40,40,0,NA,1500,1000,nail polish,seashell,nail polish13,seashell13,40,40,318,420,31cR10fzlML._AA280_.jpg,coquillage22.jpg,Stimuli/Experimental_stims/nail polish/31cR10fzlML._AA280_.jpg,Stimuli/Experimental_stims/seashell/coquillage22.jpg
+183,3,0,0,20-60,20,60,-40,0,1000,2000,key chain,trumpet,key chain12,trumpet4,0,80,215,547,keychain.jpg,JUPITER+JTR1000S.jpg,Stimuli/Experimental_stims/key chain/keychain.jpg,Stimuli/Experimental_stims/trumpet/JUPITER+JTR1000S.jpg
+184,3,0,0,20-60,60,20,40,1,1000,1500,telescope,key chain,telescope13,key chain15,40,20,505,218,Telescope_Pewter_br48540a.jpg,Soft_PVC_Keychain.jpg,Stimuli/Experimental_stims/telescope/Telescope_Pewter_br48540a.jpg,Stimuli/Experimental_stims/key chain/Soft_PVC_Keychain.jpg
+185,4,0,0,20-80,80,20,60,1,3000,2000,flashlight,hammer,flashlight3,hammer9,80,20,138,178,sl_tasklight_2l3w.jpg,AHAMMER5.jpg,Stimuli/Experimental_stims/flashlight/sl_tasklight_2l3w.jpg,Stimuli/Experimental_stims/hammer/AHAMMER5.jpg
+186,4,0,0,20-60,60,20,40,1,1000,3000,trumpet,microscope,trumpet12,microscope6,40,0,555,277,hornabariton.jpg,AMICROS25.jpg,Stimuli/Experimental_stims/trumpet/hornabariton.jpg,Stimuli/Experimental_stims/microscope/AMICROS25.jpg
+187,4,0,0,60-60,60,60,0,NA,3000,2000,tape,train,tape14,train9,80,80,489,535,922544.jpg,train2.jpg,Stimuli/Experimental_stims/tape/922544.jpg,Stimuli/Experimental_stims/train/train2.jpg
+188,4,0,0,40-40,40,40,0,NA,1000,1000,necklace,nail polish,necklace10,nail polish11,20,60,332,316,necklascenew03.jpg,Revlon_Super_Top_Speed_Chrome_Nail_Polish-resized200.jpg,Stimuli/Experimental_stims/necklace/necklascenew03.jpg,Stimuli/Experimental_stims/nail polish/Revlon_Super_Top_Speed_Chrome_Nail_Polish-resized200.jpg
+189,4,0,0,20-80,80,20,60,1,2000,1000,baby carriage,frame,baby carriage7,frame5,80,20,6,157,26423282.thl.jpg,AFRAME136.jpg,Stimuli/Experimental_stims/baby carriage/26423282.thl.jpg,Stimuli/Experimental_stims/frame/AFRAME136.jpg
+190,4,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+191,4,0,0,40-80,40,80,-40,0,2000,1000,power strip,bench,power strip10,bench1,20,60,400,17,6bd437c9-6165-4d36-bf75-9a1038783c6a_400.jpg,26419975.thl.jpg,Stimuli/Experimental_stims/power strip/6bd437c9-6165-4d36-bf75-9a1038783c6a_400.jpg,Stimuli/Experimental_stims/bench/26419975.thl.jpg
+192,4,0,0,20-20,20,20,0,NA,1500,1500,frame,hat,frame2,hat11,20,40,154,197,AFRAME23.jpg,AFELTHAT.jpg,Stimuli/Experimental_stims/frame/AFRAME23.jpg,Stimuli/Experimental_stims/hat/AFELTHAT.jpg
+193,4,0,0,20-60,20,60,-40,0,1000,3500,makeup compact,watch,makeup compact4,watch10,20,60,258,587,262668_fpx.jpg,HEU0102124_zoom.jpg,Stimuli/Experimental_stims/makeup compact/262668_fpx.jpg,Stimuli/Experimental_stims/watch/HEU0102124_zoom.jpg
+194,4,0,0,20-60,60,20,40,1,3500,2000,telescope,lipstick,telescope8,lipstick7,60,20,500,244,p0006439g.jpg,P101401_hero.jpg,Stimuli/Experimental_stims/telescope/p0006439g.jpg,Stimuli/Experimental_stims/lipstick/P101401_hero.jpg
+195,4,0,1,NaN,NA,NA,NA,NA,1500,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+196,4,0,0,40-80,40,80,-40,0,1000,1500,seashell,door knob,seashell10,door knob1,20,100,417,85,ASEASHE47.jpg,Brass_Door_Handle.jpg,Stimuli/Experimental_stims/seashell/ASEASHE47.jpg,Stimuli/Experimental_stims/door knob/Brass_Door_Handle.jpg
+197,4,0,1,NaN,NA,NA,NA,NA,2000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+198,4,0,0,40-80,80,40,40,1,1000,1500,bongo,pen,bongo6,pen14,100,40,39,370,ABONGO9.jpg,pen05.jpg,Stimuli/Experimental_stims/bongo/ABONGO9.jpg,Stimuli/Experimental_stims/pen/pen05.jpg
+199,4,0,1,NaN,NA,NA,NA,NA,2000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+200,4,0,0,40-60,40,60,-20,0,1000,1500,pen,vase,pen11,vase7,60,40,367,567,pen01.jpg,8246344.thl.jpg,Stimuli/Experimental_stims/pen/pen01.jpg,Stimuli/Experimental_stims/vase/8246344.thl.jpg
+201,4,0,0,20-20,20,20,0,NA,1500,1000,microscope,license plate,microscope2,license plate12,0,20,273,232,3090-b.jpg,TurtleLicensePlate.jpg,Stimuli/Experimental_stims/microscope/3090-b.jpg,Stimuli/Experimental_stims/license plate/TurtleLicensePlate.jpg
+202,4,0,0,80-80,80,80,0,NA,2000,1000,dresser,bongo,dresser2,bongo9,80,60,103,42,ADRESSE46.jpg,22946035.thl.jpg,Stimuli/Experimental_stims/dresser/ADRESSE46.jpg,Stimuli/Experimental_stims/bongo/22946035.thl.jpg
+203,4,0,0,20-40,40,20,20,1,1000,1500,pen,motorcycle,pen13,motorcycle8,20,20,369,296,pen07.jpg,Motorcycle903425j2.jpg,Stimuli/Experimental_stims/pen/pen07.jpg,Stimuli/Experimental_stims/motorcycle/Motorcycle903425j2.jpg
+204,4,0,0,40-80,40,80,-40,0,2000,1000,seashell,flashlight,seashell3,flashlight9,60,100,410,144,coquillage.jpg,new06.jpg,Stimuli/Experimental_stims/seashell/coquillage.jpg,Stimuli/Experimental_stims/flashlight/new06.jpg
+205,4,0,0,20-80,20,80,-60,0,1000,1500,makeup compact,bench,makeup compact14,bench9,40,100,268,25,262597_fpx.jpg,26419898.thl.jpg,Stimuli/Experimental_stims/makeup compact/262597_fpx.jpg,Stimuli/Experimental_stims/bench/26419898.thl.jpg
+206,4,0,1,NaN,NA,NA,NA,NA,2000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+207,4,0,1,NaN,NA,NA,NA,NA,1500,3500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+208,4,0,0,20-40,40,20,20,1,2000,1000,seashell,hat,seashell8,hat1,60,40,415,187,ASEASHEL9.jpg,AGREENHAT.jpg,Stimuli/Experimental_stims/seashell/ASEASHEL9.jpg,Stimuli/Experimental_stims/hat/AGREENHAT.jpg
+209,4,0,0,40-80,80,40,40,1,3500,1000,desk,pen,desk7,pen1,100,40,74,357,D-3  One drawer desk  Ming 41.5x25x32.jpg,pen09.jpg,Stimuli/Experimental_stims/desk/D-3  One drawer desk  Ming 41.5x25x32.jpg,Stimuli/Experimental_stims/pen/pen09.jpg
+210,4,0,0,20-60,60,20,40,1,1500,2000,tape,makeup compact,tape13,makeup compact2,60,20,488,256,920152.jpg,P183922_hero.jpg,Stimuli/Experimental_stims/tape/920152.jpg,Stimuli/Experimental_stims/makeup compact/P183922_hero.jpg
+211,4,0,0,20-80,20,80,-60,0,1500,1500,key chain,bowl,key chain5,bowl1,20,80,208,51,keychain-metal-logo.jpg,ABOWLS6.jpg,Stimuli/Experimental_stims/key chain/keychain-metal-logo.jpg,Stimuli/Experimental_stims/bowl/ABOWLS6.jpg
+212,4,0,0,20-60,60,20,40,1,2000,1000,telescope,hat,telescope10,hat12,80,0,502,198,digimarc.ms02.jpg,Aformalhat5.jpg,Stimuli/Experimental_stims/telescope/digimarc.ms02.jpg,Stimuli/Experimental_stims/hat/Aformalhat5.jpg
+213,4,0,0,80-80,80,80,0,NA,1500,1000,desk,flashlight,desk12,flashlight6,100,60,79,141,ADESK19.jpg,Flashlight.jpg,Stimuli/Experimental_stims/desk/ADESK19.jpg,Stimuli/Experimental_stims/flashlight/Flashlight.jpg
+214,4,0,0,20-80,20,80,-60,0,1500,1500,license plate,desk,license plate4,desk6,0,60,224,73,ca-2flt842.jpg,0051507b.jpg,Stimuli/Experimental_stims/license plate/ca-2flt842.jpg,Stimuli/Experimental_stims/desk/0051507b.jpg
+215,4,0,0,40-60,40,60,-20,0,1000,2000,nail polish,trumpet,nail polish7,trumpet6,20,60,312,549,117BDAkbo5L._AA160_.jpg,JUP416S.JPG,Stimuli/Experimental_stims/nail polish/117BDAkbo5L._AA160_.jpg,Stimuli/Experimental_stims/trumpet/JUP416S.JPG
+216,4,0,0,40-80,40,80,-40,0,2000,1000,power strip,bowl,power strip13,bowl8,40,100,403,58,01dccef1-d4b2-4d2e-a317-f2ed46b70b4b_400.jpg,ASLVBOWL.jpg,Stimuli/Experimental_stims/power strip/01dccef1-d4b2-4d2e-a317-f2ed46b70b4b_400.jpg,Stimuli/Experimental_stims/bowl/ASLVBOWL.jpg
+217,4,0,0,40-60,40,60,-20,0,1000,2000,nail polish,yarn,nail polish4,yarn7,40,60,309,601,8027_O.jpg,herb garden hy smaller.jpg,Stimuli/Experimental_stims/nail polish/8027_O.jpg,Stimuli/Experimental_stims/yarn/herb garden hy smaller.jpg
+218,4,0,0,40-60,40,60,-20,0,3000,2000,seashell,vase,seashell4,vase2,40,40,411,562,seashell.jpg,Avase106.jpg,Stimuli/Experimental_stims/seashell/seashell.jpg,Stimuli/Experimental_stims/vase/Avase106.jpg
+219,4,0,1,NaN,NA,NA,NA,NA,1000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+220,4,0,1,NaN,NA,NA,NA,NA,1500,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+221,4,0,1,NaN,NA,NA,NA,NA,2000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+222,4,0,1,NaN,NA,NA,NA,NA,3500,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+223,4,0,0,40-40,40,40,0,NA,1000,1000,power strip,small table,power strip6,small table3,60,20,396,427,41AWBNXQRML._AA262_.jpg,Atable122.jpg,Stimuli/Experimental_stims/power strip/41AWBNXQRML._AA262_.jpg,Stimuli/Experimental_stims/small table/Atable122.jpg
+224,4,0,0,40-60,40,60,-20,0,1000,2000,small table,telescope,small table4,telescope9,40,80,428,501,ACOFTABLE.jpg,13TELESTAND.jpg,Stimuli/Experimental_stims/small table/ACOFTABLE.jpg,Stimuli/Experimental_stims/telescope/13TELESTAND.jpg
+225,4,0,1,NaN,NA,NA,NA,NA,1000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+226,4,0,1,NaN,NA,NA,NA,NA,2000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+227,4,0,0,80-80,80,80,0,NA,1000,1000,door knob,baby carriage,door knob4,baby carriage4,60,60,88,3,chrome scroll latch handle.jpg,26373711.thl.jpg,Stimuli/Experimental_stims/door knob/chrome scroll latch handle.jpg,Stimuli/Experimental_stims/baby carriage/26373711.thl.jpg
+228,4,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+229,4,0,0,60-80,60,80,-20,0,3500,1000,vase,door knob,vase13,door knob3,60,80,573,87,designer-metal-vase.jpg,020f7ec6-df08-40fa-b3a5-0dcfb762f085_4.jpg,Stimuli/Experimental_stims/vase/designer-metal-vase.jpg,Stimuli/Experimental_stims/door knob/020f7ec6-df08-40fa-b3a5-0dcfb762f085_4.jpg
+230,4,0,0,20-60,20,60,-40,0,2000,1500,hammer,tape,hammer3,tape8,40,80,172,483,hammernew03.jpg,18095_lg.jpg,Stimuli/Experimental_stims/hammer/hammernew03.jpg,Stimuli/Experimental_stims/tape/18095_lg.jpg
+231,4,0,1,NaN,NA,NA,NA,NA,1500,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+232,4,0,0,40-80,80,40,40,1,1500,1000,door knob,power strip,door knob11,power strip4,60,40,95,394,500_MEAMEAOB.jpg,41D3CX96H9L._AA262_.jpg,Stimuli/Experimental_stims/door knob/500_MEAMEAOB.jpg,Stimuli/Experimental_stims/power strip/41D3CX96H9L._AA262_.jpg
+233,4,0,0,20-80,80,20,60,1,3000,1000,fan,license plate,fan3,license plate13,60,0,121,233,CFT401.jpg,usa-rj-9517.jpg,Stimuli/Experimental_stims/fan/CFT401.jpg,Stimuli/Experimental_stims/license plate/usa-rj-9517.jpg
+234,4,0,0,40-60,40,60,-20,0,1500,1500,patio lounge chair,tent,patio lounge chair9,tent2,20,40,348,511,43-3.jpg,Atent16.jpg,Stimuli/Experimental_stims/patio lounge chair/43-3.jpg,Stimuli/Experimental_stims/tent/Atent16.jpg
+235,4,0,0,40-60,60,40,20,1,1000,1500,trumpet,nail polish,trumpet14,nail polish8,80,60,557,313,truba1.jpg,283-ILilacYouALot.jpg,Stimuli/Experimental_stims/trumpet/truba1.jpg,Stimuli/Experimental_stims/nail polish/283-ILilacYouALot.jpg
+236,4,0,0,20-60,60,20,40,1,1000,3500,yarn,lipstick,yarn14,lipstick14,80,40,608,251,Aballofyarn3.jpg,P109907_hero.jpg,Stimuli/Experimental_stims/yarn/Aballofyarn3.jpg,Stimuli/Experimental_stims/lipstick/P109907_hero.jpg
+237,4,0,0,20-60,60,20,40,1,1000,3500,vase,microscope,vase14,microscope11,80,40,574,282,Avase119.jpg,konus5604microscope.jpg,Stimuli/Experimental_stims/vase/Avase119.jpg,Stimuli/Experimental_stims/microscope/konus5604microscope.jpg
+238,4,0,0,60-60,60,60,0,NA,1500,1000,vase,watch,vase11,watch13,60,40,571,590,Ethnic_Ceramic_Vase.jpg,RS_3104_lrg.jpg,Stimuli/Experimental_stims/vase/Ethnic_Ceramic_Vase.jpg,Stimuli/Experimental_stims/watch/RS_3104_lrg.jpg
+239,4,0,1,NaN,NA,NA,NA,NA,1000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+240,4,0,0,40-60,40,60,-20,0,1500,3000,pen,yarn,pen4,yarn1,60,60,360,595,Montblanc_Greta_Garbo_BP copy.jpg,corn_yarn.jpg,Stimuli/Experimental_stims/pen/Montblanc_Greta_Garbo_BP copy.jpg,Stimuli/Experimental_stims/yarn/corn_yarn.jpg
+241,4,0,0,20-80,80,20,60,1,3500,1000,door knob,hat,door knob9,hat6,100,40,93,192,d08d31bb-7484-41db-96f9-297aeb8651cd_4.jpg,Acasualhat5.jpg,Stimuli/Experimental_stims/door knob/d08d31bb-7484-41db-96f9-297aeb8651cd_4.jpg,Stimuli/Experimental_stims/hat/Acasualhat5.jpg
+242,4,0,0,40-80,40,80,-40,0,1000,3500,pen,desk,pen3,desk3,60,80,359,70,pen08.jpg,D-1 Four drawers desk Elm 64x23x33.jpg,Stimuli/Experimental_stims/pen/pen08.jpg,Stimuli/Experimental_stims/desk/D-1 Four drawers desk Elm 64x23x33.jpg
+243,4,0,0,20-80,20,80,-60,0,1000,1000,license plate,bowl,license plate8,bowl7,40,60,228,57,dc-vrw-jsw.jpg,Abowl54.jpg,Stimuli/Experimental_stims/license plate/dc-vrw-jsw.jpg,Stimuli/Experimental_stims/bowl/Abowl54.jpg
+244,4,0,0,60-80,60,80,-20,0,1000,3000,stool,baby carriage,stool10,baby carriage12,80,60,468,11,ASTOOL26.jpg,Baby_Carriage-1.jpg,Stimuli/Experimental_stims/stool/ASTOOL26.jpg,Stimuli/Experimental_stims/baby carriage/Baby_Carriage-1.jpg
+245,5,0,0,20-80,20,80,-60,0,1500,1500,microscope,baby carriage,microscope13,baby carriage13,40,80,284,12,digital-microscope-420tc.jpg,300px-Barnevogn2.jpg,Stimuli/Experimental_stims/microscope/digital-microscope-420tc.jpg,Stimuli/Experimental_stims/baby carriage/300px-Barnevogn2.jpg
+246,5,0,0,20-20,20,20,0,NA,1000,1000,microscope,makeup compact,microscope10,makeup compact8,0,0,281,262,DS-2.jpg,P189207_hero.jpg,Stimuli/Experimental_stims/microscope/DS-2.jpg,Stimuli/Experimental_stims/makeup compact/P189207_hero.jpg
+247,5,0,0,20-80,20,80,-60,0,1000,3000,hammer,fan,hammer8,fan14,20,80,177,132,ct1006_hammer.jpg,124771_sk_lg.jpg,Stimuli/Experimental_stims/hammer/ct1006_hammer.jpg,Stimuli/Experimental_stims/fan/124771_sk_lg.jpg
+248,5,0,0,60-80,60,80,-20,0,2000,2000,watch,flashlight,watch14,flashlight11,40,60,591,146,HC06.jpg,new04.jpg,Stimuli/Experimental_stims/watch/HC06.jpg,Stimuli/Experimental_stims/flashlight/new04.jpg
+249,5,0,0,60-60,60,60,0,NA,1500,1500,vase,watch,vase6,watch6,60,40,566,583,vase_crystal.jpg,B0000X04VC.01-A4LKQQKJ91IUZ._AA280_SCLZZZZZZZ_.jpg,Stimuli/Experimental_stims/vase/vase_crystal.jpg,Stimuli/Experimental_stims/watch/B0000X04VC.01-A4LKQQKJ91IUZ._AA280_SCLZZZZZZZ_.jpg
+250,5,0,0,20-60,20,60,-40,0,1000,1500,motorcycle,yarn,motorcycle9,yarn13,40,40,297,607,speedbike.jpg,cool blue 2 hpy 2 sml.jpg,Stimuli/Experimental_stims/motorcycle/speedbike.jpg,Stimuli/Experimental_stims/yarn/cool blue 2 hpy 2 sml.jpg
+251,5,0,0,20-20,20,20,0,NA,3500,1000,microscope,frame,microscope3,frame15,40,40,274,167,APDB.jpg,AFRAME13.jpg,Stimuli/Experimental_stims/microscope/APDB.jpg,Stimuli/Experimental_stims/frame/AFRAME13.jpg
+252,5,0,0,20-60,60,20,40,1,1500,1500,yarn,license plate,yarn5,license plate3,60,0,599,223,Aballofyarn14.jpg,tx-r17-wbx.jpg,Stimuli/Experimental_stims/yarn/Aballofyarn14.jpg,Stimuli/Experimental_stims/license plate/tx-r17-wbx.jpg
+253,5,0,0,20-80,20,80,-60,0,1000,2000,makeup compact,door knob,makeup compact10,door knob12,20,80,264,96,P95108_hero.jpg,500_PRACRYOB.jpg,Stimuli/Experimental_stims/makeup compact/P95108_hero.jpg,Stimuli/Experimental_stims/door knob/500_PRACRYOB.jpg
+254,5,0,1,NaN,NA,NA,NA,NA,2000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+255,5,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+256,5,0,0,20-60,20,60,-40,0,2000,3500,hammer,tape,hammer12,tape9,40,40,181,484,24oz hammer.jpg,desk tape disp.jpg,Stimuli/Experimental_stims/hammer/24oz hammer.jpg,Stimuli/Experimental_stims/tape/desk tape disp.jpg
+257,5,0,0,20-60,60,20,40,1,1000,2000,yarn,lipstick,yarn10,lipstick6,60,0,604,243,revelation-yarn.jpg,P182413_hero.jpg,Stimuli/Experimental_stims/yarn/revelation-yarn.jpg,Stimuli/Experimental_stims/lipstick/P182413_hero.jpg
+258,5,0,0,40-80,80,40,40,1,2000,1000,desk,pen,desk13,pen12,60,20,80,368,26427865.thl.jpg,pen02.jpg,Stimuli/Experimental_stims/desk/26427865.thl.jpg,Stimuli/Experimental_stims/pen/pen02.jpg
+259,5,0,1,NaN,NA,NA,NA,NA,1500,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+260,5,0,0,40-80,40,80,-40,0,1500,1000,pen,bongo,pen15,bongo11,40,80,371,44,pen04.jpg,ABONGO6.jpg,Stimuli/Experimental_stims/pen/pen04.jpg,Stimuli/Experimental_stims/bongo/ABONGO6.jpg
+261,5,0,0,20-80,80,20,60,1,1500,1000,flashlight,motorcycle,flashlight2,motorcycle5,80,0,137,293,AV-9 No Battery Flashlight.jpg,motorcycle101.jpg,Stimuli/Experimental_stims/flashlight/AV-9 No Battery Flashlight.jpg,Stimuli/Experimental_stims/motorcycle/motorcycle101.jpg
+262,5,0,1,NaN,NA,NA,NA,NA,3500,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+263,5,0,1,NaN,NA,NA,NA,NA,1000,3500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+264,5,0,0,60-60,60,60,0,NA,2000,3500,watch,trumpet,watch4,trumpet3,80,40,581,546,B000EI2NBW.01._AA280_SCLZZZZZZZ_.jpg,1000rl-s.jpg,Stimuli/Experimental_stims/watch/B000EI2NBW.01._AA280_SCLZZZZZZZ_.jpg,Stimuli/Experimental_stims/trumpet/1000rl-s.jpg
+265,5,0,1,NaN,NA,NA,NA,NA,1000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+266,5,0,0,40-60,60,40,20,1,2000,1500,vase,pen,vase8,pen9,40,20,568,365,Avase171.jpg,Aredpen3.jpg,Stimuli/Experimental_stims/vase/Avase171.jpg,Stimuli/Experimental_stims/pen/Aredpen3.jpg
+267,5,0,0,60-80,80,60,20,1,2000,2000,fan,vase,fan12,vase3,100,40,130,563,116544_sk_lg.jpg,vase-006af-1.jpg,Stimuli/Experimental_stims/fan/116544_sk_lg.jpg,Stimuli/Experimental_stims/vase/vase-006af-1.jpg
+268,5,0,0,40-40,40,40,0,NA,1000,2000,pen,small table,pen2,small table13,60,40,358,437,Montblanc-Blu-Starwalker-BP copy.jpg,ATABLE25.jpg,Stimuli/Experimental_stims/pen/Montblanc-Blu-Starwalker-BP copy.jpg,Stimuli/Experimental_stims/small table/ATABLE25.jpg
+269,5,0,1,NaN,NA,NA,NA,NA,1000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+270,5,0,0,40-60,40,60,-20,0,1000,1000,pen,watch,pen5,watch3,40,40,361,580,1550_1475_popup1.jpg,B0000TIIVO.01._SCLZZZZZZZ_V1124920780_.jpg,Stimuli/Experimental_stims/pen/1550_1475_popup1.jpg,Stimuli/Experimental_stims/watch/B0000TIIVO.01._SCLZZZZZZZ_V1124920780_.jpg
+271,5,0,0,80-80,80,80,0,NA,3000,1500,flashlight,bowl,flashlight14,bowl13,60,60,149,63,freeplay-jonta-flashlight.jpg,Asoupbowl8.jpg,Stimuli/Experimental_stims/flashlight/freeplay-jonta-flashlight.jpg,Stimuli/Experimental_stims/bowl/Asoupbowl8.jpg
+272,5,0,0,40-80,80,40,40,1,2000,1000,fan,poker card,fan10,poker card7,60,40,128,380,n_sf_1666.jpg,22864416.thl.jpg,Stimuli/Experimental_stims/fan/n_sf_1666.jpg,Stimuli/Experimental_stims/poker card/22864416.thl.jpg
+273,5,0,1,NaN,NA,NA,NA,NA,2000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+274,5,0,1,NaN,NA,NA,NA,NA,3000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+275,5,0,0,40-80,80,40,40,1,1500,2000,baby carriage,power strip,baby carriage3,power strip14,60,60,2,404,Stroller.jpg,88b2c724-e781-44ae-85d5-27b7591f659d_400.jpg,Stimuli/Experimental_stims/baby carriage/Stroller.jpg,Stimuli/Experimental_stims/power strip/88b2c724-e781-44ae-85d5-27b7591f659d_400.jpg
+276,5,0,1,NaN,NA,NA,NA,NA,3500,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+277,5,0,0,20-80,20,80,-60,0,1000,3000,lipstick,flashlight,lipstick11,flashlight4,0,100,248,139,21SS8DBWDQL._SS500_.jpg,new08.jpg,Stimuli/Experimental_stims/lipstick/21SS8DBWDQL._SS500_.jpg,Stimuli/Experimental_stims/flashlight/new08.jpg
+278,5,0,0,20-20,20,20,0,NA,2000,1000,lipstick,license plate,lipstick2,license plate1,20,40,239,221,11uuoPMY+OL._SS500_.jpg,il-423-3784.jpg,Stimuli/Experimental_stims/lipstick/11uuoPMY+OL._SS500_.jpg,Stimuli/Experimental_stims/license plate/il-423-3784.jpg
+279,5,0,0,20-80,80,20,60,1,1000,1000,bowl,frame,bowl10,frame13,100,0,60,165,Abowl50.jpg,AFRAME115.jpg,Stimuli/Experimental_stims/bowl/Abowl50.jpg,Stimuli/Experimental_stims/frame/AFRAME115.jpg
+280,5,0,0,40-80,80,40,40,1,1500,1000,dresser,sofa,dresser9,sofa12,100,40,110,453,ADRESSER.jpg,ShelterSofaS6.jpg,Stimuli/Experimental_stims/dresser/ADRESSER.jpg,Stimuli/Experimental_stims/sofa/ShelterSofaS6.jpg
+281,5,0,0,40-60,60,40,20,1,3500,1000,trumpet,necklace,trumpet8,necklace11,40,20,551,333,trumpet33.jpg,necklascenew06.jpg,Stimuli/Experimental_stims/trumpet/trumpet33.jpg,Stimuli/Experimental_stims/necklace/necklascenew06.jpg
+282,5,0,0,20-40,20,40,-20,0,1500,2000,makeup compact,nail polish,makeup compact12,nail polish15,40,60,266,320,P139103_hero.jpg,MA_NP_WSD.jpg,Stimuli/Experimental_stims/makeup compact/P139103_hero.jpg,Stimuli/Experimental_stims/nail polish/MA_NP_WSD.jpg
+283,5,0,1,NaN,NA,NA,NA,NA,1000,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+284,5,0,0,40-40,40,40,0,NA,1500,1000,patio lounge chair,small table,patio lounge chair5,small table6,60,20,344,430,Steel_Assembling_Lounge.jpg,ATABLE88.jpg,Stimuli/Experimental_stims/patio lounge chair/Steel_Assembling_Lounge.jpg,Stimuli/Experimental_stims/small table/ATABLE88.jpg
+285,5,0,0,40-60,40,60,-20,0,1500,2000,nail polish,telescope,nail polish3,telescope15,20,40,308,507,327636.jpg,VictorianDeskTelescope.jpg,Stimuli/Experimental_stims/nail polish/327636.jpg,Stimuli/Experimental_stims/telescope/VictorianDeskTelescope.jpg
+286,5,0,1,NaN,NA,NA,NA,NA,3500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+287,5,0,0,60-80,60,80,-20,0,1000,1500,train,bench,train13,bench12,40,100,539,28,Tin_Toy_Train_3643.jpg,22927976.thl.jpg,Stimuli/Experimental_stims/train/Tin_Toy_Train_3643.jpg,Stimuli/Experimental_stims/bench/22927976.thl.jpg
+288,5,0,0,20-40,20,40,-20,0,1000,1000,microscope,power strip,microscope7,power strip9,20,40,278,399,microscope.jpg,9ad9cb76-bc97-4f44-999c-27e7aa039743_400.jpg,Stimuli/Experimental_stims/microscope/microscope.jpg,Stimuli/Experimental_stims/power strip/9ad9cb76-bc97-4f44-999c-27e7aa039743_400.jpg
+289,5,0,0,40-60,40,60,-20,0,1000,1500,patio lounge chair,tape,patio lounge chair2,tape6,60,60,341,481,Marina-metal-chaise-lounge.jpg,1912.jpg,Stimuli/Experimental_stims/patio lounge chair/Marina-metal-chaise-lounge.jpg,Stimuli/Experimental_stims/tape/1912.jpg
+290,5,0,0,40-80,80,40,40,1,1500,1000,desk,poker card,desk8,poker card4,80,60,75,377,26370118.thl.jpg,22864728.thl.jpg,Stimuli/Experimental_stims/desk/26370118.thl.jpg,Stimuli/Experimental_stims/poker card/22864728.thl.jpg
+291,5,0,1,NaN,NA,NA,NA,NA,1000,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+292,5,0,0,40-80,40,80,-40,0,2000,1000,seashell,dresser,seashell15,dresser15,20,60,422,116,ASEASHE39.jpg,ADRESSE77.jpg,Stimuli/Experimental_stims/seashell/ASEASHE39.jpg,Stimuli/Experimental_stims/dresser/ADRESSE77.jpg
+293,5,0,0,80-80,80,80,0,NA,3000,1000,bongo,bowl,bongo15,bowl12,80,100,48,62,26390728.thl.jpg,Abowl52.jpg,Stimuli/Experimental_stims/bongo/26390728.thl.jpg,Stimuli/Experimental_stims/bowl/Abowl52.jpg
+294,5,0,0,40-60,60,40,20,1,1000,2000,train,patio lounge chair,train12,patio lounge chair4,80,40,538,343,02565 ride on train.jpg,0-teak_tf53er.jpg,Stimuli/Experimental_stims/train/02565 ride on train.jpg,Stimuli/Experimental_stims/patio lounge chair/0-teak_tf53er.jpg
+295,5,0,0,20-60,20,60,-40,0,2000,1500,hat,train,hat10,train4,20,40,196,530,Atornhat3.jpg,After-RHS-2-web.jpg,Stimuli/Experimental_stims/hat/Atornhat3.jpg,Stimuli/Experimental_stims/train/After-RHS-2-web.jpg
+296,5,0,0,40-60,60,40,20,1,1000,3500,tent,small table,tent11,small table1,80,60,520,425,asa_c098_cat_tent_red_black.jpg,ATABLE10.jpg,Stimuli/Experimental_stims/tent/asa_c098_cat_tent_red_black.jpg,Stimuli/Experimental_stims/small table/ATABLE10.jpg
+297,5,0,0,20-40,40,20,20,1,1500,1000,small table,motorcycle,small table10,motorcycle15,20,0,434,303,ATABLE41.jpg,2006-Buell-LightningXB12Sa.jpg,Stimuli/Experimental_stims/small table/ATABLE41.jpg,Stimuli/Experimental_stims/motorcycle/2006-Buell-LightningXB12Sa.jpg
+298,5,0,0,20-80,20,80,-60,0,1000,2000,lipstick,flashlight,lipstick10,flashlight10,40,80,247,145,21K0D7QKFAL._SS500_.jpg,834784_sk_lg.jpg,Stimuli/Experimental_stims/lipstick/21K0D7QKFAL._SS500_.jpg,Stimuli/Experimental_stims/flashlight/834784_sk_lg.jpg
+299,5,0,1,NaN,NA,NA,NA,NA,3000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+300,5,0,1,NaN,NA,NA,NA,NA,1000,3500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+301,5,0,0,20-60,20,60,-40,0,1000,1000,key chain,stool,key chain8,stool15,40,80,211,473,Keychain01.jpg,ASTOOL.jpg,Stimuli/Experimental_stims/key chain/Keychain01.jpg,Stimuli/Experimental_stims/stool/ASTOOL.jpg
+302,5,0,0,60-60,60,60,0,NA,1000,2000,trumpet,tent,trumpet15,tent15,80,40,558,524,trumpet.jpg,tent_.jpg,Stimuli/Experimental_stims/trumpet/trumpet.jpg,Stimuli/Experimental_stims/tent/tent_.jpg
+303,5,0,0,40-40,40,40,0,NA,1500,1000,power strip,pen,power strip12,pen7,20,40,402,363,41CXESEH1TL._AA262_.jpg,1259_2341_popup1.jpg,Stimuli/Experimental_stims/power strip/41CXESEH1TL._AA262_.jpg,Stimuli/Experimental_stims/pen/1259_2341_popup1.jpg
+304,5,0,0,20-60,20,60,-40,0,2000,1500,hat,vase,hat5,vase5,20,80,191,565,AREDHAT4.jpg,Avase176.jpg,Stimuli/Experimental_stims/hat/AREDHAT4.jpg,Stimuli/Experimental_stims/vase/Avase176.jpg
+305,6,0,0,20-80,80,20,60,1,1000,1500,dresser,frame,dresser5,frame12,100,0,106,164,ADRESSE55.jpg,AFRAME138.jpg,Stimuli/Experimental_stims/dresser/ADRESSE55.jpg,Stimuli/Experimental_stims/frame/AFRAME138.jpg
+306,6,0,0,20-60,60,20,40,1,1000,2000,stool,makeup compact,stool11,makeup compact1,60,0,469,255,ASTOOL28.jpg,P190250_hero.jpg,Stimuli/Experimental_stims/stool/ASTOOL28.jpg,Stimuli/Experimental_stims/makeup compact/P190250_hero.jpg
+307,6,0,0,40-60,40,60,-20,0,1000,1000,poker card,stool,poker card5,stool13,60,60,378,471,22864800.thl.jpg,ASTOOL38.jpg,Stimuli/Experimental_stims/poker card/22864800.thl.jpg,Stimuli/Experimental_stims/stool/ASTOOL38.jpg
+308,6,0,0,20-60,20,60,-40,0,3500,1000,hammer,trumpet,hammer13,trumpet11,20,80,182,554,hammer2.jpg,JUPITER+JTR604L.jpg,Stimuli/Experimental_stims/hammer/hammer2.jpg,Stimuli/Experimental_stims/trumpet/JUPITER+JTR604L.jpg
+309,6,0,0,40-60,40,60,-20,0,1000,2000,necklace,tent,necklace6,tent1,60,40,328,510,Agoldnecklace.jpg,Atent8.jpg,Stimuli/Experimental_stims/necklace/Agoldnecklace.jpg,Stimuli/Experimental_stims/tent/Atent8.jpg
+310,6,0,1,NaN,NA,NA,NA,NA,1500,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+311,6,0,1,NaN,NA,NA,NA,NA,1500,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+312,6,0,0,80-80,80,80,0,NA,1000,1000,bowl,fan,bowl4,fan1,80,60,54,119,Abowl77.jpg,01393.fpx.jpg,Stimuli/Experimental_stims/bowl/Abowl77.jpg,Stimuli/Experimental_stims/fan/01393.fpx.jpg
+313,6,0,0,20-60,60,20,40,1,2000,3500,tent,hat,tent8,hat8,60,20,517,194,quechua_tent-1.jpg,ABLUEHAT.jpg,Stimuli/Experimental_stims/tent/quechua_tent-1.jpg,Stimuli/Experimental_stims/hat/ABLUEHAT.jpg
+314,6,0,0,20-60,20,60,-40,0,1500,2000,motorcycle,telescope,motorcycle1,telescope3,0,40,289,495,motorcycle30.jpg,41V67SB5NJL._SS500_.jpg,Stimuli/Experimental_stims/motorcycle/motorcycle30.jpg,Stimuli/Experimental_stims/telescope/41V67SB5NJL._SS500_.jpg
+315,6,0,0,20-20,20,20,0,NA,3000,1000,key chain,frame,key chain11,frame1,20,0,214,153,31H95JKXWNL._SS500_.jpg,AFRAME127.jpg,Stimuli/Experimental_stims/key chain/31H95JKXWNL._SS500_.jpg,Stimuli/Experimental_stims/frame/AFRAME127.jpg
+316,6,0,1,NaN,NA,NA,NA,NA,2000,3500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+317,6,0,0,40-80,40,80,-40,0,1000,1000,necklace,baby carriage,necklace8,baby carriage11,40,80,330,10,Anecklace20.jpg,Baby_Carriage-2.jpg,Stimuli/Experimental_stims/necklace/Anecklace20.jpg,Stimuli/Experimental_stims/baby carriage/Baby_Carriage-2.jpg
+318,6,0,0,40-80,80,40,40,1,2000,2000,flashlight,power strip,flashlight13,power strip2,100,60,148,392,834808_sk_lg.jpg,59d69605-c8c8-4899-bd98-2ef78045147e_300.jpg,Stimuli/Experimental_stims/flashlight/834808_sk_lg.jpg,Stimuli/Experimental_stims/power strip/59d69605-c8c8-4899-bd98-2ef78045147e_300.jpg
+319,6,0,0,60-60,60,60,0,NA,1000,2000,stool,yarn,stool5,yarn6,80,80,463,600,ASTOOL23.jpg,edwardian moment hpy sml.jpg,Stimuli/Experimental_stims/stool/ASTOOL23.jpg,Stimuli/Experimental_stims/yarn/edwardian moment hpy sml.jpg
+320,6,0,0,20-80,20,80,-60,0,1500,1500,makeup compact,door knob,makeup compact13,door knob15,20,100,267,99,31YfapjS3TL._AA250_.jpg,Legacy_oval.jpg,Stimuli/Experimental_stims/makeup compact/31YfapjS3TL._AA250_.jpg,Stimuli/Experimental_stims/door knob/Legacy_oval.jpg
+321,6,0,1,NaN,NA,NA,NA,NA,2000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+322,6,0,0,60-80,80,60,20,1,1000,3500,baby carriage,vase,baby carriage15,vase1,100,80,14,561,AANBABYC2.jpg,Avase114.jpg,Stimuli/Experimental_stims/baby carriage/AANBABYC2.jpg,Stimuli/Experimental_stims/vase/Avase114.jpg
+323,6,0,0,20-60,20,60,-40,0,2000,1500,frame,telescope,frame14,telescope11,20,60,166,503,AFRAME129.jpg,digimarc.ms03.jpg,Stimuli/Experimental_stims/frame/AFRAME129.jpg,Stimuli/Experimental_stims/telescope/digimarc.ms03.jpg
+324,6,0,0,20-20,20,20,0,NA,1500,3000,license plate,lipstick,license plate11,lipstick13,20,40,231,250,az-942-atg.jpg,P184708_hero.jpg,Stimuli/Experimental_stims/license plate/az-942-atg.jpg,Stimuli/Experimental_stims/lipstick/P184708_hero.jpg
+325,6,0,0,80-80,80,80,0,NA,1500,1500,flashlight,dresser,flashlight5,dresser4,80,100,140,105,Streamlight-71001-Jr-Flashlight-W-batteries-black-B00018A3CG-L.jpg,ADRESSE40.jpg,Stimuli/Experimental_stims/flashlight/Streamlight-71001-Jr-Flashlight-W-batteries-black-B00018A3CG-L.jpg,Stimuli/Experimental_stims/dresser/ADRESSE40.jpg
+326,6,0,0,20-80,80,20,60,1,2000,1500,bowl,license plate,bowl9,license plate7,80,0,59,227,21123_285.jpg,co-825-fjf.jpg,Stimuli/Experimental_stims/bowl/21123_285.jpg,Stimuli/Experimental_stims/license plate/co-825-fjf.jpg
+327,6,0,0,20-60,20,60,-40,0,1500,1000,key chain,stool,key chain1,stool2,40,40,204,460,jm05s16.jpg,ASTOOL46.jpg,Stimuli/Experimental_stims/key chain/jm05s16.jpg,Stimuli/Experimental_stims/stool/ASTOOL46.jpg
+328,6,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+329,6,0,0,20-80,20,80,-60,0,1000,2000,lipstick,bench,lipstick3,bench11,0,80,240,27,31sCvjMS3jL._SS500_.jpg,22928468.thl.jpg,Stimuli/Experimental_stims/lipstick/31sCvjMS3jL._SS500_.jpg,Stimuli/Experimental_stims/bench/22928468.thl.jpg
+330,6,0,0,20-80,80,20,60,1,1000,1000,bench,license plate,bench15,license plate2,80,40,31,222,Abench12.jpg,ny-u93-8zs.jpg,Stimuli/Experimental_stims/bench/Abench12.jpg,Stimuli/Experimental_stims/license plate/ny-u93-8zs.jpg
+331,6,0,0,40-40,40,40,0,NA,1000,2000,necklace,sofa,necklace2,sofa11,20,60,324,452,Anecklace7.jpg,ALOVSEA19.jpg,Stimuli/Experimental_stims/necklace/Anecklace7.jpg,Stimuli/Experimental_stims/sofa/ALOVSEA19.jpg
+332,6,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+333,6,0,0,60-80,60,80,-20,0,1500,1500,tent,dresser,tent7,dresser6,80,80,516,107,9238gh948h.jpg,ADRESSE96.jpg,Stimuli/Experimental_stims/tent/9238gh948h.jpg,Stimuli/Experimental_stims/dresser/ADRESSE96.jpg
+334,6,0,0,40-80,40,80,-40,0,1500,1000,necklace,desk,necklace1,desk14,40,60,323,81,26443173.thl.jpg,26419960.thl.jpg,Stimuli/Experimental_stims/necklace/26443173.thl.jpg,Stimuli/Experimental_stims/desk/26419960.thl.jpg
+335,6,0,0,40-80,80,40,40,1,3500,1000,fan,sofa,fan13,sofa3,80,40,131,444,511976_sk_lg.jpg,ACOUCH14.jpg,Stimuli/Experimental_stims/fan/511976_sk_lg.jpg,Stimuli/Experimental_stims/sofa/ACOUCH14.jpg
+336,6,0,1,NaN,NA,NA,NA,NA,3000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+337,6,0,0,40-60,60,40,20,1,1000,1500,trumpet,poker card,trumpet7,poker card10,60,20,550,383,JTP-606MRS.jpg,22864488.thl.jpg,Stimuli/Experimental_stims/trumpet/JTP-606MRS.jpg,Stimuli/Experimental_stims/poker card/22864488.thl.jpg
+338,6,0,0,20-80,20,80,-60,0,1000,1000,frame,bowl,frame8,bowl5,20,100,160,55,AFRAME154.jpg,AWOODBOWL.jpg,Stimuli/Experimental_stims/frame/AFRAME154.jpg,Stimuli/Experimental_stims/bowl/AWOODBOWL.jpg
+339,6,0,1,NaN,NA,NA,NA,NA,1000,3500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+340,6,0,0,40-80,40,80,-40,0,3500,1000,poker card,bongo,poker card14,bongo14,60,60,387,47,22864248.thl.jpg,26390667.thl.jpg,Stimuli/Experimental_stims/poker card/22864248.thl.jpg,Stimuli/Experimental_stims/bongo/26390667.thl.jpg
+341,6,0,1,NaN,NA,NA,NA,NA,1000,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+342,6,0,1,NaN,NA,NA,NA,NA,1000,1500,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+343,6,0,0,20-80,80,20,60,1,2000,1000,dresser,hat,dresser1,hat15,60,0,102,201,ADRESSE52.jpg,AFISHHAT2.jpg,Stimuli/Experimental_stims/dresser/ADRESSE52.jpg,Stimuli/Experimental_stims/hat/AFISHHAT2.jpg
+344,6,0,1,NaN,NA,NA,NA,NA,3000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+345,6,0,0,40-80,40,80,-40,0,2000,1000,power strip,fan,power strip1,fan8,20,100,391,126,6a30daf6-943c-4ced-bfa0-c42f35b22380_400.jpg,f_tf1224_angle.jpg,Stimuli/Experimental_stims/power strip/6a30daf6-943c-4ced-bfa0-c42f35b22380_400.jpg,Stimuli/Experimental_stims/fan/f_tf1224_angle.jpg
+346,6,0,0,40-80,40,80,-40,0,3000,3000,patio lounge chair,bench,patio lounge chair1,bench3,60,60,340,19,product1-s.jpg,26419540.thl.jpg,Stimuli/Experimental_stims/patio lounge chair/product1-s.jpg,Stimuli/Experimental_stims/bench/26419540.thl.jpg
+347,6,0,0,20-60,20,60,-40,0,1000,1500,frame,stool,frame10,stool1,0,80,162,459,AFRAME107.jpg,ASTOOL42.jpg,Stimuli/Experimental_stims/frame/AFRAME107.jpg,Stimuli/Experimental_stims/stool/ASTOOL42.jpg
+348,6,0,1,NaN,NA,NA,NA,NA,1500,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+349,6,0,0,20-80,80,20,60,1,1500,2000,bowl,motorcycle,bowl11,motorcycle12,60,40,61,300,Abowl46.jpg,motorcycle14.jpg,Stimuli/Experimental_stims/bowl/Abowl46.jpg,Stimuli/Experimental_stims/motorcycle/motorcycle14.jpg
+350,6,0,0,40-60,60,40,20,1,1000,1500,trumpet,sofa,trumpet9,sofa13,80,20,552,454,trumpet3.jpg,ACOUCH25.jpg,Stimuli/Experimental_stims/trumpet/trumpet3.jpg,Stimuli/Experimental_stims/sofa/ACOUCH25.jpg
+351,6,0,0,80-80,80,80,0,NA,3500,1000,desk,door knob,desk11,door knob8,80,60,78,92,Writing_Desk_280_Cutout_Sideview_half.jpg,pro_l_116_medeco437ul.jpg,Stimuli/Experimental_stims/desk/Writing_Desk_280_Cutout_Sideview_half.jpg,Stimuli/Experimental_stims/door knob/pro_l_116_medeco437ul.jpg
+352,6,0,0,40-60,40,60,-20,0,2000,3500,poker card,train,poker card9,train5,60,40,382,531,9817230.thl.jpg,thumb-briolightsoundsteamengine.jpg,Stimuli/Experimental_stims/poker card/9817230.thl.jpg,Stimuli/Experimental_stims/train/thumb-briolightsoundsteamengine.jpg
+353,6,0,0,60-60,60,60,0,NA,1000,1000,yarn,telescope,yarn12,telescope1,40,60,606,493,Aballofyarn35.jpg,celestron nexstar 114 gt reflector telescope.jpg,Stimuli/Experimental_stims/yarn/Aballofyarn35.jpg,Stimuli/Experimental_stims/telescope/celestron nexstar 114 gt reflector telescope.jpg
+354,6,0,0,40-60,60,40,20,1,1500,1000,tent,necklace,tent13,necklace15,80,40,522,337,camping-tent-north-star.jpg,necklascenew04.jpg,Stimuli/Experimental_stims/tent/camping-tent-north-star.jpg,Stimuli/Experimental_stims/necklace/necklascenew04.jpg
+355,6,0,0,20-40,40,20,20,1,1000,1000,nail polish,motorcycle,nail polish1,motorcycle3,60,40,306,291,200.jpg,motorcycle40.jpg,Stimuli/Experimental_stims/nail polish/200.jpg,Stimuli/Experimental_stims/motorcycle/motorcycle40.jpg
+356,6,0,0,40-40,40,40,0,NA,1500,1000,necklace,nail polish,necklace4,nail polish6,60,20,326,311,emerald_diamond_necklace.jpg,127_t.jpg,Stimuli/Experimental_stims/necklace/emerald_diamond_necklace.jpg,Stimuli/Experimental_stims/nail polish/127_t.jpg
+357,6,0,1,NaN,NA,NA,NA,NA,1000,1000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+358,6,0,1,NaN,NA,NA,NA,NA,2000,3000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+359,6,0,0,40-60,40,60,-20,0,1000,3000,seashell,watch,seashell6,watch12,40,80,413,589,PY2H1461.jpg,snl003_MED.jpg,Stimuli/Experimental_stims/seashell/PY2H1461.jpg,Stimuli/Experimental_stims/watch/snl003_MED.jpg
+360,6,0,1,NaN,NA,NA,NA,NA,1500,2000,NaN,NaN,NaN,NaN,NA,NA,NA,NA,NaN,NaN,NaN,NaN
+361,6,0,0,40-60,60,40,20,1,2000,2000,watch,sofa,watch1,sofa2,80,40,578,443,B000B5K8XI.01-A2E7J74KJYV9ZH._AA280_SCLZZZZZZZ_V53007008_.jpg,ALOVSEA12.jpg,Stimuli/Experimental_stims/watch/B000B5K8XI.01-A2E7J74KJYV9ZH._AA280_SCLZZZZZZZ_V53007008_.jpg,Stimuli/Experimental_stims/sofa/ALOVSEA12.jpg
+362,6,0,0,20-60,20,60,-40,0,2000,1000,frame,train,frame11,train3,0,60,163,529,AFRAME139.jpg,stackloco.jpg,Stimuli/Experimental_stims/frame/AFRAME139.jpg,Stimuli/Experimental_stims/train/stackloco.jpg
+363,6,0,0,40-80,40,80,-40,0,2000,1500,nail polish,desk,nail polish10,desk10,20,100,315,77,NLM23_opi_nail_polish.jpg,MEX028.jpg,Stimuli/Experimental_stims/nail polish/NLM23_opi_nail_polish.jpg,Stimuli/Experimental_stims/desk/MEX028.jpg
+364,6,0,0,20-40,40,20,20,1,3500,1000,poker card,hammer,poker card11,hammer6,40,20,384,175,9817013.thl.jpg,hammer03.jpg,Stimuli/Experimental_stims/poker card/9817013.thl.jpg,Stimuli/Experimental_stims/hammer/hammer03.jpg

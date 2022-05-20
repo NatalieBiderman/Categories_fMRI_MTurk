@@ -1,0 +1,613 @@
+index,category,img,is_test_item,exemplar,kinds,shape,color,overall perceptual (upright),overall perceptual (inverted)
+0,baby carriage,babycarriage16.jpg,0,baby carriage1,2.2,3.9,4.3,4,3.8
+1,baby carriage,Baby_Carriage.jpg,0,baby carriage2,2.2,3.9,4.3,4,3.8
+2,baby carriage,Stroller.jpg,0,baby carriage3,2.2,3.9,4.3,4,3.8
+3,baby carriage,26373711.thl.jpg,0,baby carriage4,2.2,3.9,4.3,4,3.8
+4,baby carriage,Baby_Stroller.jpg,0,baby carriage5,2.2,3.9,4.3,4,3.8
+5,baby carriage,Baby_Stroller-1.jpg,0,baby carriage6,2.2,3.9,4.3,4,3.8
+6,baby carriage,26423282.thl.jpg,0,baby carriage7,2.2,3.9,4.3,4,3.8
+7,baby carriage,peg_perego_uno_revi_black.jpg,0,baby carriage8,2.2,3.9,4.3,4,3.8
+8,baby carriage,Antique baby Carriage 7.jpg,0,baby carriage9,2.2,3.9,4.3,4,3.8
+9,baby carriage,peg_perego_uno_blu.jpg,0,baby carriage10,2.2,3.9,4.3,4,3.8
+10,baby carriage,Baby_Carriage-2.jpg,0,baby carriage11,2.2,3.9,4.3,4,3.8
+11,baby carriage,Baby_Carriage-1.jpg,0,baby carriage12,2.2,3.9,4.3,4,3.8
+12,baby carriage,300px-Barnevogn2.jpg,0,baby carriage13,2.2,3.9,4.3,4,3.8
+13,baby carriage,peg_perego_uno_verde.jpg,0,baby carriage14,2.2,3.9,4.3,4,3.8
+14,baby carriage,AANBABYC2.jpg,0,baby carriage15,2.2,3.9,4.3,4,3.8
+15,baby carriage,26420052.thl.jpg,test_item,baby carriage16,2.2,3.9,4.3,4,3.8
+16,baby carriage,26382000.thl.jpg,test_item,baby carriage17,2.2,3.9,4.3,4,3.8
+17,bench,26419975.thl.jpg,0,bench1,2.3,3.6,3.2,3.8,3.7
+18,bench,26369969.thl.jpg,0,bench2,2.3,3.6,3.2,3.8,3.7
+19,bench,26419540.thl.jpg,0,bench3,2.3,3.6,3.2,3.8,3.7
+20,bench,30892819.thl.jpg,0,bench4,2.3,3.6,3.2,3.8,3.7
+21,bench,APARKBEN8.jpg,0,bench5,2.3,3.6,3.2,3.8,3.7
+22,bench,26370121.thl.jpg,0,bench6,2.3,3.6,3.2,3.8,3.7
+23,bench,ACONBENCH.jpg,0,bench7,2.3,3.6,3.2,3.8,3.7
+24,bench,APARKBE14.jpg,0,bench8,2.3,3.6,3.2,3.8,3.7
+25,bench,26419898.thl.jpg,0,bench9,2.3,3.6,3.2,3.8,3.7
+26,bench,APARKBE16.jpg,0,bench10,2.3,3.6,3.2,3.8,3.7
+27,bench,22928468.thl.jpg,0,bench11,2.3,3.6,3.2,3.8,3.7
+28,bench,22927976.thl.jpg,0,bench12,2.3,3.6,3.2,3.8,3.7
+29,bench,ABROWNBE4.jpg,0,bench13,2.3,3.6,3.2,3.8,3.7
+30,bench,APARKBENC.jpg,0,bench14,2.3,3.6,3.2,3.8,3.7
+31,bench,Abench12.jpg,0,bench15,2.3,3.6,3.2,3.8,3.7
+32,bench,AWOODBENC.jpg,test_item,bench16,2.3,3.6,3.2,3.8,3.7
+33,bench,26420006.thl.jpg,test_item,bench17,2.3,3.6,3.2,3.8,3.7
+34,bongo,ABONGO22.jpg,0,bongo1,2.1,2.9,3.2,3,2.8
+35,bongo,26390663.thl.jpg,0,bongo2,2.1,2.9,3.2,3,2.8
+36,bongo,26390697.thl.jpg,0,bongo3,2.1,2.9,3.2,3,2.8
+37,bongo,26390708.thl.jpg,0,bongo4,2.1,2.9,3.2,3,2.8
+38,bongo,ABONGDRUM.jpg,0,bongo5,2.1,2.9,3.2,3,2.8
+39,bongo,ABONGO9.jpg,0,bongo6,2.1,2.9,3.2,3,2.8
+40,bongo,26461075.thl.jpg,0,bongo7,2.1,2.9,3.2,3,2.8
+41,bongo,26390661.thl.jpg,0,bongo8,2.1,2.9,3.2,3,2.8
+42,bongo,22946035.thl.jpg,0,bongo9,2.1,2.9,3.2,3,2.8
+43,bongo,22945915.thl.jpg,0,bongo10,2.1,2.9,3.2,3,2.8
+44,bongo,ABONGO6.jpg,0,bongo11,2.1,2.9,3.2,3,2.8
+45,bongo,26686609.thl.jpg,0,bongo12,2.1,2.9,3.2,3,2.8
+46,bongo,26388718.thl.jpg,0,bongo13,2.1,2.9,3.2,3,2.8
+47,bongo,26390667.thl.jpg,0,bongo14,2.1,2.9,3.2,3,2.8
+48,bongo,26390728.thl.jpg,0,bongo15,2.1,2.9,3.2,3,2.8
+49,bongo,ABONGO8.jpg,test_item,bongo16,2.1,2.9,3.2,3,2.8
+50,bongo,ABONGO13.jpg,test_item,bongo17,2.1,2.9,3.2,3,2.8
+51,bowl,ABOWLS6.jpg,0,bowl1,2.2,2.9,4.5,3.3,3.3
+52,bowl,AMIXBOWL2.jpg,0,bowl2,2.2,2.9,4.5,3.3,3.3
+53,bowl,ABOWL8.jpg,0,bowl3,2.2,2.9,4.5,3.3,3.3
+54,bowl,Abowl77.jpg,0,bowl4,2.2,2.9,4.5,3.3,3.3
+55,bowl,AWOODBOWL.jpg,0,bowl5,2.2,2.9,4.5,3.3,3.3
+56,bowl,Abowl59.jpg,0,bowl6,2.2,2.9,4.5,3.3,3.3
+57,bowl,Abowl54.jpg,0,bowl7,2.2,2.9,4.5,3.3,3.3
+58,bowl,ASLVBOWL.jpg,0,bowl8,2.2,2.9,4.5,3.3,3.3
+59,bowl,21123_285.jpg,0,bowl9,2.2,2.9,4.5,3.3,3.3
+60,bowl,Abowl50.jpg,0,bowl10,2.2,2.9,4.5,3.3,3.3
+61,bowl,Abowl46.jpg,0,bowl11,2.2,2.9,4.5,3.3,3.3
+62,bowl,Abowl52.jpg,0,bowl12,2.2,2.9,4.5,3.3,3.3
+63,bowl,Asoupbowl8.jpg,0,bowl13,2.2,2.9,4.5,3.3,3.3
+64,bowl,Aredglassbowl.jpg,0,bowl14,2.2,2.9,4.5,3.3,3.3
+65,bowl,Awhitebowl2.jpg,0,bowl15,2.2,2.9,4.5,3.3,3.3
+66,bowl,ABOWL9.jpg,test_item,bowl16,2.2,2.9,4.5,3.3,3.3
+67,bowl,ASALABOWL.jpg,test_item,bowl17,2.2,2.9,4.5,3.3,3.3
+68,desk,ADESK11.jpg,0,desk1,2.3,3.5,2.4,3.8,2.8
+69,desk,AA Luffield Radial crescent Desk 1600mm x 1200mm.jpg,0,desk2,2.3,3.5,2.4,3.8,2.8
+70,desk,D-1 Four drawers desk Elm 64x23x33.jpg,0,desk3,2.3,3.5,2.4,3.8,2.8
+71,desk,AbbeyMiniRadialBIG(1).jpg,0,desk4,2.3,3.5,2.4,3.8,2.8
+72,desk,ADESK6.jpg,0,desk5,2.3,3.5,2.4,3.8,2.8
+73,desk,0051507b.jpg,0,desk6,2.3,3.5,2.4,3.8,2.8
+74,desk,D-3  One drawer desk  Ming 41.5x25x32.jpg,0,desk7,2.3,3.5,2.4,3.8,2.8
+75,desk,26370118.thl.jpg,0,desk8,2.3,3.5,2.4,3.8,2.8
+76,desk,desk 189dr96dr chr.jpg,0,desk9,2.3,3.5,2.4,3.8,2.8
+77,desk,MEX028.jpg,0,desk10,2.3,3.5,2.4,3.8,2.8
+78,desk,Writing_Desk_280_Cutout_Sideview_half.jpg,0,desk11,2.3,3.5,2.4,3.8,2.8
+79,desk,ADESK19.jpg,0,desk12,2.3,3.5,2.4,3.8,2.8
+80,desk,26427865.thl.jpg,0,desk13,2.3,3.5,2.4,3.8,2.8
+81,desk,26419960.thl.jpg,0,desk14,2.3,3.5,2.4,3.8,2.8
+82,desk,ADESK21.jpg,0,desk15,2.3,3.5,2.4,3.8,2.8
+83,desk,ADESK14.jpg,test_item,desk16,2.3,3.5,2.4,3.8,2.8
+84,desk,cornerworkcentreid.jpg,test_item,desk17,2.3,3.5,2.4,3.8,2.8
+85,door knob,Brass_Door_Handle.jpg,0,door knob1,2.1,4,2.9,4.1,3.9
+86,door knob,500_DECWHIPB.jpg,0,door knob2,2.1,4,2.9,4.1,3.9
+87,door knob,020f7ec6-df08-40fa-b3a5-0dcfb762f085_4.jpg,0,door knob3,2.1,4,2.9,4.1,3.9
+88,door knob,chrome scroll latch handle.jpg,0,door knob4,2.1,4,2.9,4.1,3.9
+89,door knob,Parth_Portofino_500.jpg,0,door knob5,2.1,4,2.9,4.1,3.9
+90,door knob,30fdcb17-b0fd-4f26-8cd8-11adde46fb79_4.jpg,0,door knob6,2.1,4,2.9,4.1,3.9
+91,door knob,doorknob2.jpg,0,door knob7,2.1,4,2.9,4.1,3.9
+92,door knob,pro_l_116_medeco437ul.jpg,0,door knob8,2.1,4,2.9,4.1,3.9
+93,door knob,d08d31bb-7484-41db-96f9-297aeb8651cd_4.jpg,0,door knob9,2.1,4,2.9,4.1,3.9
+94,door knob,c02a578d-c6cc-44ca-8dd2-de8901e30bd7_4.jpg,0,door knob10,2.1,4,2.9,4.1,3.9
+95,door knob,500_MEAMEAOB.jpg,0,door knob11,2.1,4,2.9,4.1,3.9
+96,door knob,500_PRACRYOB.jpg,0,door knob12,2.1,4,2.9,4.1,3.9
+97,door knob,500_CLAWALBC.jpg,0,door knob13,2.1,4,2.9,4.1,3.9
+98,door knob,500_CLANYKAB.jpg,0,door knob14,2.1,4,2.9,4.1,3.9
+99,door knob,Legacy_oval.jpg,0,door knob15,2.1,4,2.9,4.1,3.9
+100,door knob,doorknob1.jpg,test_item,door knob16,2.1,4,2.9,4.1,3.9
+101,door knob,95fde2ad-7824-4e0d-b601-94f9802ea993_4.jpg,test_item,door knob17,2.1,4,2.9,4.1,3.9
+102,dresser,ADRESSE52.jpg,0,dresser1,2.3,2.9,1.5,2.3,2.8
+103,dresser,ADRESSE46.jpg,0,dresser2,2.3,2.9,1.5,2.3,2.8
+104,dresser,ADRESSE79.jpg,0,dresser3,2.3,2.9,1.5,2.3,2.8
+105,dresser,ADRESSE40.jpg,0,dresser4,2.3,2.9,1.5,2.3,2.8
+106,dresser,ADRESSE55.jpg,0,dresser5,2.3,2.9,1.5,2.3,2.8
+107,dresser,ADRESSE96.jpg,0,dresser6,2.3,2.9,1.5,2.3,2.8
+108,dresser,ADRESSE43.jpg,0,dresser7,2.3,2.9,1.5,2.3,2.8
+109,dresser,Adresser14.jpg,0,dresser8,2.3,2.9,1.5,2.3,2.8
+110,dresser,ADRESSER.jpg,0,dresser9,2.3,2.9,1.5,2.3,2.8
+111,dresser,ADRESSE14.jpg,0,dresser10,2.3,2.9,1.5,2.3,2.8
+112,dresser,ADRESSE66.jpg,0,dresser11,2.3,2.9,1.5,2.3,2.8
+113,dresser,ADRESSE58.jpg,0,dresser12,2.3,2.9,1.5,2.3,2.8
+114,dresser,ADRESSE70.jpg,0,dresser13,2.3,2.9,1.5,2.3,2.8
+115,dresser,Adressertabl3.jpg,0,dresser14,2.3,2.9,1.5,2.3,2.8
+116,dresser,ADRESSE77.jpg,0,dresser15,2.3,2.9,1.5,2.3,2.8
+117,dresser,ADRESSE31.jpg,test_item,dresser16,2.3,2.9,1.5,2.3,2.8
+118,dresser,ADRESSER8.jpg,test_item,dresser17,2.3,2.9,1.5,2.3,2.8
+119,fan,01393.fpx.jpg,0,fan1,2.3,3.1,2,3.1,3.5
+120,fan,507349_sk_lg.jpg,0,fan2,2.3,3.1,2,3.1,3.5
+121,fan,CFT401.jpg,0,fan3,2.3,3.1,2,3.1,3.5
+122,fan,AFAN39.jpg,0,fan4,2.3,3.1,2,3.1,3.5
+123,fan,Table_Fan.jpg,0,fan5,2.3,3.1,2,3.1,3.5
+124,fan,30090.fpx.jpg,0,fan6,2.3,3.1,2,3.1,3.5
+125,fan,250679_lg.jpg,0,fan7,2.3,3.1,2,3.1,3.5
+126,fan,f_tf1224_angle.jpg,0,fan8,2.3,3.1,2,3.1,3.5
+127,fan,FT-40A.jpg,0,fan9,2.3,3.1,2,3.1,3.5
+128,fan,n_sf_1666.jpg,0,fan10,2.3,3.1,2,3.1,3.5
+129,fan,n_sf.jpg,0,fan11,2.3,3.1,2,3.1,3.5
+130,fan,116544_sk_lg.jpg,0,fan12,2.3,3.1,2,3.1,3.5
+131,fan,511976_sk_lg.jpg,0,fan13,2.3,3.1,2,3.1,3.5
+132,fan,124771_sk_lg.jpg,0,fan14,2.3,3.1,2,3.1,3.5
+133,fan,n_hsf.jpg,0,fan15,2.3,3.1,2,3.1,3.5
+134,fan,24643.jpg,test_item,fan16,2.3,3.1,2,3.1,3.5
+135,fan,20282.fpx.jpg,test_item,fan17,2.3,3.1,2,3.1,3.5
+136,flashlight,Graphite3D.jpg,0,flashlight1,2,2.7,3.4,2.2,2.8
+137,flashlight,AV-9 No Battery Flashlight.jpg,0,flashlight2,2,2.7,3.4,2.2,2.8
+138,flashlight,sl_tasklight_2l3w.jpg,0,flashlight3,2,2.7,3.4,2.2,2.8
+139,flashlight,new08.jpg,0,flashlight4,2,2.7,3.4,2.2,2.8
+140,flashlight,Streamlight-71001-Jr-Flashlight-W-batteries-black-B00018A3CG-L.jpg,0,flashlight5,2,2.7,3.4,2.2,2.8
+141,flashlight,Flashlight.jpg,0,flashlight6,2,2.7,3.4,2.2,2.8
+142,flashlight,11900.jpg,0,flashlight7,2,2.7,3.4,2.2,2.8
+143,flashlight,Streamlight-Stinger-Rechargeable-Flashlight-with-Charger-Black-75014-B00008BFSI-L.jpg,0,flashlight8,2,2.7,3.4,2.2,2.8
+144,flashlight,new06.jpg,0,flashlight9,2,2.7,3.4,2.2,2.8
+145,flashlight,834784_sk_lg.jpg,0,flashlight10,2,2.7,3.4,2.2,2.8
+146,flashlight,new04.jpg,0,flashlight11,2,2.7,3.4,2.2,2.8
+147,flashlight,new05.jpg,0,flashlight12,2,2.7,3.4,2.2,2.8
+148,flashlight,834808_sk_lg.jpg,0,flashlight13,2,2.7,3.4,2.2,2.8
+149,flashlight,freeplay-jonta-flashlight.jpg,0,flashlight14,2,2.7,3.4,2.2,2.8
+150,flashlight,freeplay-xray-wind-up-led-flashlight.jpg,0,flashlight15,2,2.7,3.4,2.2,2.8
+151,flashlight,Small-Dynamo-Flashlight-With-Hand-Crank-Back-up-Power-B000AMKUH6-L.jpg,test_item,flashlight16,2,2.7,3.4,2.2,2.8
+152,flashlight,Streamlight-Flashlight-LED-4AA-Yellow-Case-w-7-Blue-LEDs-B0000WUNSC-L.jpg,test_item,flashlight17,2,2.7,3.4,2.2,2.8
+153,frame,AFRAME127.jpg,0,frame1,2.2,3.4,2.6,3.8,3
+154,frame,AFRAME23.jpg,0,frame2,2.2,3.4,2.6,3.8,3
+155,frame,AFRAME132.jpg,0,frame3,2.2,3.4,2.6,3.8,3
+156,frame,AFRAME125.jpg,0,frame4,2.2,3.4,2.6,3.8,3
+157,frame,AFRAME136.jpg,0,frame5,2.2,3.4,2.6,3.8,3
+158,frame,AFRAME123.jpg,0,frame6,2.2,3.4,2.6,3.8,3
+159,frame,AFRAME152.jpg,0,frame7,2.2,3.4,2.6,3.8,3
+160,frame,AFRAME154.jpg,0,frame8,2.2,3.4,2.6,3.8,3
+161,frame,AFRAME188.jpg,0,frame9,2.2,3.4,2.6,3.8,3
+162,frame,AFRAME107.jpg,0,frame10,2.2,3.4,2.6,3.8,3
+163,frame,AFRAME139.jpg,0,frame11,2.2,3.4,2.6,3.8,3
+164,frame,AFRAME138.jpg,0,frame12,2.2,3.4,2.6,3.8,3
+165,frame,AFRAME115.jpg,0,frame13,2.2,3.4,2.6,3.8,3
+166,frame,AFRAME129.jpg,0,frame14,2.2,3.4,2.6,3.8,3
+167,frame,AFRAME13.jpg,0,frame15,2.2,3.4,2.6,3.8,3
+168,frame,AFRAME134.jpg,test_item,frame16,2.2,3.4,2.6,3.8,3
+169,frame,AFRAME169.jpg,test_item,frame17,2.2,3.4,2.6,3.8,3
+170,hammer,fosnaugh.hammer.jpg,0,hammer1,2,2.3,2.5,2.1,2.3
+171,hammer,hammer04.jpg,0,hammer2,2,2.3,2.5,2.1,2.3
+172,hammer,hammernew03.jpg,0,hammer3,2,2.3,2.5,2.1,2.3
+173,hammer,hammernew01.jpg,0,hammer4,2,2.3,2.5,2.1,2.3
+174,hammer,hammer02.jpg,0,hammer5,2,2.3,2.5,2.1,2.3
+175,hammer,hammer03.jpg,0,hammer6,2,2.3,2.5,2.1,2.3
+176,hammer,hammer01.jpg,0,hammer7,2,2.3,2.5,2.1,2.3
+177,hammer,ct1006_hammer.jpg,0,hammer8,2,2.3,2.5,2.1,2.3
+178,hammer,AHAMMER5.jpg,0,hammer9,2,2.3,2.5,2.1,2.3
+179,hammer,Tabla Hammer.JPG,0,hammer10,2,2.3,2.5,2.1,2.3
+180,hammer,8oz-hammer-copy.jpg,0,hammer11,2,2.3,2.5,2.1,2.3
+181,hammer,24oz hammer.jpg,0,hammer12,2,2.3,2.5,2.1,2.3
+182,hammer,hammer2.jpg,0,hammer13,2,2.3,2.5,2.1,2.3
+183,hammer,hammer.jpg,0,hammer14,2,2.3,2.5,2.1,2.3
+184,hammer,Vaughan-32-oz-Hickory-Handle-Ball-Pein-Hammer-S432-B0001LRUJM-L-ARCQ0EBO8TR73_.jpg,0,hammer15,2,2.3,2.5,2.1,2.3
+185,hammer,171805.jpg,test_item,hammer16,2,2.3,2.5,2.1,2.3
+186,hammer,20060627-xml-hammer.jpg,test_item,hammer17,2,2.3,2.5,2.1,2.3
+187,hat,AGREENHAT.jpg,0,hat1,2.3,2.4,4.7,3.4,3.2
+188,hat,Ahatwithfeat7.jpg,0,hat2,2.3,2.4,4.7,3.4,3.2
+189,hat,Astrawhat49.jpg,0,hat3,2.3,2.4,4.7,3.4,3.2
+190,hat,JS370.jpg,0,hat4,2.3,2.4,4.7,3.4,3.2
+191,hat,AREDHAT4.jpg,0,hat5,2.3,2.4,4.7,3.4,3.2
+192,hat,Acasualhat5.jpg,0,hat6,2.3,2.4,4.7,3.4,3.2
+193,hat,ASTRHATFL.jpg,0,hat7,2.3,2.4,4.7,3.4,3.2
+194,hat,ABLUEHAT.jpg,0,hat8,2.3,2.4,4.7,3.4,3.2
+195,hat,Astrawhat44.jpg,0,hat9,2.3,2.4,4.7,3.4,3.2
+196,hat,Atornhat3.jpg,0,hat10,2.3,2.4,4.7,3.4,3.2
+197,hat,AFELTHAT.jpg,0,hat11,2.3,2.4,4.7,3.4,3.2
+198,hat,Aformalhat5.jpg,0,hat12,2.3,2.4,4.7,3.4,3.2
+199,hat,Ahatwithfeath.jpg,0,hat13,2.3,2.4,4.7,3.4,3.2
+200,hat,Ahat136.jpg,0,hat14,2.3,2.4,4.7,3.4,3.2
+201,hat,AFISHHAT2.jpg,0,hat15,2.3,2.4,4.7,3.4,3.2
+202,hat,Apanamahat2.jpg,test_item,hat16,2.3,2.4,4.7,3.4,3.2
+203,hat,AYELLHAT.jpg,test_item,hat17,2.3,2.4,4.7,3.4,3.2
+204,key chain,jm05s16.jpg,0,key chain1,2.2,4.5,4.4,4.5,3.9
+205,key chain,superman_returns_pewter_keychain_2.jpg,0,key chain2,2.2,4.5,4.4,4.5,3.9
+206,key chain,Keychain_Voice_Recorder.jpg,0,key chain3,2.2,4.5,4.4,4.5,3.9
+207,key chain,Gumby_Green-Keychain.jpg,0,key chain4,2.2,4.5,4.4,4.5,3.9
+208,key chain,keychain-metal-logo.jpg,0,key chain5,2.2,4.5,4.4,4.5,3.9
+209,key chain,highboy_keychain_ItemCA75384.jpg,0,key chain6,2.2,4.5,4.4,4.5,3.9
+210,key chain,keychain-gentoo-linux.jpg,0,key chain7,2.2,4.5,4.4,4.5,3.9
+211,key chain,Keychain01.jpg,0,key chain8,2.2,4.5,4.4,4.5,3.9
+212,key chain,sfx8832-ferrari-shield-keychain.jpg,0,key chain9,2.2,4.5,4.4,4.5,3.9
+213,key chain,Smurfs_Keychains_Smurf_Row_Boat.jpg,0,key chain10,2.2,4.5,4.4,4.5,3.9
+214,key chain,31H95JKXWNL._SS500_.jpg,0,key chain11,2.2,4.5,4.4,4.5,3.9
+215,key chain,keychain.jpg,0,key chain12,2.2,4.5,4.4,4.5,3.9
+216,key chain,Fancy_Liquid_Column_Shape_Key_Ring_with_Floater.jpg,0,key chain13,2.2,4.5,4.4,4.5,3.9
+217,key chain,Jif Keychain 285.jpg,0,key chain14,2.2,4.5,4.4,4.5,3.9
+218,key chain,Soft_PVC_Keychain.jpg,0,key chain15,2.2,4.5,4.4,4.5,3.9
+219,key chain,got-music-keychain.jpg,test_item,key chain16,2.2,4.5,4.4,4.5,3.9
+220,key chain,Cobra key chain.jpg,test_item,key chain17,2.2,4.5,4.4,4.5,3.9
+221,license plate,il-423-3784.jpg,0,license plate1,2.2,1,4.1,2.7,3.2
+222,license plate,ny-u93-8zs.jpg,0,license plate2,2.2,1,4.1,2.7,3.2
+223,license plate,tx-r17-wbx.jpg,0,license plate3,2.2,1,4.1,2.7,3.2
+224,license plate,ca-2flt842.jpg,0,license plate4,2.2,1,4.1,2.7,3.2
+225,license plate,va-eew.jpg,0,license plate5,2.2,1,4.1,2.7,3.2
+226,license plate,ak-cru-684.jpg,0,license plate6,2.2,1,4.1,2.7,3.2
+227,license plate,co-825-fjf.jpg,0,license plate7,2.2,1,4.1,2.7,3.2
+228,license plate,dc-vrw-jsw.jpg,0,license plate8,2.2,1,4.1,2.7,3.2
+229,license plate,nm-dhg089.jpg,0,license plate9,2.2,1,4.1,2.7,3.2
+230,license plate,pa-nfn-011.jpg,0,license plate10,2.2,1,4.1,2.7,3.2
+231,license plate,az-942-atg.jpg,0,license plate11,2.2,1,4.1,2.7,3.2
+232,license plate,TurtleLicensePlate.jpg,0,license plate12,2.2,1,4.1,2.7,3.2
+233,license plate,usa-rj-9517.jpg,0,license plate13,2.2,1,4.1,2.7,3.2
+234,license plate,fl-hel-bel.jpg,0,license plate14,2.2,1,4.1,2.7,3.2
+235,license plate,hi-hwr-837.jpg,0,license plate15,2.2,1,4.1,2.7,3.2
+236,license plate,ky-451-jbj.jpg,test_item,license plate16,2.2,1,4.1,2.7,3.2
+237,license plate,ga-467lr.jpg,test_item,license plate17,2.2,1,4.1,2.7,3.2
+238,lipstick,P170102_hero.jpg,0,lipstick1,2.1,2.4,3.6,2.7,3
+239,lipstick,11uuoPMY+OL._SS500_.jpg,0,lipstick2,2.1,2.4,3.6,2.7,3
+240,lipstick,31sCvjMS3jL._SS500_.jpg,0,lipstick3,2.1,2.4,3.6,2.7,3
+241,lipstick,P145703_hero.jpg,0,lipstick4,2.1,2.4,3.6,2.7,3
+242,lipstick,P35719_hero.jpg,0,lipstick5,2.1,2.4,3.6,2.7,3
+243,lipstick,P182413_hero.jpg,0,lipstick6,2.1,2.4,3.6,2.7,3
+244,lipstick,P101401_hero.jpg,0,lipstick7,2.1,2.4,3.6,2.7,3
+245,lipstick,P174215_hero.jpg,0,lipstick8,2.1,2.4,3.6,2.7,3
+246,lipstick,P189145_hero.jpg,0,lipstick9,2.1,2.4,3.6,2.7,3
+247,lipstick,21K0D7QKFAL._SS500_.jpg,0,lipstick10,2.1,2.4,3.6,2.7,3
+248,lipstick,21SS8DBWDQL._SS500_.jpg,0,lipstick11,2.1,2.4,3.6,2.7,3
+249,lipstick,P173709_hero.jpg,0,lipstick12,2.1,2.4,3.6,2.7,3
+250,lipstick,P184708_hero.jpg,0,lipstick13,2.1,2.4,3.6,2.7,3
+251,lipstick,P109907_hero.jpg,0,lipstick14,2.1,2.4,3.6,2.7,3
+252,lipstick,P9436_hero.jpg,0,lipstick15,2.1,2.4,3.6,2.7,3
+253,lipstick,P12820_hero.jpg,test_item,lipstick16,2.1,2.4,3.6,2.7,3
+254,lipstick,P12771_hero.jpg,test_item,lipstick17,2.1,2.4,3.6,2.7,3
+255,makeup compact,P190250_hero.jpg,0,makeup compact1,2.3,2.5,3.3,2.8,3.2
+256,makeup compact,P183922_hero.jpg,0,makeup compact2,2.3,2.5,3.3,2.8,3.2
+257,makeup compact,P181006_hero.jpg,0,makeup compact3,2.3,2.5,3.3,2.8,3.2
+258,makeup compact,262668_fpx.jpg,0,makeup compact4,2.3,2.5,3.3,2.8,3.2
+259,makeup compact,P109965_hero.jpg,0,makeup compact5,2.3,2.5,3.3,2.8,3.2
+260,makeup compact,P0754_hero.jpg,0,makeup compact6,2.3,2.5,3.3,2.8,3.2
+261,makeup compact,P187133_hero.jpg,0,makeup compact7,2.3,2.5,3.3,2.8,3.2
+262,makeup compact,P189207_hero.jpg,0,makeup compact8,2.3,2.5,3.3,2.8,3.2
+263,makeup compact,b_102019.jpg,0,makeup compact9,2.3,2.5,3.3,2.8,3.2
+264,makeup compact,P95108_hero.jpg,0,makeup compact10,2.3,2.5,3.3,2.8,3.2
+265,makeup compact,P190255_hero.jpg,0,makeup compact11,2.3,2.5,3.3,2.8,3.2
+266,makeup compact,P139103_hero.jpg,0,makeup compact12,2.3,2.5,3.3,2.8,3.2
+267,makeup compact,31YfapjS3TL._AA250_.jpg,0,makeup compact13,2.3,2.5,3.3,2.8,3.2
+268,makeup compact,262597_fpx.jpg,0,makeup compact14,2.3,2.5,3.3,2.8,3.2
+269,makeup compact,05086681402.jpg,0,makeup compact15,2.3,2.5,3.3,2.8,3.2
+270,makeup compact,31SC4G8FDJL._AA280_.jpg,test_item,makeup compact16,2.3,2.5,3.3,2.8,3.2
+271,makeup compact,b_y10133.jpg,test_item,makeup compact17,2.3,2.5,3.3,2.8,3.2
+272,microscope,digital-blue-microscope-qx5-md.jpg,0,microscope1,2.2,3.5,2.5,2.8,2.8
+273,microscope,3090-b.jpg,0,microscope2,2.2,3.5,2.5,2.8,2.8
+274,microscope,APDB.jpg,0,microscope3,2.2,3.5,2.5,2.8,2.8
+275,microscope,55071208.JPG,0,microscope4,2.2,3.5,2.5,2.8,2.8
+276,microscope,emMicroscope.jpg,0,microscope5,2.2,3.5,2.5,2.8,2.8
+277,microscope,AMICROS25.jpg,0,microscope6,2.2,3.5,2.5,2.8,2.8
+278,microscope,microscope.jpg,0,microscope7,2.2,3.5,2.5,2.8,2.8
+279,microscope,AMICROS21.jpg,0,microscope8,2.2,3.5,2.5,2.8,2.8
+280,microscope,AMICROS34.jpg,0,microscope9,2.2,3.5,2.5,2.8,2.8
+281,microscope,DS-2.jpg,0,microscope10,2.2,3.5,2.5,2.8,2.8
+282,microscope,konus5604microscope.jpg,0,microscope11,2.2,3.5,2.5,2.8,2.8
+283,microscope,usbdigitalmicroscope1_small1.jpg,0,microscope12,2.2,3.5,2.5,2.8,2.8
+284,microscope,digital-microscope-420tc.jpg,0,microscope13,2.2,3.5,2.5,2.8,2.8
+285,microscope,AMICROS40.jpg,0,microscope14,2.2,3.5,2.5,2.8,2.8
+286,microscope,Amicroscope23.jpg,0,microscope15,2.2,3.5,2.5,2.8,2.8
+287,microscope,M200_Microscope.jpg,test_item,microscope16,2.2,3.5,2.5,2.8,2.8
+288,microscope,AMICROS38.jpg,test_item,microscope17,2.2,3.5,2.5,2.8,2.8
+289,motorcycle,motorcycle30.jpg,0,motorcycle1,2.1,2.9,3.6,2.4,1.8
+290,motorcycle,motorcycle33.jpg,0,motorcycle2,2.1,2.9,3.6,2.4,1.8
+291,motorcycle,motorcycle40.jpg,0,motorcycle3,2.1,2.9,3.6,2.4,1.8
+292,motorcycle,motorcycle46.jpg,0,motorcycle4,2.1,2.9,3.6,2.4,1.8
+293,motorcycle,motorcycle101.jpg,0,motorcycle5,2.1,2.9,3.6,2.4,1.8
+294,motorcycle,motorcycle45364t4t.jpg,0,motorcycle6,2.1,2.9,3.6,2.4,1.8
+295,motorcycle,MotoSmall.jpg,0,motorcycle7,2.1,2.9,3.6,2.4,1.8
+296,motorcycle,Motorcycle903425j2.jpg,0,motorcycle8,2.1,2.9,3.6,2.4,1.8
+297,motorcycle,speedbike.jpg,0,motorcycle9,2.1,2.9,3.6,2.4,1.8
+298,motorcycle,motorcycle17.jpg,0,motorcycle10,2.1,2.9,3.6,2.4,1.8
+299,motorcycle,sportmotorcycle.jpg,0,motorcycle11,2.1,2.9,3.6,2.4,1.8
+300,motorcycle,motorcycle14.jpg,0,motorcycle12,2.1,2.9,3.6,2.4,1.8
+301,motorcycle,2005-Buell-FireboltXB12R.jpg,0,motorcycle13,2.1,2.9,3.6,2.4,1.8
+302,motorcycle,motorcycle11.jpg,0,motorcycle14,2.1,2.9,3.6,2.4,1.8
+303,motorcycle,2006-Buell-LightningXB12Sa.jpg,0,motorcycle15,2.1,2.9,3.6,2.4,1.8
+304,motorcycle,motorcycle35.jpg,test_item,motorcycle16,2.1,2.9,3.6,2.4,1.8
+305,motorcycle,hawkgt-red-lrg.jpg,test_item,motorcycle17,2.1,2.9,3.6,2.4,1.8
+306,nail polish,200.jpg,0,nail polish1,2,2.1,4.9,2.9,3
+307,nail polish,froggy_t.jpg,0,nail polish2,2,2.1,4.9,2.9,3
+308,nail polish,327636.jpg,0,nail polish3,2,2.1,4.9,2.9,3
+309,nail polish,8027_O.jpg,0,nail polish4,2,2.1,4.9,2.9,3
+310,nail polish,182_t.jpg,0,nail polish5,2,2.1,4.9,2.9,3
+311,nail polish,127_t.jpg,0,nail polish6,2,2.1,4.9,2.9,3
+312,nail polish,117BDAkbo5L._AA160_.jpg,0,nail polish7,2,2.1,4.9,2.9,3
+313,nail polish,283-ILilacYouALot.jpg,0,nail polish8,2,2.1,4.9,2.9,3
+314,nail polish,8037_O.jpg,0,nail polish9,2,2.1,4.9,2.9,3
+315,nail polish,NLM23_opi_nail_polish.jpg,0,nail polish10,2,2.1,4.9,2.9,3
+316,nail polish,Revlon_Super_Top_Speed_Chrome_Nail_Polish-resized200.jpg,0,nail polish11,2,2.1,4.9,2.9,3
+317,nail polish,laquerdUP.jpg,0,nail polish12,2,2.1,4.9,2.9,3
+318,nail polish,31cR10fzlML._AA280_.jpg,0,nail polish13,2,2.1,4.9,2.9,3
+319,nail polish,38031405.JPG,0,nail polish14,2,2.1,4.9,2.9,3
+320,nail polish,MA_NP_WSD.jpg,0,nail polish15,2,2.1,4.9,2.9,3
+321,nail polish,happy_anniversary.jpg,test_item,nail polish16,2,2.1,4.9,2.9,3
+322,nail polish,rbl.nail.polish.revamp.0.4oz.2-737920.jpg,test_item,nail polish17,2,2.1,4.9,2.9,3
+323,necklace,26443173.thl.jpg,0,necklace1,2.2,3.6,3.9,3.7,3.2
+324,necklace,Anecklace7.jpg,0,necklace2,2.2,3.6,3.9,3.7,3.2
+325,necklace,26388201.thl.jpg,0,necklace3,2.2,3.6,3.9,3.7,3.2
+326,necklace,emerald_diamond_necklace.jpg,0,necklace4,2.2,3.6,3.9,3.7,3.2
+327,necklace,necklascenew08.jpg,0,necklace5,2.2,3.6,3.9,3.7,3.2
+328,necklace,Agoldnecklace.jpg,0,necklace6,2.2,3.6,3.9,3.7,3.2
+329,necklace,Anecklace12.jpg,0,necklace7,2.2,3.6,3.9,3.7,3.2
+330,necklace,Anecklace20.jpg,0,necklace8,2.2,3.6,3.9,3.7,3.2
+331,necklace,ANECKLACE.jpg,0,necklace9,2.2,3.6,3.9,3.7,3.2
+332,necklace,necklascenew03.jpg,0,necklace10,2.2,3.6,3.9,3.7,3.2
+333,necklace,necklascenew06.jpg,0,necklace11,2.2,3.6,3.9,3.7,3.2
+334,necklace,necklascenew07.jpg,0,necklace12,2.2,3.6,3.9,3.7,3.2
+335,necklace,Anecklace19.jpg,0,necklace13,2.2,3.6,3.9,3.7,3.2
+336,necklace,necklascenew05.jpg,0,necklace14,2.2,3.6,3.9,3.7,3.2
+337,necklace,necklascenew04.jpg,0,necklace15,2.2,3.6,3.9,3.7,3.2
+338,necklace,necklascenew09.jpg,test_item,necklace16,2.2,3.6,3.9,3.7,3.2
+339,necklace,necklascenew02.jpg,test_item,necklace17,2.2,3.6,3.9,3.7,3.2
+340,patio lounge chair,product1-s.jpg,0,patio lounge chair1,2.2,2.9,4.3,3.6,3.4
+341,patio lounge chair,Marina-metal-chaise-lounge.jpg,0,patio lounge chair2,2.2,2.9,4.3,3.6,3.4
+342,patio lounge chair,Lounge_Chair.jpg,0,patio lounge chair3,2.2,2.9,4.3,3.6,3.4
+343,patio lounge chair,0-teak_tf53er.jpg,0,patio lounge chair4,2.2,2.9,4.3,3.6,3.4
+344,patio lounge chair,Steel_Assembling_Lounge.jpg,0,patio lounge chair5,2.2,2.9,4.3,3.6,3.4
+345,patio lounge chair,Lounge_Chair_with_Pillow.jpg,0,patio lounge chair6,2.2,2.9,4.3,3.6,3.4
+346,patio lounge chair,lg_Serenity_Riviera[1].jpg,0,patio lounge chair7,2.2,2.9,4.3,3.6,3.4
+347,patio lounge chair,43-1.jpg,0,patio lounge chair8,2.2,2.9,4.3,3.6,3.4
+348,patio lounge chair,43-3.jpg,0,patio lounge chair9,2.2,2.9,4.3,3.6,3.4
+349,patio lounge chair,51831.jpg,0,patio lounge chair10,2.2,2.9,4.3,3.6,3.4
+350,patio lounge chair,51830.jpg,0,patio lounge chair11,2.2,2.9,4.3,3.6,3.4
+351,patio lounge chair,rw-mendocinoultrachaisepc032-lg.jpg,0,patio lounge chair12,2.2,2.9,4.3,3.6,3.4
+352,patio lounge chair,grosfillex-bahia-resin-chaise-lounges.jpg,0,patio lounge chair13,2.2,2.9,4.3,3.6,3.4
+353,patio lounge chair,2987951.jpg,0,patio lounge chair14,2.2,2.9,4.3,3.6,3.4
+354,patio lounge chair,phpThumb.jpg,0,patio lounge chair15,2.2,2.9,4.3,3.6,3.4
+355,patio lounge chair,master_BC117.jpg,test_item,patio lounge chair16,2.2,2.9,4.3,3.6,3.4
+356,patio lounge chair,OL20-Oak_Beach_Lounger.jpg,test_item,patio lounge chair17,2.2,2.9,4.3,3.6,3.4
+357,pen,pen09.jpg,0,pen1,2.2,2,3.9,1.4,2.6
+358,pen,Montblanc-Blu-Starwalker-BP copy.jpg,0,pen2,2.2,2,3.9,1.4,2.6
+359,pen,pen08.jpg,0,pen3,2.2,2,3.9,1.4,2.6
+360,pen,Montblanc_Greta_Garbo_BP copy.jpg,0,pen4,2.2,2,3.9,1.4,2.6
+361,pen,1550_1475_popup1.jpg,0,pen5,2.2,2,3.9,1.4,2.6
+362,pen,executive_pen2.jpg,0,pen6,2.2,2,3.9,1.4,2.6
+363,pen,1259_2341_popup1.jpg,0,pen7,2.2,2,3.9,1.4,2.6
+364,pen,1383_1749_popup copy.jpg,0,pen8,2.2,2,3.9,1.4,2.6
+365,pen,Aredpen3.jpg,0,pen9,2.2,2,3.9,1.4,2.6
+366,pen,VP-Raden-FP-L copy.jpg,0,pen10,2.2,2,3.9,1.4,2.6
+367,pen,pen01.jpg,0,pen11,2.2,2,3.9,1.4,2.6
+368,pen,pen02.jpg,0,pen12,2.2,2,3.9,1.4,2.6
+369,pen,pen07.jpg,0,pen13,2.2,2,3.9,1.4,2.6
+370,pen,pen05.jpg,0,pen14,2.2,2,3.9,1.4,2.6
+371,pen,pen04.jpg,0,pen15,2.2,2,3.9,1.4,2.6
+372,pen,montblanc_greta_garbo.jpg,test_item,pen16,2.2,2,3.9,1.4,2.6
+373,pen,pen06.jpg,test_item,pen17,2.2,2,3.9,1.4,2.6
+374,poker card,22864704.thl.jpg,0,poker card1,2.2,1,2.7,2.5,3.2
+375,poker card,22864716.thl.jpg,0,poker card2,2.2,1,2.7,2.5,3.2
+376,poker card,9817131.thl.jpg,0,poker card3,2.2,1,2.7,2.5,3.2
+377,poker card,22864728.thl.jpg,0,poker card4,2.2,1,2.7,2.5,3.2
+378,poker card,22864800.thl.jpg,0,poker card5,2.2,1,2.7,2.5,3.2
+379,poker card,22864212.thl.jpg,0,poker card6,2.2,1,2.7,2.5,3.2
+380,poker card,22864416.thl.jpg,0,poker card7,2.2,1,2.7,2.5,3.2
+381,poker card,22864392.thl.jpg,0,poker card8,2.2,1,2.7,2.5,3.2
+382,poker card,9817230.thl.jpg,0,poker card9,2.2,1,2.7,2.5,3.2
+383,poker card,22864488.thl.jpg,0,poker card10,2.2,1,2.7,2.5,3.2
+384,poker card,9817013.thl.jpg,0,poker card11,2.2,1,2.7,2.5,3.2
+385,poker card,22865676.thl.jpg,0,poker card12,2.2,1,2.7,2.5,3.2
+386,poker card,9817197.thl.jpg,0,poker card13,2.2,1,2.7,2.5,3.2
+387,poker card,22864248.thl.jpg,0,poker card14,2.2,1,2.7,2.5,3.2
+388,poker card,9816946.thl.jpg,0,poker card15,2.2,1,2.7,2.5,3.2
+389,poker card,22864584.thl.jpg,test_item,poker card16,2.2,1,2.7,2.5,3.2
+390,poker card,22865640.thl.jpg,test_item,poker card17,2.2,1,2.7,2.5,3.2
+391,power strip,6a30daf6-943c-4ced-bfa0-c42f35b22380_400.jpg,0,power strip1,2.2,4,2.5,3.1,2.8
+392,power strip,59d69605-c8c8-4899-bd98-2ef78045147e_300.jpg,0,power strip2,2.2,4,2.5,3.1,2.8
+393,power strip,67a59858-df1d-43a9-a833-cfeaca77ade9_400.jpg,0,power strip3,2.2,4,2.5,3.1,2.8
+394,power strip,41D3CX96H9L._AA262_.jpg,0,power strip4,2.2,4,2.5,3.1,2.8
+395,power strip,93e4a283-bcd6-4ad1-8add-339658cda0fc_400.jpg,0,power strip5,2.2,4,2.5,3.1,2.8
+396,power strip,41AWBNXQRML._AA262_.jpg,0,power strip6,2.2,4,2.5,3.1,2.8
+397,power strip,412YZ25RFBL._AA262_.jpg,0,power strip7,2.2,4,2.5,3.1,2.8
+398,power strip,3118YGHQWXL._AA262_.jpg,0,power strip8,2.2,4,2.5,3.1,2.8
+399,power strip,9ad9cb76-bc97-4f44-999c-27e7aa039743_400.jpg,0,power strip9,2.2,4,2.5,3.1,2.8
+400,power strip,6bd437c9-6165-4d36-bf75-9a1038783c6a_400.jpg,0,power strip10,2.2,4,2.5,3.1,2.8
+401,power strip,41Bw7Tl1G7L._AA262_.jpg,0,power strip11,2.2,4,2.5,3.1,2.8
+402,power strip,41CXESEH1TL._AA262_.jpg,0,power strip12,2.2,4,2.5,3.1,2.8
+403,power strip,01dccef1-d4b2-4d2e-a317-f2ed46b70b4b_400.jpg,0,power strip13,2.2,4,2.5,3.1,2.8
+404,power strip,88b2c724-e781-44ae-85d5-27b7591f659d_400.jpg,0,power strip14,2.2,4,2.5,3.1,2.8
+405,power strip,31oz6aGZN7L._AA262_.jpg,0,power strip15,2.2,4,2.5,3.1,2.8
+406,power strip,16817ff5-c6cd-49cc-95bb-c9f4a31cda2a_400.jpg,test_item,power strip16,2.2,4,2.5,3.1,2.8
+407,power strip,41WDA36G11L._AA262_.jpg,test_item,power strip17,2.2,4,2.5,3.1,2.8
+408,seashell,Aseashe34.jpg,0,seashell1,2.2,4.5,2.4,3.7,3.8
+409,seashell,ph_stri_seashell.jpg,0,seashell2,2.2,4.5,2.4,3.7,3.8
+410,seashell,coquillage.jpg,0,seashell3,2.2,4.5,2.4,3.7,3.8
+411,seashell,seashell.jpg,0,seashell4,2.2,4.5,2.4,3.7,3.8
+412,seashell,429345994_b87bb03366.jpg,0,seashell5,2.2,4.5,2.4,3.7,3.8
+413,seashell,PY2H1461.jpg,0,seashell6,2.2,4.5,2.4,3.7,3.8
+414,seashell,seashell34.jpg,0,seashell7,2.2,4.5,2.4,3.7,3.8
+415,seashell,ASEASHEL9.jpg,0,seashell8,2.2,4.5,2.4,3.7,3.8
+416,seashell,ASEASH5.jpg,0,seashell9,2.2,4.5,2.4,3.7,3.8
+417,seashell,ASEASHE47.jpg,0,seashell10,2.2,4.5,2.4,3.7,3.8
+418,seashell,ASEASH12.jpg,0,seashell11,2.2,4.5,2.4,3.7,3.8
+419,seashell,groscoquilagecreux.jpg,0,seashell12,2.2,4.5,2.4,3.7,3.8
+420,seashell,coquillage22.jpg,0,seashell13,2.2,4.5,2.4,3.7,3.8
+421,seashell,ASEASHE17.jpg,0,seashell14,2.2,4.5,2.4,3.7,3.8
+422,seashell,ASEASHE39.jpg,0,seashell15,2.2,4.5,2.4,3.7,3.8
+423,seashell,coquillagef0153.jpg,test_item,seashell16,2.2,4.5,2.4,3.7,3.8
+424,seashell,coquillage2.jpg,test_item,seashell17,2.2,4.5,2.4,3.7,3.8
+425,small table,ATABLE10.jpg,0,small table1,2,4.2,2.5,3.9,3.5
+426,small table,Atable126.jpg,0,small table2,2,4.2,2.5,3.9,3.5
+427,small table,Atable122.jpg,0,small table3,2,4.2,2.5,3.9,3.5
+428,small table,ACOFTABLE.jpg,0,small table4,2,4.2,2.5,3.9,3.5
+429,small table,Atable145.jpg,0,small table5,2,4.2,2.5,3.9,3.5
+430,small table,ATABLE88.jpg,0,small table6,2,4.2,2.5,3.9,3.5
+431,small table,ATABLE89.jpg,0,small table7,2,4.2,2.5,3.9,3.5
+432,small table,ATABLE8.jpg,0,small table8,2,4.2,2.5,3.9,3.5
+433,small table,ATABLE79.jpg,0,small table9,2,4.2,2.5,3.9,3.5
+434,small table,ATABLE41.jpg,0,small table10,2,4.2,2.5,3.9,3.5
+435,small table,ATABLE83.jpg,0,small table11,2,4.2,2.5,3.9,3.5
+436,small table,ATABLE54.jpg,0,small table12,2,4.2,2.5,3.9,3.5
+437,small table,ATABLE25.jpg,0,small table13,2,4.2,2.5,3.9,3.5
+438,small table,Awoodtable13.jpg,0,small table14,2,4.2,2.5,3.9,3.5
+439,small table,ATABLE20.jpg,0,small table15,2,4.2,2.5,3.9,3.5
+440,small table,ATABLE19.jpg,test_item,small table16,2,4.2,2.5,3.9,3.5
+441,small table,ATABLES11.jpg,test_item,small table17,2,4.2,2.5,3.9,3.5
+442,sofa,sofa-Nicholassingleseater-th.jpg,0,sofa1,2.2,3.1,4.6,3.5,2.9
+443,sofa,ALOVSEA12.jpg,0,sofa2,2.2,3.1,4.6,3.5,2.9
+444,sofa,ACOUCH14.jpg,0,sofa3,2.2,3.1,4.6,3.5,2.9
+445,sofa,ALOVSEA15.jpg,0,sofa4,2.2,3.1,4.6,3.5,2.9
+446,sofa,ALOVSEA14.jpg,0,sofa5,2.2,3.1,4.6,3.5,2.9
+447,sofa,wilkie-sofa-250h-new-cd.jpg,0,sofa6,2.2,3.1,4.6,3.5,2.9
+448,sofa,JACKSON-MS6007loveseat59X36X33.jpg,0,sofa7,2.2,3.1,4.6,3.5,2.9
+449,sofa,allegro-leather-sofa-med2.jpg,0,sofa8,2.2,3.1,4.6,3.5,2.9
+450,sofa,ALOVSEAT9.jpg,0,sofa9,2.2,3.1,4.6,3.5,2.9
+451,sofa,AREDCOUC5.jpg,0,sofa10,2.2,3.1,4.6,3.5,2.9
+452,sofa,ALOVSEA19.jpg,0,sofa11,2.2,3.1,4.6,3.5,2.9
+453,sofa,ShelterSofaS6.jpg,0,sofa12,2.2,3.1,4.6,3.5,2.9
+454,sofa,ACOUCH25.jpg,0,sofa13,2.2,3.1,4.6,3.5,2.9
+455,sofa,HENRY-Sofa-falg8068-05-72X34X34.jpg,0,sofa14,2.2,3.1,4.6,3.5,2.9
+456,sofa,APEACHLOV.jpg,0,sofa15,2.2,3.1,4.6,3.5,2.9
+457,sofa,room-collection-perkoz-sofa.jpg,test_item,sofa16,2.2,3.1,4.6,3.5,2.9
+458,sofa,dickens-sofa-main.jpg,test_item,sofa17,2.2,3.1,4.6,3.5,2.9
+459,stool,ASTOOL42.jpg,0,stool1,2.2,3.8,4.2,3.8,3.9
+460,stool,ASTOOL46.jpg,0,stool2,2.2,3.8,4.2,3.8,3.9
+461,stool,ASTOOL44.jpg,0,stool3,2.2,3.8,4.2,3.8,3.9
+462,stool,ASTOOL22.jpg,0,stool4,2.2,3.8,4.2,3.8,3.9
+463,stool,ASTOOL23.jpg,0,stool5,2.2,3.8,4.2,3.8,3.9
+464,stool,ASTOOL30.jpg,0,stool6,2.2,3.8,4.2,3.8,3.9
+465,stool,ASTOOL25.jpg,0,stool7,2.2,3.8,4.2,3.8,3.9
+466,stool,ASTOOL33.jpg,0,stool8,2.2,3.8,4.2,3.8,3.9
+467,stool,ASTOOL7.jpg,0,stool9,2.2,3.8,4.2,3.8,3.9
+468,stool,ASTOOL26.jpg,0,stool10,2.2,3.8,4.2,3.8,3.9
+469,stool,ASTOOL28.jpg,0,stool11,2.2,3.8,4.2,3.8,3.9
+470,stool,henrybar_stool1.jpg,0,stool12,2.2,3.8,4.2,3.8,3.9
+471,stool,ASTOOL38.jpg,0,stool13,2.2,3.8,4.2,3.8,3.9
+472,stool,hjscott-sbs-b-bar-stool.jpg,0,stool14,2.2,3.8,4.2,3.8,3.9
+473,stool,ASTOOL.jpg,0,stool15,2.2,3.8,4.2,3.8,3.9
+474,stool,ASTOOL31.jpg,test_item,stool16,2.2,3.8,4.2,3.8,3.9
+475,stool,ASTOOL11.jpg,test_item,stool17,2.2,3.8,4.2,3.8,3.9
+476,tape,aktotape_01.jpg,0,tape1,2.3,4.2,4.5,3.8,3.8
+477,tape,Tape_Dispenser.jpg,0,tape2,2.3,4.2,4.5,3.8,3.8
+478,tape,ATAPEDIS7.jpg,0,tape3,2.3,4.2,4.5,3.8,3.8
+479,tape,70924.jpg,0,tape4,2.3,4.2,4.5,3.8,3.8
+480,tape,910372_sk_lg.jpg,0,tape5,2.3,4.2,4.5,3.8,3.8
+481,tape,1912.jpg,0,tape6,2.3,4.2,4.5,3.8,3.8
+482,tape,tape dispenser.jpg,0,tape7,2.3,4.2,4.5,3.8,3.8
+483,tape,18095_lg.jpg,0,tape8,2.3,4.2,4.5,3.8,3.8
+484,tape,desk tape disp.jpg,0,tape9,2.3,4.2,4.5,3.8,3.8
+485,tape,26377601.thl.jpg,0,tape10,2.3,4.2,4.5,3.8,3.8
+486,tape,41FZA73H4JL._AA280_.jpg,0,tape11,2.3,4.2,4.5,3.8,3.8
+487,tape,Frog-Tape-Dispenser_F02218A2.jpg,0,tape12,2.3,4.2,4.5,3.8,3.8
+488,tape,920152.jpg,0,tape13,2.3,4.2,4.5,3.8,3.8
+489,tape,922544.jpg,0,tape14,2.3,4.2,4.5,3.8,3.8
+490,tape,MMMC15BK.jpg,0,tape15,2.3,4.2,4.5,3.8,3.8
+491,tape,3660491040472.jpg,test_item,tape16,2.3,4.2,4.5,3.8,3.8
+492,tape,scotch_tape2a.jpg,test_item,tape17,2.3,4.2,4.5,3.8,3.8
+493,telescope,celestron nexstar 114 gt reflector telescope.jpg,0,telescope1,2.1,3.3,2,2.8,2.7
+494,telescope,Brass-telescope-60700.jpg,0,telescope2,2.1,3.3,2,2.8,2.7
+495,telescope,41V67SB5NJL._SS500_.jpg,0,telescope3,2.1,3.3,2,2.8,2.7
+496,telescope,TELESCOPE_BLACK_GOOD_SMALL.jpg,0,telescope4,2.1,3.3,2,2.8,2.7
+497,telescope,digimarc.jpg,0,telescope5,2.1,3.3,2,2.8,2.7
+498,telescope,LO-telescope-89769.jpg,0,telescope6,2.1,3.3,2,2.8,2.7
+499,telescope,telescope-talm.jpg,0,telescope7,2.1,3.3,2,2.8,2.7
+500,telescope,p0006439g.jpg,0,telescope8,2.1,3.3,2,2.8,2.7
+501,telescope,13TELESTAND.jpg,0,telescope9,2.1,3.3,2,2.8,2.7
+502,telescope,digimarc.ms02.jpg,0,telescope10,2.1,3.3,2,2.8,2.7
+503,telescope,digimarc.ms03.jpg,0,telescope11,2.1,3.3,2,2.8,2.7
+504,telescope,Junior Land and Sky Telescope.jpg,0,telescope12,2.1,3.3,2,2.8,2.7
+505,telescope,Telescope_Pewter_br48540a.jpg,0,telescope13,2.1,3.3,2,2.8,2.7
+506,telescope,T09748dt.jpg,0,telescope14,2.1,3.3,2,2.8,2.7
+507,telescope,VictorianDeskTelescope.jpg,0,telescope15,2.1,3.3,2,2.8,2.7
+508,telescope,41C1RW3A30L._SS500_.jpg,test_item,telescope16,2.1,3.3,2,2.8,2.7
+509,telescope,138062.JPG,test_item,telescope17,2.1,3.3,2,2.8,2.7
+510,tent,Atent8.jpg,0,tent1,2.2,2.8,4.5,3.2,3.2
+511,tent,Atent16.jpg,0,tent2,2.2,2.8,4.5,3.2,3.2
+512,tent,73697pp.jpg,0,tent3,2.2,2.8,4.5,3.2,3.2
+513,tent,Atent12.jpg,0,tent4,2.2,2.8,4.5,3.2,3.2
+514,tent,Dome Tentnb87r67.jpg,0,tent5,2.2,2.8,4.5,3.2,3.2
+515,tent,lighthouse_tent_edited_1-1.jpg,0,tent6,2.2,2.8,4.5,3.2,3.2
+516,tent,9238gh948h.jpg,0,tent7,2.2,2.8,4.5,3.2,3.2
+517,tent,quechua_tent-1.jpg,0,tent8,2.2,2.8,4.5,3.2,3.2
+518,tent,Red Canyon Tent.jpg,0,tent9,2.2,2.8,4.5,3.2,3.2
+519,tent,TENT-DUTCH-GD1-1.jpg,0,tent10,2.2,2.8,4.5,3.2,3.2
+520,tent,asa_c098_cat_tent_red_black.jpg,0,tent11,2.2,2.8,4.5,3.2,3.2
+521,tent,31316-AZU_m.jpg,0,tent12,2.2,2.8,4.5,3.2,3.2
+522,tent,camping-tent-north-star.jpg,0,tent13,2.2,2.8,4.5,3.2,3.2
+523,tent,inflatable-tent.jpg,0,tent14,2.2,2.8,4.5,3.2,3.2
+524,tent,tent_.jpg,0,tent15,2.2,2.8,4.5,3.2,3.2
+525,tent,APUPTENT8.jpg,test_item,tent16,2.2,2.8,4.5,3.2,3.2
+526,tent,b876roygf.jpg,test_item,tent17,2.2,2.8,4.5,3.2,3.2
+527,train,Model_Train.jpg,0,train1,2.1,4.1,4.5,4.4,3.7
+528,train,iron_train.jpg,0,train2,2.1,4.1,4.5,4.4,3.7
+529,train,stackloco.jpg,0,train3,2.1,4.1,4.5,4.4,3.7
+530,train,After-RHS-2-web.jpg,0,train4,2.1,4.1,4.5,4.4,3.7
+531,train,thumb-briolightsoundsteamengine.jpg,0,train5,2.1,4.1,4.5,4.4,3.7
+532,train,train9.jpg,0,train6,2.1,4.1,4.5,4.4,3.7
+533,train,thomas-tank-pedal-car-lg.jpg,0,train7,2.1,4.1,4.5,4.4,3.7
+534,train,PL51190.jpg,0,train8,2.1,4.1,4.5,4.4,3.7
+535,train,train2.jpg,0,train9,2.1,4.1,4.5,4.4,3.7
+536,train,train3.jpg,0,train10,2.1,4.1,4.5,4.4,3.7
+537,train,train1.jpg,0,train11,2.1,4.1,4.5,4.4,3.7
+538,train,02565 ride on train.jpg,0,train12,2.1,4.1,4.5,4.4,3.7
+539,train,Tin_Toy_Train_3643.jpg,0,train13,2.1,4.1,4.5,4.4,3.7
+540,train,images-products-childcraft-g83501.jpg,0,train14,2.1,4.1,4.5,4.4,3.7
+541,train,master-TD006.jpg,0,train15,2.1,4.1,4.5,4.4,3.7
+542,train,train.jpg,test_item,train16,2.1,4.1,4.5,4.4,3.7
+543,train,cl0104_02re.jpg,test_item,train17,2.1,4.1,4.5,4.4,3.7
+544,trumpet,JUPITER+TROMPETTE+606MRL.JPG,0,trumpet1,2.3,2.5,2.5,1.8,1.9
+545,trumpet,Matt-Stevens-Pocket-Trumpet.jpg,0,trumpet2,2.3,2.5,2.5,1.8,1.9
+546,trumpet,1000rl-s.jpg,0,trumpet3,2.3,2.5,2.5,1.8,1.9
+547,trumpet,JUPITER+JTR1000S.jpg,0,trumpet4,2.3,2.5,2.5,1.8,1.9
+548,trumpet,408l.jpg,0,trumpet5,2.3,2.5,2.5,1.8,1.9
+549,trumpet,JUP416S.JPG,0,trumpet6,2.3,2.5,2.5,1.8,1.9
+550,trumpet,JTP-606MRS.jpg,0,trumpet7,2.3,2.5,2.5,1.8,1.9
+551,trumpet,trumpet33.jpg,0,trumpet8,2.3,2.5,2.5,1.8,1.9
+552,trumpet,trumpet3.jpg,0,trumpet9,2.3,2.5,2.5,1.8,1.9
+553,trumpet,trumpet2.jpg,0,trumpet10,2.3,2.5,2.5,1.8,1.9
+554,trumpet,JUPITER+JTR604L.jpg,0,trumpet11,2.3,2.5,2.5,1.8,1.9
+555,trumpet,hornabariton.jpg,0,trumpet12,2.3,2.5,2.5,1.8,1.9
+556,trumpet,JUPITER+JTR1600GS.jpg,0,trumpet13,2.3,2.5,2.5,1.8,1.9
+557,trumpet,truba1.jpg,0,trumpet14,2.3,2.5,2.5,1.8,1.9
+558,trumpet,trumpet.jpg,0,trumpet15,2.3,2.5,2.5,1.8,1.9
+559,trumpet,JUPITER+JTR1010S.jpg,test_item,trumpet16,2.3,2.5,2.5,1.8,1.9
+560,trumpet,702rl.jpg,test_item,trumpet17,2.3,2.5,2.5,1.8,1.9
+561,vase,Avase114.jpg,0,vase1,2.3,4,4.7,4.2,4.4
+562,vase,Avase106.jpg,0,vase2,2.3,4,4.7,4.2,4.4
+563,vase,vase-006af-1.jpg,0,vase3,2.3,4,4.7,4.2,4.4
+564,vase,Avase111.jpg,0,vase4,2.3,4,4.7,4.2,4.4
+565,vase,Avase176.jpg,0,vase5,2.3,4,4.7,4.2,4.4
+566,vase,vase_crystal.jpg,0,vase6,2.3,4,4.7,4.2,4.4
+567,vase,8246344.thl.jpg,0,vase7,2.3,4,4.7,4.2,4.4
+568,vase,Avase171.jpg,0,vase8,2.3,4,4.7,4.2,4.4
+569,vase,Avasewithang2.jpg,0,vase9,2.3,4,4.7,4.2,4.4
+570,vase,Avase143.jpg,0,vase10,2.3,4,4.7,4.2,4.4
+571,vase,Ethnic_Ceramic_Vase.jpg,0,vase11,2.3,4,4.7,4.2,4.4
+572,vase,Abluevase2.jpg,0,vase12,2.3,4,4.7,4.2,4.4
+573,vase,designer-metal-vase.jpg,0,vase13,2.3,4,4.7,4.2,4.4
+574,vase,Avase119.jpg,0,vase14,2.3,4,4.7,4.2,4.4
+575,vase,catphoto.jpg,0,vase15,2.3,4,4.7,4.2,4.4
+576,vase,Colorful_Glass_Vase.jpg,test_item,vase16,2.3,4,4.7,4.2,4.4
+577,vase,0334.jpg,test_item,vase17,2.3,4,4.7,4.2,4.4
+578,watch,B000B5K8XI.01-A2E7J74KJYV9ZH._AA280_SCLZZZZZZZ_V53007008_.jpg,0,watch1,2.2,2.1,2.5,2.6,2.6
+579,watch,AL0004-03E_MED.jpg,0,watch2,2.2,2.1,2.5,2.6,2.6
+580,watch,B0000TIIVO.01._SCLZZZZZZZ_V1124920780_.jpg,0,watch3,2.2,2.1,2.5,2.6,2.6
+581,watch,B000EI2NBW.01._AA280_SCLZZZZZZZ_.jpg,0,watch4,2.2,2.1,2.5,2.6,2.6
+582,watch,B000GB0Q2K.01-A4LKQQKJ91IUZ._AA280_SCLZZZZZZZ_V66976251_.jpg,0,watch5,2.2,2.1,2.5,2.6,2.6
+583,watch,B0000X04VC.01-A4LKQQKJ91IUZ._AA280_SCLZZZZZZZ_.jpg,0,watch6,2.2,2.1,2.5,2.6,2.6
+584,watch,0900631b80baee56M.jpg,0,watch7,2.2,2.1,2.5,2.6,2.6
+585,watch,2239.jpg,0,watch8,2.2,2.1,2.5,2.6,2.6
+586,watch,mens-diamond-watches-euro-48733-ab.jpg,0,watch9,2.2,2.1,2.5,2.6,2.6
+587,watch,HEU0102124_zoom.jpg,0,watch10,2.2,2.1,2.5,2.6,2.6
+588,watch,B00020ODHO.01-A2E7J74KJYV9ZH._AA280_SCLZZZZZZZ_V65957276_.jpg,0,watch11,2.2,2.1,2.5,2.6,2.6
+589,watch,snl003_MED.jpg,0,watch12,2.2,2.1,2.5,2.6,2.6
+590,watch,RS_3104_lrg.jpg,0,watch13,2.2,2.1,2.5,2.6,2.6
+591,watch,HC06.jpg,0,watch14,2.2,2.1,2.5,2.6,2.6
+592,watch,20-171-6.jpg,0,watch15,2.2,2.1,2.5,2.6,2.6
+593,watch,Quartz_Analog_Watches.jpg,test_item,watch16,2.2,2.1,2.5,2.6,2.6
+594,watch,OCE0100014_zoom.jpg,test_item,watch17,2.2,2.1,2.5,2.6,2.6
+595,yarn,corn_yarn.jpg,0,yarn1,2.1,2.8,4.9,3.7,3.8
+596,yarn,Aballofyarn66.jpg,0,yarn2,2.1,2.8,4.9,3.7,3.8
+597,yarn,Aballofblueya.jpg,0,yarn3,2.1,2.8,4.9,3.7,3.8
+598,yarn,amethyst dreaming boho hy sml.jpg,0,yarn4,2.1,2.8,4.9,3.7,3.8
+599,yarn,Aballofyarn14.jpg,0,yarn5,2.1,2.8,4.9,3.7,3.8
+600,yarn,edwardian moment hpy sml.jpg,0,yarn6,2.1,2.8,4.9,3.7,3.8
+601,yarn,herb garden hy smaller.jpg,0,yarn7,2.1,2.8,4.9,3.7,3.8
+602,yarn,smonlineyarn-285x250.jpg,0,yarn8,2.1,2.8,4.9,3.7,3.8
+603,yarn,Aballofyarn26.jpg,0,yarn9,2.1,2.8,4.9,3.7,3.8
+604,yarn,revelation-yarn.jpg,0,yarn10,2.1,2.8,4.9,3.7,3.8
+605,yarn,Aballofpinky2.jpg,0,yarn11,2.1,2.8,4.9,3.7,3.8
+606,yarn,Aballofyarn35.jpg,0,yarn12,2.1,2.8,4.9,3.7,3.8
+607,yarn,cool blue 2 hpy 2 sml.jpg,0,yarn13,2.1,2.8,4.9,3.7,3.8
+608,yarn,Aballofyarn3.jpg,0,yarn14,2.1,2.8,4.9,3.7,3.8
+609,yarn,rainbowscarf-600x394.jpg,0,yarn15,2.1,2.8,4.9,3.7,3.8
+610,yarn,yarn_image_58.jpg,test_item,yarn16,2.1,2.8,4.9,3.7,3.8
+611,yarn,gypsy passion boho hy 2 sml.jpg,test_item,yarn17,2.1,2.8,4.9,3.7,3.8

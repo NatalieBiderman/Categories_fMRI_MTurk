@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Operator Form</title>
+	<link href="/static/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	</head>
+	<style>
+		.center {
+		  margin: auto;
+		  width: 600px;
+		  padding: 10px;
+	</style>
+
+	<br><br><br>
+
+	<div class="center">
+	<form method="POST">
+        <p>Enter the Subject ID number: </p>
+          <input class="form-check-input" type="number" id="subID" name="subID" min="0" required><br><br>
+
+        <p>Are you running the experiment on MTurk or in the scanner?</p>
+          <input class="form-check-input" type="radio" id="scanner" name="is_scanner" value="scanner" checked="checked" required>
+          <label class="form-check-label" for="scanner">Scanner</label><br>
+          <input class="form-check-input" type="radio" id="mturk" name="is_scanner" value="mturk" required>
+          <label class="form-check-label" for="mturk">MTurk</label><br><br>
+
+        <p>Run category learning?</p>
+          <input class="form-check-input" type="radio" id="learning_yes" name="run_category_learning" value="1" checked="checked" required>
+          <label class="form-check-label" for="learning_yes">Yes</label><br>
+          <input class="form-check-input" type="radio" id="learning_no" name="run_category_learning" value="0" required>
+          <label class="form-check-label" for="learning_no">No</label><br><br>
+
+        <p>Run category memory?</p>
+          <input class="form-check-input" type="radio" id="memory_yes" name="run_category_memory" value="1" checked="checked" required>
+          <label class="form-check-label" for="memory_yes">Yes</label><br>
+          <input class="form-check-input" type="radio" id="memory_no" name="run_category_memory" value="0" required>
+          <label class="form-check-label" for="memory_no">No</label><br><br>
+
+        <p>Which trial should the category learning task start at? (take the 5 practice trials into account)</p>
+          <input class="form-check-input" type="number" id="start_t" name="start_t" min="0" max="364" value="0" required><br><br>
+
+        <p>Which trial should the category learning task end at?</p>
+          <input class="form-check-input" type="number" id="end_t" name="end_t" min="0" max="364" value="364" required><br><br>
+
+        <p>Which trial should the category memory task start at?</p>
+          <input class="form-check-input" type="number" id="start_t_category_memory" name="start_t_category_memory" min="0" max="35" value="0" required><br><br>
+
+        <p>Which trial should the category learning task end at?</p>
+          <input class="form-check-input" type="number" id="end_t_category_memory" name="end_t_category_memory" min="0" max="35" value="35" required><br><br>
+
+        <input type="submit" value="Submit" class="btn btn-secondary">
+	</form>
+	</div>
+</center>
+</html>

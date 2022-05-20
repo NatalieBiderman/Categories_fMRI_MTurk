@@ -1,0 +1,11 @@
+index,category,img,is_test_item,exemplar,kinds,shape,color,overall perceptual (upright),overall perceptual (inverted)
+0,bagel,bagels_pumpernickel_large.jpg,0,bagel1,2.4,1.5,2.4,3,1.7
+1,bagel,bagels_cinnraisin_large.jpg,0,bagel2,2.4,1.5,2.4,3,1.7
+2,bagel,photo-169.jpg,0,bagel3,2.4,1.5,2.4,3,1.7
+3,calculator,22829184.thl.jpg,0,calculator1,1.8,2.2,3.7,3,3.3
+4,calculator,22829064.thl.jpg,0,calculator2,1.8,2.2,3.7,3,3.3
+5,clock,Aalarmclock2.jpg,0,clock1,2,3.2,4.5,3.8,3.8
+6,clock,26373355.thl.jpg,0,clock2,2,3.2,4.5,3.8,3.8
+7,dumbbell,31B64EN68AL._AA280_.jpg,0,dumbbell1,2,3.6,3.7,3.3,3.2
+8,dumbbell,31K8MR6TMBL._SS500_.jpg,0,dumbbell2,2,3.6,3.7,3.3,3.2
+9,dumbbell,41K7QVRX50L._SS500_.jpg,0,dumbbell3,2,3.6,3.7,3.3,3.2

@@ -1,0 +1,137 @@
+/* CSS style for the experiment */
+
+/* define parameters to include in the css */
+:root {
+  --img_height: 250px;
+  --img_width: 250px;
+  --fixation_width: 100px;
+  --frame_width: 7px;
+  --confirmation_width: 7px;
+  --prompt_height: 0px;/*30px;*/
+  --prompt_width: calc(--img_width*2 + --fixation_width + --confirmation_width*2); /* same width as the table excluding frames from both sides */
+  --table_width: calc(promt_width + --confirmation_width*2); /* prompt width including two frames */
+  --table_height: calc(--img_height + promt_height + --confirmation_width*2); /* maximum size is both images with their frames*/
+  --red: rgb(255, 56, 0);
+  --green: rgb(40, 232, 0);
+  --grey: rgb(128, 128, 128);
+  --light_grey: rgb(220,220,220);
+  --frame_color: var(--light_grey);
+  --white: rgb(255, 255, 255);
+  --black: rgb(0,0,0);
+  --background_color: var(--grey);
+}
+
+#rcorners2 {
+    display:inline-block; text-align: center;
+    vertical-align: middle; line-height: var(--img_height); font-size:2.5em;
+    border-radius: 25px;
+    border: 2px solid black;
+    background-color: var(--white),
+    margin: 25px;
+    padding: 25px;
+    width: var(--img_width);
+    height: var(--img_height);
+}
+div.value { display:inline-block; text-align: center;
+  vertical-align: middle; line-height: 200px; font-size:2.5em; margin-top: -100px; margin-bottom: 400px;}
+
+/* general screen parameters */
+body {
+      padding:0px;
+      margin: 0px;
+      background-color: var(--background_color); /* white background to match the images */
+      color: white;
+      font-size: 14pt;
+      font-family: "Ariel";
+}
+
+/* we present instructions as images, and so we want to make sure they fill up the entire screen */
+.instructions {
+       display: grid;
+       /*height: 100%;*/
+       max-width: 100%;
+       max-height: 100vh;
+       margin: auto;
+       }
+
+/* we present the images inside a "table" with three columns: left image, fixation, right image
+and so here we create the table to include these objects.
+we do this by adding the css: <table> then we add <tr> representing the row of a table,
+then we have <td> representing the specific cell we change. inside it, we include <img> or fixation */
+.table {
+  position: relative;
+  height: var(--table_height); /* 240px;*/
+  width: var(--table_width); /* 490px */
+  table-layout: fixed;
+  border-spacing: 0px;
+  border-collapse: seperate;
+}
+
+.prompt {
+  width: var(--prompt_width);
+  height: var(--prompt_height);
+  margin: 0px;
+  padding: 0px;
+  /*border: var(--frame_width) solid rgba(255,255,255,0); */
+}
+
+/* here we define the way the images would be presented.
+in decision trials, we will position these objects inside the table defined above.
+in other trials, this object would be presented in the center of screen */
+.object {
+  width: var(--img_width);
+  height: var(--img_height);
+  background-color: var(--white); /* white background to match the images */
+  margin: 0px;
+  padding: 25px;
+  border: var(--frame_width) solid var(--frame_color); /* the frame is transparent, to save room for it when it will be presented */
+}
+
+.object.fixation {
+  background-color: var(--background_color); /* white background to match the images */
+  border: var(--frame_width) solid rgba(255,255,255,0); /* the frame is transparent, to save room for it when it will be presented */
+}
+
+.fixation {
+  width: var(--fixation_width);
+  height: var(--img_height);
+  font-size: 200px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.object.fractal {
+  background-color: var(--background_color); /* grey background to match the fractal images */
+}
+
+/* here we define feedback types. the regular confirmation would be black frame.
+it is added object class, that is, we use object class parameters and only change the border */
+.object.chosen {
+  border: var(--confirmation_width) solid var(--black);
+}
+
+.object.unchosen {
+}
+  /*background-color: var(--background_color);*/
+
+/* for negative and positive feedbacks, only the color of border changhes */
+.object.loss_frame {
+  border: var(--frame_width) solid var(--red); /* red */
+}
+.object.gain_frame {
+  border: var(--frame_width) solid var(--green); /* green */
+}
+
+/* feedback colors of text */
+.red {
+  color: var(--red);
+}
+.green {
+color: var(--green);
+}
+.black {
+  color: var(--black);
+}
+
+p:empty { display: none;}

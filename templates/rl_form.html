@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Operator Form</title>
+	<link href="/static/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	</head>
+	<style>
+		.center {
+		  margin: auto;
+		  width: 600px;
+		  padding: 10px;
+	</style>
+
+	<br><br><br>
+
+	<div class="center">
+	<form method="POST">
+        <p>Enter the Subject ID number: </p>
+          <input class="form-check-input" type="number" id="subID" name="subID" min="0" required><br><br>
+
+        <p>Are you running the experiment on MTurk or in the scanner?</p>
+          <input class="form-check-input" type="radio" id="scanner" name="is_scanner" value="scanner" checked="checked" required>
+          <label class="form-check-label" for="scanner">Scanner</label><br>
+          <input class="form-check-input" type="radio" id="mturk" name="is_scanner" value="mturk" required>
+          <label class="form-check-label" for="mturk">MTurk</label><br><br>
+
+        <p>Which trial should the RL task start at?</p>
+          <input class="form-check-input" type="number" id="start_t" name="start_t" min="0" max="79" value="0" required><br><br>
+
+        <p>Which trial should the RL task end at?</p>
+          <input class="form-check-input" type="number" id="end_t" name="end_t" min="0" max="79" value="79" required><br><br>
+
+        <input type="submit" value="Submit" class="btn btn-secondary">
+	</form>
+	</div>
+</center>
+</html>

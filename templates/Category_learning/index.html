@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<title>Columbia University Psychology Study</title>
+	<link href="/static/Tools/myCSSstyle.css" rel="stylesheet" type="text/css"></link>
+</head>
+<body>
+	<div style="font-family:Arial; background: var(--grey); padding: 100px; padding-top: 5%">
+			<h2>Thank you for participating in this experiment!</h2>
+			<p>By clicking the "Begin Study" button, you will be taken to the study, including complete instructions and an informed consent agreement. Before doing so, you must confirm the following:</p>
+			<p>I hereby confirm that:<br>
+				<input type="checkbox" id="age_checkbox" /> I am over 18 years old.
+			</p>
+			<p>Please close all other browser windows and applications, and plug in if you're using a laptop computer. Images in this study will not display properly otherwise.<br>
+				<input type="checkbox" id="close_windows_checkbox" /> I closed all other windows and tabs.
+			</p>
+			<p>Please make sure you are performing this task in a quiet room, without any distractions.<br>
+				<input type="checkbox" id="quiet_checkbox" /> I am in a quiet environment.
+			</p>
+			<p>The study includes several phases, all of which should be completed without extended breaks.<br>
+				<input type="checkbox" id="no_breaks" /> I will perform all phases without extended breaks.
+			</p>
+			<p> Please put on your reading glasses if you need them.
+				<form action="" id="glasses_form">
+					<input type="radio" name="glasses" value='no_need'> I don't need reading glasses<br>
+					<input type="radio" name="glasses" value='have'> I need reading glasses and have them on<br>
+					<input type="radio" name="glasses" value = 'fail'> I need reading glasses and don't have them on<br>
+				</form>
+			<br></p>
+			<button type="button" onClick="openwindow();">Begin Study</button>
+		</div>
+	<script>
+		function openwindow() {
+			var safari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
+			var age = document.getElementById('age_checkbox');
+			var otherWin = document.getElementById('close_windows_checkbox')
+			var quiet = document.getElementById('quiet_checkbox')
+			var no_breaks = document.getElementById('no_breaks')
+			var glasses = document.getElementsByName('glasses')[0].checked || document.getElementsByName('glasses')[1].checked
+			if (!safari) {
+				if (age.checked && otherWin.checked && quiet.checked && no_breaks.checked && glasses) {
+					window.open('category_learning?is_scanner=mturk', '_self')//window.location.search, 'Popup', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=' + 1024 + ',height=' + 768 + '');
+				} else {
+					alert("You cannot proceed without affirming these statements. If they don't apply to you, you will not be able to participate in this experiment. In that case, please return the HIT to Amazon.");
+				} // else
+			} else { // if safari
+				alert("It seems that you are using Safari as your browser. This HIT is not compatible with Safari. Please use Chrome or Firefox instead");
+			}
+		} // function
+	</script>
+</body>
+</html>

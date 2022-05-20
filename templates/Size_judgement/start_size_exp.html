@@ -1,0 +1,668 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Columbia University Psychology Experiment</title>
+    <script src="/static/jspsych-6.0.5/jspsych.js"></script>
+    <script src="/static/Tools/Functions.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-instructions.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-text.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-likert.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-multi-choice.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-html-slider-response.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-fullscreen.js"></script>
+    <script src="/static/jspsych-6.0.5/plugins/jspsych-html-button-response.js"></script>
+    <script src="/static/jquery-3.3.1/jquery.min.js"></script>
+    <link href="/static/jspsych-6.0.5/css/jspsych.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/Tools/myCSSstyle.css" rel="stylesheet" type="text/css"/>
+    <style> </style>
+  </head>
+  <body> </body>
+  <script>
+
+// =============================================================================
+// SET PARAMETERS
+// =============================================================================
+
+var is_debug              = 1;
+var is_scanner            = {{ is_scanner|tojson }}; //"mturk"; // "scanner" or "mturk"
+var start_t               = {{ start_t|safe }}; //0; // take into account 5 practice trials
+var end_t                 = {{ end_t|safe }}; // 89; // 90 trials
+var subID                 = {{ subID|safe }}; // 1;
+
+var include_no_response_prompt = 0;
+var n_size_blocks        = 2;
+var timing_max_choice    = 1500;
+var timing_confirmation  = 0;//500;
+var timing_feedback      = 1000;
+var timing_warning       = timing_feedback;
+var percent_bonus        = 0.05; // what is the percentage of winnings participants get as bonus money
+var max_earnings         = 4; // maximum dollar earnings
+var keys_instructions    = [' '];
+var keys_start_run       = ['t'];
+var timeline             = [];
+var size_timeline = { timeline: []};
+var onset                = 0;
+var duration             = 0;
+
+// assign folders
+var static_folder         = '/static/Size_judgement/'
+var data_folder           = '/data/Size_judgement/Individual_data/'
+var tools_folder          = '/static/Tools'
+
+// assign decision keys
+if (is_scanner == "scanner") {
+  var keys_decision = ['2', '3']; // 2 - left, 3 - right
+  var continue_key_text = "pointer finger"
+} else {
+  var keys_decision = ['D', 'K']; // D - left, K - right
+  var continue_key_text = "D key"
+}
+
+// =============================================================================
+// SETUP
+// =============================================================================
+
+// ALICE - I commented this out so that each mturker has a unique sub ID
+// create a subject id for mturk subs
+//if (is_scanner == "mturk"){
+//  var subID = Math.floor(Math.random() * 90000) + 10000; // random 5-digit number
+//}
+
+// =============================================================================
+// PRE LOAD TASK IMAGES
+// =============================================================================
+
+// load task images
+var size_stims_csv;
+readTextFile(static_folder+'Stimuli/Stimuli_list/size_stimuli.csv', function(text){size_stims_csv = text;});
+var size_stims = csvJSON(size_stims_csv);
+size_stims = size_stims.filter(a => a.is_test_item==0).filter(a => typeof a.category !== 'undefined')
+
+Instructions_stimuli = [static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task1.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task2.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task3.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task4.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task5.png',
+                        static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task6.png'];
+
+// prepare pre-loaded images
+images = [];
+for(i = 0; i < size_stims.length; i++){
+  images[i] = static_folder+'Stimuli/Size_stims/' + size_stims[i].size + '/' + size_stims[i].category + '/' + size_stims[i].img;
+}
+images = images.concat(Instructions_stimuli);
+
+
+// =============================================================================
+// LOAD SIZE DATA FRAME
+// =============================================================================
+
+// Load df
+// MAKE SURE TO SAVE EVERY DATA FRAME AS UNICODE 8
+var size_trials_csv;
+var counterbalanced_df = (subID % 4) + 1; // we use the subject id to assign the relevant df
+readTextFile(static_folder+'Design_matrix/size_trials_v' + counterbalanced_df + '.csv', function(text){
+    size_trials_csv = text;
+});
+size_trials_csv = size_trials_csv.replaceAll('"', '') // we remove strings that cause an error in uploading of the csvs
+var size_trials = csvJSON(size_trials_csv);
+
+// convert all numeric columns to numbers (they were transformed to strings)
+num_cols = ["trial_num","block","isi","iti","high_size_on_left","left_size_num","right_size_num","left_index","right_index"];
+for (i=0; i<num_cols.length; i++){
+  size_trials.forEach((element, index) => {size_trials[index][num_cols[i]] = Number(size_trials[index][num_cols[i]])});
+}
+
+// remove the last trial that doesnt include any info
+size_trials = size_trials.filter(a => a.block != null)
+size_trials = size_trials.filter(a => !isNaN(a.block))
+
+// add right_img_path column
+for (t=0; t<size_trials.length; t++){
+    size_trials[t].right_img_path = static_folder+'Stimuli/Size_stims/' + size_trials[t].right_size_group + '/' + size_trials[t].right_category + '/' + size_trials[t].right_img
+}
+size_trials.forEach(object => {delete object['right_img_path\r'];});
+
+// add left_img_path column -- ALICE
+for (t=0; t<size_trials.length; t++){
+    size_trials[t].left_img_path = static_folder+'Stimuli/Size_stims/' + size_trials[t].left_size_group + '/' + size_trials[t].left_category + '/' + size_trials[t].left_img
+}
+size_trials.forEach(object => {delete object['left_img_path\r'];});
+
+// =============================================================================
+// CSS FOR STIMS PRESENTATION
+// =============================================================================
+
+// these are css for stimuli presentation. I insert the stimuli within a table,
+// such that the first rows include some prompt, and the second row includes
+// the actual stimuli: two objects from both sides of a fixation place holder
+var decision_trial_stims = '<table class="table">\
+                            <tr><p>{0}</p></tr>\
+                            <td> <img class="object" src="{1}"></img></td>\
+                            <td class="fixation"></td>\
+                            <td> <img class="object" src="{2}"></img></td>\
+                            </tr></table>';
+var choice_confirm_stims  = '<table class="table"><tr>\
+                            <tr><p>{0}</p></tr>\
+                            <td> <img class="{1}" src="{2}"></img> </td>\
+                            <td class="fixation"></td>\
+                            <td> <img class="{3}" src="{4}"></img></td>\
+                            </tr></table>';
+var fixation_stim         = '<table class="table"><tr>\
+                            <td class="object fixation"> </td>\
+                            <td class="fixation">+</td>\
+                            <td class="object fixation"> </td></tr></table>';
+var propmt_decision       = '';
+
+
+// =============================================================================
+// CREATE DIFFERENT TRIAL TYPES
+// =============================================================================
+
+// ------------------------------ Full Screen ----------------------------------
+
+var fullscreen = {
+  type: 'fullscreen',
+  fullscreen_mode: true,
+  on_finish: function(){
+    // add columns to data
+    jsPsych.data.addProperties({
+      warning: 0,
+      missed_checkup: 0,
+      PID: subID })
+  }, // function on_finish
+  data: {ttype: 'full_screen', start_time: timeStamp()}
+}
+
+timeline.push(fullscreen);
+
+// ------------------------------ Start run ---------------------------------
+
+var start_run = {
+    type: 'html-keyboard-response',
+    stimulus: "Great, you're ready to start.<br></br>{0}",
+    choices: keys_start_run,
+    response_ends_trial: true,
+    data: {ttype: "start_run"},
+    trial_duration:null,
+    on_start: function(trial){
+      if (is_scanner=="scanner"){
+        start_run_prompt = "Please remember to stay as still as possible throughout the scan.</br></br>The task will begin shortly..."
+      } else {
+        start_run_prompt = "Please press the T key to start"
+      }
+      trial.stimulus = String.format(trial.stimulus, start_run_prompt);
+    },
+    on_finish: function(data){
+      onset = 0; // restart onset in the beginning of every run
+      // add columns to data
+      jsPsych.data.addProperties({
+        warning: 0,
+        missed_checkup: 0,
+        PID: subID })
+    }
+}
+
+// ------------------------------ Instructions ---------------------------------
+
+// repeat instructions screen
+var missed_instruction_checkup = {
+      type: 'html-keyboard-response',
+      data: {ttype: 'missed_instruction_checkup'},
+      stimulus: "Sorry, you missed one or more questions.</br></br>"+
+                "Please press the "+continue_key_text+" to repeat the instructions.",
+      choices: keys_decision[0],
+      response_ends_trial: true,
+      on_finish: function(data){
+        data.missed_checkup = 1
+      } // on_finish
+    } // missed_instruction_checkup
+
+  // If participants pass the comprehension check, they can start the phase.
+  // For scanned participants, this appears immediately after the quiz end.
+  var passed_instructions = {
+      type: 'html-keyboard-response',
+      stimulus: "Great, you're ready to start.</br></br>"+
+                "Please press the "+continue_key_text+" to start.",
+      choices: keys_decision[0],
+      response_ends_trial: true,
+      trial_duration:null,
+  }
+
+  // Instructions
+  var size_instructions = {
+        type: 'instructions',
+        pages: ['<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task1.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task2.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task3.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task4.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task5.png"</img></div>',
+                '<div><img class="instructions" src="'+static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task6.png"</img></div>'],
+        data: {ttype: "size_instructions"},
+        show_clickable_nav: true
+      };
+
+  // quiz questions
+  var quiz_qs = {size:
+    [{prompt: "True or False: You will see two objects, and will select the bigger object",
+      options: ["True", "False"]},
+     {prompt: "What matters is",
+      options: ["Size on the screen", "Size in the real world"]},
+     {prompt: "True or False: You will not recieve feedback for your choices, but will earn bonus money for correct response",
+      options: ["True", "False"]},
+     {prompt: "What keys should you press to make your decision?",
+      options: ["pointer finger for left and middle finger for right", "middle finger for left and pointer finger for right", "Use a mouse"]}]};
+  var quiz_answers = {size: ["True", "Size in the real world","True","pointer finger for left and middle finger for right"]};
+
+  if (is_scanner == "mturk"){
+    quiz_qs.size[3].options = ["D for left and K for right", "K for left and D for right", "Use a mouse"];
+    quiz_answers.size[3] = "D for left and K for right";
+  }
+  // activate function to present a looping quiz (loops until you get all answers correctly)
+  repeat_size_instructions = present_quiz_instructions(size_instructions, 'size_comprehension_check', quiz_qs.size, quiz_answers.size, is_scanner)
+  if (start_t == 0){
+    size_timeline.timeline.push(repeat_size_instructions,passed_instructions);
+  }
+
+  // ------------------------------- Decision ----------------------------------
+
+for (t = start_t; t < end_t+1; t++){
+
+    // ------------------------------- decision --------------------------------
+    size_decisions_trial = {
+      type: 'html-keyboard-response',
+      data: {ttype: 'size_choice',
+             index: t},
+      stimulus: decision_trial_stims,
+      choices: keys_decision,
+      response_ends_trial: true,
+      trial_duration: timing_max_choice,
+      on_start: function(trial){
+      // trial stimulus
+      trial.stimulus = String.format(trial.stimulus, propmt_decision, size_trials[trial.data.index].left_img_path, size_trials[trial.data.index].right_img_path);
+
+      // ------ save trial parameters ------
+
+      trial.data.trial_num = size_trials[trial.data.index].trial_num;
+      trial.data.block = size_trials[trial.data.index].block;
+      trial.data.iti = size_trials[trial.data.index].iti;
+      trial.data.pair_type = size_trials[trial.data.index].pair_type;
+      trial.data.high_size_on_left = size_trials[trial.data.index].high_size_on_left;
+      trial.data.left_size_group = size_trials[trial.data.index].left_size_group;
+      trial.data.right_size_group = size_trials[trial.data.index].right_size_group;
+      trial.data.left_size_num = size_trials[trial.data.index].left_size_num;
+      trial.data.right_size_num = size_trials[trial.data.index].right_size_num;
+      trial.data.left_category = size_trials[trial.data.index].left_category;
+      trial.data.right_category = size_trials[trial.data.index].right_category;
+      trial.data.left_exemplar = size_trials[trial.data.index].left_exemplar;
+      trial.data.right_exemplar = size_trials[trial.data.index].right_exemplar;
+      trial.data.left_index = size_trials[trial.data.index].left_index;
+      trial.data.right_index = size_trials[trial.data.index].right_index;
+      trial.data.left_img_path = size_trials[trial.data.index].left_img_path;
+      trial.data.right_img_path = size_trials[trial.data.index].right_img_path;
+
+    },
+    on_finish: function(data){
+
+      // find current index
+      var curr_ind = jsPsych.data.get().last(1).values()[0].index;
+
+      // ------ register choices ------
+
+      if(data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(keys_decision[0])) { // 'f' (left) was chosen
+        data.left_chosen = 1;
+        data.chosen_category = jsPsych.data.get().last(1).values()[0].left_category;
+        data.unchosen_category = jsPsych.data.get().last(1).values()[0].right_category;
+        data.chosen_size_group = jsPsych.data.get().last(1).values()[0].left_size_group;
+        data.unchosen_size_group = jsPsych.data.get().last(1).values()[0].right_size_group;
+        data.chosen_size_num = jsPsych.data.get().last(1).values()[0].left_size_num;
+        data.unchosen_size_num = jsPsych.data.get().last(1).values()[0].right_size_num;
+        data.chosen_exemplar = jsPsych.data.get().last(1).values()[0].left_exemplar;
+        data.unchosen_exemplar = jsPsych.data.get().last(1).values()[0].right_exemplar;
+      } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(keys_decision[1])){ // 'k' (right) was chosen
+        data.left_chosen = 0;
+        data.chosen_category = jsPsych.data.get().last(1).values()[0].right_category;
+        data.unchosen_category = jsPsych.data.get().last(1).values()[0].left_category;
+        data.chosen_size_group = jsPsych.data.get().last(1).values()[0].right_size_group;
+        data.unchosen_size_group = jsPsych.data.get().last(1).values()[0].left_size_group;
+        data.chosen_size_num = jsPsych.data.get().last(1).values()[0].right_size_num;
+        data.unchosen_size_num = jsPsych.data.get().last(1).values()[0].left_size_num;
+        data.chosen_exemplar = jsPsych.data.get().last(1).values()[0].right_exemplar;
+        data.unchosen_exemplar = jsPsych.data.get().last(1).values()[0].left_exemplar;
+      } // else
+
+      // compute accuracy for bonus calculation
+      data.accuracy = NaN
+      if (data.chosen_size_num > data.unchosen_size_num){ data.accuracy = 1;}
+      if (data.chosen_size_num < data.unchosen_size_num){ data.accuracy = 0;}
+
+      // save onset and duration
+      if (data.key_press === null){
+        duration = timing_max_choice/1000;
+        data.no_resposne = 1;
+      } else {
+        duration = jsPsych.data.get().last(1).values()[0].rt/1000;
+        data.no_response = 0;
+      }
+      onset = onset + duration;
+      data.onset = onset;
+      data.duration = duration;
+
+    } // on_finish
+  } // decision trial
+  size_timeline.timeline.push(size_decisions_trial)
+
+// ------------------------------- confirmation --------------------------------
+
+  confirmation_size_trial = {
+    type: 'html-keyboard-response',
+    data: {ttype: 'size_choice_confirmation',
+           index: t},
+    stimulus: choice_confirm_stims,
+    choices: jsPsych.NO_KEYS,
+    trial_duration: timing_confirmation,
+    response_ends_trial: false,
+    on_start: function(trial){
+
+      // decide on timing of confirmation trial - we add to the confirmation timing
+      // the extra RT from the decision trial (that will add up to 1.5 sec)
+      decision_rt = jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].rt;
+      extra_confirmation_rt = timing_max_choice - decision_rt;
+      trial.trial_duration = timing_confirmation + extra_confirmation_rt;
+
+      // assign trial duration to onset and duration
+      duration = timing_confirmation/1000 + extra_confirmation_rt/1000;
+      onset = onset + duration;
+      trial.data.duration = duration;
+      trial.data.onset = onset;
+
+      // decide on which stimulus recieves a confirmation rectangle
+      curr_ind = jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].index;
+      if (jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].left_chosen==1){
+      // we decide which css object to include according to the decision of the subject.
+      // for the chosen object we use the class "object confirm"
+        trial.stimulus = String.format(trial.stimulus,
+          propmt_decision,
+          "object chosen",
+          size_trials[curr_ind].left_img_path,
+          "object unchosen",
+          size_trials[curr_ind].right_img_path)
+        } else if (jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].left_chosen == 0){
+          trial.stimulus = String.format(trial.stimulus,
+            propmt_decision,
+            "object unchosen",
+            size_trials[curr_ind].left_img_path,
+            "object chosen",
+            size_trials[curr_ind].right_img_path)
+        }
+      }
+    } // confirmation trial
+
+  // present confirmation only if there was a response
+  var if_size_confirmation = {
+    timeline: [confirmation_size_trial],
+    conditional_function: function(){
+      if (jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].key_press){
+        return true;
+      } else {
+        return false;
+      } // else
+    } // conditional function
+  } // if_confirmation
+
+  size_timeline.timeline.push(if_size_confirmation)
+
+
+// ------------------------------- no response ---------------------------------
+
+// respond faster
+var size_choice_warning_trial = {
+      type: 'html-keyboard-response',
+      data: {ttype: "size_choice_warning"},
+      stimulus: '<div style="font-size: 120%">TOO SLOW</div>',
+      choices: jsPsych.NO_KEYS,
+      trial_duration: timing_warning,
+      on_finish: function(data){
+        // tag the current trial so we can know there was a repeat
+        data.warning = 1;
+
+        // assign trial duration to onset and duration
+        duration = timing_warning/1000;
+        onset = onset + duration;
+        data.duration = duration;
+        data.onset = onset;
+      }
+  } // choice_warning_trial faster trial
+
+
+var if_size_choice_warning = {
+  timeline: [size_choice_warning_trial],
+  conditional_function: function(data){
+    if (jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].key_press){
+      return false;
+    } else {
+      return true;
+    } // else
+  } // conditional function
+} // if_confirmation
+
+if (include_no_response_prompt == 1) {
+  size_timeline.timeline.push(if_size_choice_warning)
+}
+
+// ------------------------------- ITI ---------------------------------
+
+  // Fixation for jitter and ITI
+  var size_iti_trial = {
+        type: 'html-keyboard-response',
+        stimulus: fixation_stim,
+        choices: jsPsych.NO_KEYS,
+        data: {ttype: 'iti'},
+        on_start: function(trial){
+          // assign jitter timing
+          curr_iti = jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].iti;
+          if (!jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].key_press){
+            curr_iti = curr_iti - timing_warning; // we remove the timing of warning from the iti, so as to make sure we don't add extra time to the experiment
+          }
+          if (is_debug==1){
+            trial.trial_duration = 100;
+          } else {
+            trial.trial_duration = curr_iti;
+          }
+          // assign trial duration to onset and duration
+          duration = curr_iti/1000;
+          onset = onset + duration;
+          trial.data.duration = duration;
+          trial.data.onset = onset;
+        }
+  }
+
+  size_timeline.timeline.push(size_iti_trial)
+
+// ---------------------------- block over -------------------------------------
+
+// present block over text + the winnings gathered until this point
+
+var size_block_over = {
+    type: 'html-keyboard-response',
+    data: {ttype: 'block_over',
+           index: t},
+    stimulus: "The current block is over</br></br>"+
+              "You have earned extra &#36;{0} in the previous block</br></br>"+
+              "When you are ready to start the next block, please press the "+continue_key_text,
+    choices: keys_decision[0],
+    response_ends_trial: true,
+  on_start: function(trial){
+
+    // compute earnings in the past block
+    block_earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => a.block == size_trials[trial.data.index].block).map(a => a.accuracy).filter(a => !isNaN(a));
+    n_trials = block_earnings.length
+    percent_earnings = block_earnings.reduce((a, b) => a + b, 0)/n_trials;
+    block_bonus = percent_earnings*(max_earnings/n_size_blocks)
+    block_bonus = block_bonus.toFixed(2);
+    trial.stimulus = String.format(trial.stimulus, block_bonus);
+
+    // save data on every block
+    // save data frame at the end of the task
+    if (is_scanner == "scanner"){
+      save_local_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
+      save_local_data(data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
+    } else {
+      save_server_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
+      save_server_data(data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv(), tools_folder)
+    }
+  }
+}
+
+
+var if_size_block_over = {
+    timeline: [size_block_over],
+    conditional_function: function(){
+      var curr_ind = jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].index;
+      // make sure this is not the last trial
+      if (curr_ind != end_t) {
+        // if so, check if the current block will change from the block in the next trial
+        if ((size_trials[curr_ind].block != size_trials[curr_ind+1].block)) {
+            return true;
+        } else { return false; } // the next block is similar to the current one
+      } else { return false; } // this is the last trial
+    } // conditional_function
+  } // if_block_over
+
+  size_timeline.timeline.push(if_size_block_over)
+
+} // t trials
+
+  timeline.push(size_timeline);
+
+// ============================= End experiment =============================
+
+  var size_final_tally = {
+    type: "html-keyboard-response",
+    data: {ttype: 'size_final_tally'},
+    stimulus: function() {
+      // compute earnings in the past block
+      earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().map(a => a.accuracy).filter(a => !isNaN(a));
+      n_trials = earnings.length
+      percent_earnings = earnings.reduce((a, b) => a + b, 0)/n_trials;
+      total_bonus = percent_earnings*max_earnings
+      total_bonus = total_bonus.toFixed(2);
+      jsPsych.data.get().addToLast({size_final_tally: total_bonus});
+      return 'You have completed the Size game.<br></br>' +
+             'Congratulations! You earned extra $' +  total_bonus + ' across the game.<br></br>'  +
+             'Press the '+continue_key_text+' to continue.'
+       },
+      choices: keys_decision[0],
+      response_ends_trial: true,
+    on_finish: function() {
+      if (is_scanner == "scanner"){
+        save_local_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
+        save_local_data(data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
+      } else {
+        save_server_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
+        save_server_data(data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
+      }
+    } // on_finish}
+  }
+
+  timeline = timeline.concat(size_final_tally);
+
+  // present last screen in case this is the last experiment people have, for mturkers
+  // we also present a survey with questions
+  if (subID % 2 == 1){
+
+    if (is_scanner == "scanner"){
+      var end_task = {
+          type: "html-keyboard-response",
+          choices: keys_decision[0],
+          response_ends_trial: true,
+          stimulus:  "You have completed the experiment. Thank you for participating!"+
+                     "<br>Please remain still for 1 more minute while we complete a final scan.</br>"+
+                     "<br>We will be coming in to get you very shortly.</br>"
+          } // end_task
+      } else {
+        var end_task = [
+          // intro
+        { type: 'html-keyboard-response',
+          data: {ttype: 'debreif_intro'},
+          stimulus: "You have completed the main part of the study. We will now ask you a few short questions."+
+                    "<br>Please answer them sincerely. Once again, we remind you that your answers are completely anonymous.</br>" +
+                    "<br>Press the "+continue_key_text+" to continue.</br>",
+          choices: keys_decision[0],
+          response_ends_trial: true},
+          // age
+        { type: 'survey-text',
+          questions: [{prompt: 'How old are you?', columns: 20, rows: 1}],
+          data: {ttype: 'debreif_age'}},
+          // gender
+        { type: 'survey-multi-choice',
+          questions: [{prompt: 'What is your gender?', options: ['Female','Male','Other'], required: true}],
+          data: {ttype: 'debreif_gender'}},
+          // dominant hand
+        { type: 'survey-multi-choice',
+          questions: [{prompt: 'What is your dominant hand?', options: ['Left','Right'], required: true}],
+          data: {ttype: 'debreif_dominant_hand'}},
+          // native language
+        { type: 'survey-multi-choice',
+          questions: [{prompt: 'Is English your native language?', options: ['Yes','No'], required: true}],
+          data: {ttype: 'debreif_native_language'}},
+          // fluency in english
+        { type: 'survey-likert',
+          questions: [{prompt: 'How fluent are you in reading and understanding English?',labels: ['1<br>Not at all', '2', '3', '4', '5','6<br>Very fluent'],required: true}],
+          data: {ttype: 'debreif_fluency'}},
+          // clarity of instructions and strategies
+        { type: 'survey-text',
+          questions: [{prompt: 'How did you decide which object to choose in the Objects Game (first task)?', columns: 60, rows: 15}],
+          data: {ttype: 'debreif_strategy_category_learning'}},
+        { type: 'survey-text',
+            questions: [{prompt: 'In the Objects Game, some choices included objects that repeated for the second time. How did you decide between repeated objects?', columns: 60, rows: 15}],
+            data: {ttype: 'debreif_strategy_old_trials'}},
+        { type: 'survey-text',
+            questions: [{prompt: 'How did you decide which object to choose in the Size Game?', columns: 60, rows: 15}],
+            data: {ttype: 'debreif_strategy_size'}},
+        { type: 'survey-text',
+            questions: [{prompt: 'How did you decide which ball to choose in the Balls Game?', columns: 60, rows: 15}],
+            data: {ttype: 'debreif_strategy_rl'}},
+        { type: 'survey-text',
+          questions: [{prompt: 'Was there anything in the instructions you found unclear?',columns: 60, rows: 15}],
+          data: {ttype: 'debreif_clear_instructions'}},
+          // compute extra rewards given to subjects
+        { type: "html-keyboard-response",
+          stimulus: function() {
+            return '<p>Thank you for participating in this study!<br></br>' +
+                   '<br>Your survey code is: ' + subID + '</br>' +
+                   '<br>In order to receive payment, you must provide the above code on the survey link page on mturk.<br/>'+
+                   '<br>Once you press the space bar, your results will be uploaded to the server, and the experiment will complete.<br/>'+
+                   'Press the space bar to complete this experiment.</p>'},
+          choices: [' '],
+          data: {ttype: 'debreif_end'}}];
+      }
+      // add the trial to timeline
+      timeline = timeline.concat(end_task);
+    }
+
+  // start the experiment
+  jsPsych.init({
+    timeline: timeline,
+    preload_images: images,
+    show_progress_bar: true, // should i include this?
+    /*exclusions: {min_width: 1000,
+                min_height: 700},*/
+    on_interaction_data_update: function(data){
+      data.PID = subID;
+    },
+    on_finish: function() {
+      // ALICE - counterbalancing for now
+      if (subID % 2 == 0) {
+        window.location.replace("/simple_rl?subID="+subID+"&is_scanner="+is_scanner);
+      } else {
+        window.location.replace("/thankyou?subID="+subID+"&is_scanner="+is_scanner);
+      }
+    }
+  });
+
+</script>
+
+</html>
