@@ -191,10 +191,10 @@ for (i=0; i<(category_learning_trials.length-1); i++){
 }
 
 // debug mode - only the last block
-/*if (is_debug == 1){
-  category_learning_trials = category_learning_trials.filter(a => a.block == 6)
+if (is_debug == 1){
+  category_learning_trials = category_learning_trials.filter(a => a.block == 6 | a.block==0)
   //run_category_learning = 0;
-}*/
+}
 // =============================================================================
 // LOAD CATEGORY MEMORY DATA FRAME
 // =============================================================================
@@ -414,82 +414,81 @@ for (t = start_t; t < end_t+1; t++){
       trial_duration: timing_max_choice,
       on_start: function(trial){
 
+          // construct old trials if the current trial is old and this is a non repeated trial
+          // (if it is a repeated trial, we will use the information already appearing in category learning mat)
+          if (category_learning_trials[trial.data.index].old_trial==1 & category_learning_trials[trial.data.index].pair_type == "NaN"){
 
-        // construct old trials if the current trial is old and this is a non repeated trial
-        // (if it is a repeated trial, we will use the information already appearing in category learning mat)
-        if (category_learning_trials[trial.data.index].old_trial==1 & category_learning_trials[trial.data.index].pair_type == "NaN"){
+            // we only use the chosen_stims from the current block and the previous one
+            curr_block = category_learning_trials[trial.data.index].block;
+            curr_chosen_stims = JSON.parse(JSON.stringify(chosen_stims)).map(function(value,index) { return value; })
+            curr_chosen_stims = curr_chosen_stims.filter(a => range(curr_block-n_blocks_back_within_category,curr_block).includes(a.block))
 
-          // we only use the chosen_stims from the current block and the previous one
-          curr_block = category_learning_trials[trial.data.index].block;
-          curr_chosen_stims = JSON.parse(JSON.stringify(chosen_stims)).map(function(value,index) { return value; })
-          curr_chosen_stims = curr_chosen_stims.filter(a => range(curr_block-n_blocks_back_within_category,curr_block).includes(a.block))
-
-          // do we want to sample the occurance of within_category trials
-          // (this is preferable if number of old trials isn't high)
-          if (randomize_old_trials==1){
-            array = [0,1];
-            is_within_category =  array[Math.floor(Math.random() * array.length)];
-          } else {
-            is_within_category = 1;
-          }
-
-          // we first try to find within category stims. to do so, we check which
-          // of the categories in chosen_stims matrix have more than one exemplar
-          var counts = curr_chosen_stims.reduce((p, c) => {
-            var category = c.category;
-            if (!p.hasOwnProperty(category)) {
-              p[category] = 0;
+            // do we want to sample the occurance of within_category trials
+            // (this is preferable if number of old trials isn't high)
+            if (randomize_old_trials==1){
+              array = [0,1];
+              is_within_category =  array[Math.floor(Math.random() * array.length)];
+            } else {
+              is_within_category = 1;
             }
-            p[category]++;
-            return p;
-          }, {});
-          countsExtended = Object.keys(counts).map(k => {return {category: k, count: counts[k]}; });
-          countsExtended = countsExtended.filter(a => a.count > 1);
-          // if indeed there are categories with more than one exemplar, we
-          // randomly select one of them, and randomly select two exemplars
-          if (countsExtended.length > 0 & is_within_category == 1){
-            old_category = shuffle(countsExtended)[0].category;
-            old_category_stims = shuffle(curr_chosen_stims.filter(a => a.category == old_category))
-            left_stim = old_category_stims[0]
-            right_stim = old_category_stims[1]
-          } else {
-            // if there are no categories with at least two exemplars, we
-            // randomly select two chosen stims
-            old_category_stims = shuffle(curr_chosen_stims)
-            left_stim = old_category_stims[0]
-            right_stim = old_category_stims[1]
+
+            // we first try to find within category stims. to do so, we check which
+            // of the categories in chosen_stims matrix have more than one exemplar
+            var counts = curr_chosen_stims.reduce((p, c) => {
+              var category = c.category;
+              if (!p.hasOwnProperty(category)) {
+                p[category] = 0;
+              }
+              p[category]++;
+              return p;
+            }, {});
+            countsExtended = Object.keys(counts).map(k => {return {category: k, count: counts[k]}; });
+            countsExtended = countsExtended.filter(a => a.count > 1);
+            // if indeed there are categories with more than one exemplar, we
+            // randomly select one of them, and randomly select two exemplars
+            if (countsExtended.length > 0 & is_within_category == 1){
+              old_category = shuffle(countsExtended)[0].category;
+              old_category_stims = shuffle(curr_chosen_stims.filter(a => a.category == old_category))
+              left_stim = old_category_stims[0]
+              right_stim = old_category_stims[1]
+            } else {
+              // if there are no categories with at least two exemplars, we
+              // randomly select two chosen stims
+              old_category_stims = shuffle(curr_chosen_stims)
+              left_stim = old_category_stims[0]
+              right_stim = old_category_stims[1]
+            }
+
+            // add within-category parameter
+            if (left_stim.category == right_stim.category){
+              category_learning_trials[trial.data.index].within_category = 1;
+            } else {
+              category_learning_trials[trial.data.index].within_category = 0;
+            }
+
+            // assign trial type
+            if (left_stim.category_value > right_stim.category_value){
+              pair_type = right_stim.category_value.toString() + "-" + left_stim.category_value.toString()
+            } else {
+              pair_type = left_stim.category_value.toString() + "-" + right_stim.category_value.toString()
+            }
+
+            // insert trial info to matrix
+            category_learning_trials[trial.data.index].pair_type = pair_type,
+            category_learning_trials[trial.data.index].left_category = left_stim.category,
+            category_learning_trials[trial.data.index].right_category = right_stim.category,
+            category_learning_trials[trial.data.index].left_category_value = left_stim.category_value,
+            category_learning_trials[trial.data.index].right_category_value = right_stim.category_value,
+            category_learning_trials[trial.data.index].left_exemplar = left_stim.exemplar,
+            category_learning_trials[trial.data.index].right_exemplar = right_stim.exemplar,
+            category_learning_trials[trial.data.index].left_exemplar_value = left_stim.exemplar_value,
+            category_learning_trials[trial.data.index].right_exemplar_value = right_stim.exemplar_value,
+            category_learning_trials[trial.data.index].left_img = left_stim.img,
+            category_learning_trials[trial.data.index].right_img = right_stim.img,
+            category_learning_trials[trial.data.index].left_img_path = static_folder+'Stimuli/Experimental_stims/'+left_stim.category+'/'+left_stim.img,
+            category_learning_trials[trial.data.index].right_img_path = static_folder+'Stimuli/Experimental_stims/'+right_stim.category+'/'+right_stim.img
+
           }
-
-          // add within-category parameter
-          if (left_stim.category == right_stim.category){
-            category_learning_trials[trial.data.index].within_category = 1;
-          } else {
-            category_learning_trials[trial.data.index].within_category = 0;
-          }
-
-          // assign trial type
-          if (left_stim.category_value > right_stim.category_value){
-            pair_type = right_stim.category_value.toString() + "-" + left_stim.category_value.toString()
-          } else {
-            pair_type = left_stim.category_value.toString() + "-" + right_stim.category_value.toString()
-          }
-
-          // insert trial info to matrix
-          category_learning_trials[trial.data.index].pair_type = pair_type,
-          category_learning_trials[trial.data.index].left_category = left_stim.category,
-          category_learning_trials[trial.data.index].right_category = right_stim.category,
-          category_learning_trials[trial.data.index].left_category_value = left_stim.category_value,
-          category_learning_trials[trial.data.index].right_category_value = right_stim.category_value,
-          category_learning_trials[trial.data.index].left_exemplar = left_stim.exemplar,
-          category_learning_trials[trial.data.index].right_exemplar = right_stim.exemplar,
-          category_learning_trials[trial.data.index].left_exemplar_value = left_stim.exemplar_value,
-          category_learning_trials[trial.data.index].right_exemplar_value = right_stim.exemplar_value,
-          category_learning_trials[trial.data.index].left_img = left_stim.img,
-          category_learning_trials[trial.data.index].right_img = right_stim.img,
-          category_learning_trials[trial.data.index].left_img_path = static_folder+'Stimuli/Experimental_stims/'+left_stim.category+'/'+left_stim.img,
-          category_learning_trials[trial.data.index].right_img_path = static_folder+'Stimuli/Experimental_stims/'+right_stim.category+'/'+right_stim.img
-
-        }
 
         // trial stimulus
         trial.stimulus = String.format(trial.stimulus, propmt_decision, category_learning_trials[trial.data.index].left_img_path, category_learning_trials[trial.data.index].right_img_path);
@@ -517,7 +516,6 @@ for (t = start_t; t < end_t+1; t++){
         trial.data.right_img = category_learning_trials[trial.data.index].right_img;
         trial.data.left_img_path = category_learning_trials[trial.data.index].left_img_path;
         trial.data.right_img_path = category_learning_trials[trial.data.index].right_img_path;
-
       },
 
       on_finish: function(data){
@@ -530,8 +528,8 @@ for (t = start_t; t < end_t+1; t++){
         // find current index
         var curr_ind = jsPsych.data.get().last(1).values()[0].index;
 
-        //console.log(curr_ind); // ALICE
-        //console.log(block_counter); // ALICE
+        console.log("index: "+curr_ind); // ALICE
+        console.log("block counter: "+block_counter); // ALICE
 
         // ------ register choices ------
 
@@ -946,8 +944,14 @@ var if_decision_trial_node = {
     conditional_function: function(){
       if ((block_counter == n_trials_per_block+1) & (block == n_blocks)){
           return false;
+          jsPsych.endCurrentTimeline()
       } else {
           return true;
+      }
+    },
+    on_finish: function(data){
+      if ((block_counter == n_trials_per_block+1) & (block == n_blocks)){
+        jsPsych.endCurrentTimeline()
       }
     }
 }
@@ -997,6 +1001,7 @@ var if_decision_trial_node = {
         } else { return false; } // the next block is similar to the current one
       }, // conditional_function
     } // if_final_tally
+
 
   // ========================== Category memort phase ==========================
 
