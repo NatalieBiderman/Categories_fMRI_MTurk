@@ -15,6 +15,9 @@ python app.py
 You can now access the web app by going to http://127.0.0.1:8000
 The consent form can be accessed at http://127.0.0.1:8000/consent
 
+In the scanner, you can direct to the size judgement task by navigating to http://127.0.0.1:8000/size_form
+or the RL task by navigating to http://127.0.0.1:8000/rl_form
+
 
 Counterbalancing:
 If subject ID is odd: category learning, simple RL, size judgements
