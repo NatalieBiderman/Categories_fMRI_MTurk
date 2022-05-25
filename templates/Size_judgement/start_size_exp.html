@@ -1,25 +1,25 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Columbia University Psychology Experiment</title>
-    <script src="/static/jspsych-6.0.5/jspsych.js"></script>
-    <script src="/static/Tools/Functions.js"></script>
-    <script src="/static/jspsych-6.0.5/plugins/jspsych-html-keyboard-response.js"></script>
-    <script src="/static/jspsych-6.0.5/plugins/jspsych-instructions.js"></script>
-    <script src="/static/jspsych-6.0.5/plugins/jspsych-image-keyboard-response.js"></script>
-    <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-text.js"></script>
-    <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-likert.js"></script>
-    <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-multi-choice.js"></script>
-    <script src="/static/jspsych-6.0.5/plugins/jspsych-html-slider-response.js"></script>
-    <script src="/static/jspsych-6.0.5/plugins/jspsych-fullscreen.js"></script>
-    <script src="/static/jspsych-6.0.5/plugins/jspsych-html-button-response.js"></script>
-    <script src="/static/jquery-3.3.1/jquery.min.js"></script>
-    <link href="/static/jspsych-6.0.5/css/jspsych.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/Tools/myCSSstyle.css" rel="stylesheet" type="text/css"/>
-    <style> </style>
-  </head>
-  <body> </body>
-  <script>
+<head>
+  <title>Columbia University Psychology Experiment</title>
+  <script src="/static/jspsych-6.0.5/jspsych.js"></script>
+  <script src="/static/Tools/Functions.js"></script>
+  <script src="/static/jspsych-6.0.5/plugins/jspsych-html-keyboard-response.js"></script>
+  <script src="/static/jspsych-6.0.5/plugins/jspsych-instructions.js"></script>
+  <script src="/static/jspsych-6.0.5/plugins/jspsych-image-keyboard-response.js"></script>
+  <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-text.js"></script>
+  <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-likert.js"></script>
+  <script src="/static/jspsych-6.0.5/plugins/jspsych-survey-multi-choice.js"></script>
+  <script src="/static/jspsych-6.0.5/plugins/jspsych-html-slider-response.js"></script>
+  <script src="/static/jspsych-6.0.5/plugins/jspsych-fullscreen.js"></script>
+  <script src="/static/jspsych-6.0.5/plugins/jspsych-html-button-response.js"></script>
+  <script src="/static/jquery-3.3.1/jquery.min.js"></script>
+  <link href="/static/jspsych-6.0.5/css/jspsych.css" rel="stylesheet" type="text/css"/>
+  <link href="/static/Tools/myCSSstyle.css" rel="stylesheet" type="text/css"/>
+  <style> </style>
+</head>
+<body> </body>
+<script>
 
 // =============================================================================
 // SET PARAMETERS
@@ -48,6 +48,7 @@ if (is_scanner == "scanner"){
   var max_earnings = 4; // maximum dollar earnings
 } else {
   var max_earnings = 1; // maximum dollar earnings
+}
 
 // assign folders
 var static_folder         = '/static/Size_judgement/'
@@ -546,129 +547,130 @@ var if_size_block_over = {
 
 // ============================= End experiment =============================
 
-  var size_final_tally = {
-    type: "html-keyboard-response",
-    data: {ttype: 'size_final_tally'},
-    stimulus: function() {
-      // compute earnings in the past block
-      earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().map(a => a.accuracy).filter(a => !isNaN(a));
-      n_trials = earnings.length
-      percent_earnings = earnings.reduce((a, b) => a + b, 0)/n_trials;
-      total_bonus = percent_earnings*max_earnings
-      total_bonus = total_bonus.toFixed(2);
-      jsPsych.data.get().addToLast({size_final_tally: total_bonus});
-      return 'You have completed the Size game.<br></br>' +
-             'Congratulations! You earned extra $' +  total_bonus + ' across the game.<br></br>'  +
-             'Press the '+continue_key_text+' to continue.'
-       },
-      choices: keys_decision[0],
-      response_ends_trial: true,
-    on_finish: function() {
-      if (is_scanner == "scanner"){
-        save_local_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
-        save_local_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
-      } else {
-        save_server_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
-        save_server_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
-      }
-    } // on_finish}
+var size_final_tally = {
+  type: "html-keyboard-response",
+  data: {ttype: 'size_final_tally'},
+  stimulus: function() {
+    // compute earnings in the past block
+    earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().map(a => a.accuracy).filter(a => !isNaN(a));
+    n_trials = earnings.length
+    percent_earnings = earnings.reduce((a, b) => a + b, 0)/n_trials;
+    total_bonus = percent_earnings*max_earnings
+    total_bonus = total_bonus.toFixed(2);
+    jsPsych.data.get().addToLast({size_final_tally: total_bonus});
+    return 'You have completed the Size game.<br></br>' +
+           'Congratulations! You earned extra $' +  total_bonus + ' across the game.<br></br>'  +
+           'Press the '+continue_key_text+' to continue.'
+     },
+    choices: keys_decision[0],
+    response_ends_trial: true,
+  on_finish: function() {
+    if (is_scanner == "scanner"){
+      save_local_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
+      save_local_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
+    } else {
+      save_server_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
+      save_server_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
+    }
+  } // on_finish}
+}
+
+timeline = timeline.concat(size_final_tally);
+
+// present last screen in case this is the last experiment people have, for mturkers
+// we also present a survey with questions
+if (subID % 2 == 1){
+
+  if (is_scanner == "scanner"){
+    var end_task = {
+        type: "html-keyboard-response",
+        choices: keys_decision[0],
+        response_ends_trial: true,
+        stimulus:  "You have completed the experiment. Thank you for participating!"+
+                   "<br>Please remain still for 1 more minute while we complete a final scan.</br>"+
+                   "<br>We will be coming in to get you very shortly.</br>"
+        } // end_task
+    } else {
+      var end_task = [
+        // intro
+      { type: 'html-keyboard-response',
+        data: {ttype: 'debreif_intro'},
+        stimulus: "You have completed the main part of the study. We will now ask you a few short questions."+
+                  "<br>Please answer them sincerely. Once again, we remind you that your answers are completely anonymous.</br>" +
+                  "<br>Press the "+continue_key_text+" to continue.</br>",
+        choices: keys_decision[0],
+        response_ends_trial: true},
+        // age
+      { type: 'survey-text',
+        questions: [{prompt: 'How old are you?', columns: 20, rows: 1}],
+        data: {ttype: 'debreif_age'}},
+        // gender
+      { type: 'survey-multi-choice',
+        questions: [{prompt: 'What is your gender?', options: ['Female','Male','Other'], required: true}],
+        data: {ttype: 'debreif_gender'}},
+        // dominant hand
+      { type: 'survey-multi-choice',
+        questions: [{prompt: 'What is your dominant hand?', options: ['Left','Right'], required: true}],
+        data: {ttype: 'debreif_dominant_hand'}},
+        // native language
+      { type: 'survey-multi-choice',
+        questions: [{prompt: 'Is English your native language?', options: ['Yes','No'], required: true}],
+        data: {ttype: 'debreif_native_language'}},
+        // fluency in english
+      { type: 'survey-likert',
+        questions: [{prompt: 'How fluent are you in reading and understanding English?',labels: ['1<br>Not at all', '2', '3', '4', '5','6<br>Very fluent'],required: true}],
+        data: {ttype: 'debreif_fluency'}},
+        // clarity of instructions and strategies
+      { type: 'survey-text',
+        questions: [{prompt: 'How did you decide which object to choose in the Objects Game (first task)?', columns: 60, rows: 15}],
+        data: {ttype: 'debreif_strategy_category_learning'}},
+      { type: 'survey-text',
+          questions: [{prompt: 'In the Objects Game, some choices included objects that repeated for the second time. How did you decide between repeated objects?', columns: 60, rows: 15}],
+          data: {ttype: 'debreif_strategy_old_trials'}},
+      { type: 'survey-text',
+          questions: [{prompt: 'How did you decide which object to choose in the Size Game?', columns: 60, rows: 15}],
+          data: {ttype: 'debreif_strategy_size'}},
+      { type: 'survey-text',
+          questions: [{prompt: 'How did you decide which ball to choose in the Balls Game?', columns: 60, rows: 15}],
+          data: {ttype: 'debreif_strategy_rl'}},
+      { type: 'survey-text',
+        questions: [{prompt: 'Was there anything in the instructions you found unclear?',columns: 60, rows: 15}],
+        data: {ttype: 'debreif_clear_instructions'}},
+        // compute extra rewards given to subjects
+      { type: "html-keyboard-response",
+        stimulus: function() {
+          return '<p>Thank you for participating in this study!<br></br>' +
+                 '<br>Your survey code is: ' + subID + '</br>' +
+                 '<br>In order to receive payment, you must provide the above code on the survey link page on mturk.<br/>'+
+                 '<br>Once you press the space bar, your results will be uploaded to the server, and the experiment will complete.<br/>'+
+                 'Press the space bar to complete this experiment.</p>'},
+        choices: [' '],
+        data: {ttype: 'debreif_end'}}];
+    }
+    // add the trial to timeline
+    timeline = timeline.concat(end_task);
   }
 
-  timeline = timeline.concat(size_final_tally);
-
-  // present last screen in case this is the last experiment people have, for mturkers
-  // we also present a survey with questions
-  if (subID % 2 == 1){
-
-    if (is_scanner == "scanner"){
-      var end_task = {
-          type: "html-keyboard-response",
-          choices: keys_decision[0],
-          response_ends_trial: true,
-          stimulus:  "You have completed the experiment. Thank you for participating!"+
-                     "<br>Please remain still for 1 more minute while we complete a final scan.</br>"+
-                     "<br>We will be coming in to get you very shortly.</br>"
-          } // end_task
-      } else {
-        var end_task = [
-          // intro
-        { type: 'html-keyboard-response',
-          data: {ttype: 'debreif_intro'},
-          stimulus: "You have completed the main part of the study. We will now ask you a few short questions."+
-                    "<br>Please answer them sincerely. Once again, we remind you that your answers are completely anonymous.</br>" +
-                    "<br>Press the "+continue_key_text+" to continue.</br>",
-          choices: keys_decision[0],
-          response_ends_trial: true},
-          // age
-        { type: 'survey-text',
-          questions: [{prompt: 'How old are you?', columns: 20, rows: 1}],
-          data: {ttype: 'debreif_age'}},
-          // gender
-        { type: 'survey-multi-choice',
-          questions: [{prompt: 'What is your gender?', options: ['Female','Male','Other'], required: true}],
-          data: {ttype: 'debreif_gender'}},
-          // dominant hand
-        { type: 'survey-multi-choice',
-          questions: [{prompt: 'What is your dominant hand?', options: ['Left','Right'], required: true}],
-          data: {ttype: 'debreif_dominant_hand'}},
-          // native language
-        { type: 'survey-multi-choice',
-          questions: [{prompt: 'Is English your native language?', options: ['Yes','No'], required: true}],
-          data: {ttype: 'debreif_native_language'}},
-          // fluency in english
-        { type: 'survey-likert',
-          questions: [{prompt: 'How fluent are you in reading and understanding English?',labels: ['1<br>Not at all', '2', '3', '4', '5','6<br>Very fluent'],required: true}],
-          data: {ttype: 'debreif_fluency'}},
-          // clarity of instructions and strategies
-        { type: 'survey-text',
-          questions: [{prompt: 'How did you decide which object to choose in the Objects Game (first task)?', columns: 60, rows: 15}],
-          data: {ttype: 'debreif_strategy_category_learning'}},
-        { type: 'survey-text',
-            questions: [{prompt: 'In the Objects Game, some choices included objects that repeated for the second time. How did you decide between repeated objects?', columns: 60, rows: 15}],
-            data: {ttype: 'debreif_strategy_old_trials'}},
-        { type: 'survey-text',
-            questions: [{prompt: 'How did you decide which object to choose in the Size Game?', columns: 60, rows: 15}],
-            data: {ttype: 'debreif_strategy_size'}},
-        { type: 'survey-text',
-            questions: [{prompt: 'How did you decide which ball to choose in the Balls Game?', columns: 60, rows: 15}],
-            data: {ttype: 'debreif_strategy_rl'}},
-        { type: 'survey-text',
-          questions: [{prompt: 'Was there anything in the instructions you found unclear?',columns: 60, rows: 15}],
-          data: {ttype: 'debreif_clear_instructions'}},
-          // compute extra rewards given to subjects
-        { type: "html-keyboard-response",
-          stimulus: function() {
-            return '<p>Thank you for participating in this study!<br></br>' +
-                   '<br>Your survey code is: ' + subID + '</br>' +
-                   '<br>In order to receive payment, you must provide the above code on the survey link page on mturk.<br/>'+
-                   '<br>Once you press the space bar, your results will be uploaded to the server, and the experiment will complete.<br/>'+
-                   'Press the space bar to complete this experiment.</p>'},
-          choices: [' '],
-          data: {ttype: 'debreif_end'}}];
-      }
-      // add the trial to timeline
-      timeline = timeline.concat(end_task);
+// start the experiment
+jsPsych.init({
+  timeline: timeline,
+  preload_images: images,
+  show_progress_bar: true, // should i include this?
+  /*exclusions: {min_width: 1000,
+              min_height: 700},*/
+  on_interaction_data_update: function(data){
+    data.PID = subID;
+  },
+  on_finish: function() {
+    // ALICE - counterbalancing for now
+    if (subID % 2 == 0) {
+      window.location.replace("/simple_rl?subID="+subID+"&is_scanner="+is_scanner);
+    } else {
+      window.location.replace("/thankyou?subID="+subID+"&is_scanner="+is_scanner);
     }
+  }
+});
 
-  // start the experiment
-  jsPsych.init({
-    timeline: timeline,
-    preload_images: images,
-    show_progress_bar: true, // should i include this?
-    /*exclusions: {min_width: 1000,
-                min_height: 700},*/
-    on_interaction_data_update: function(data){
-      data.PID = subID;
-    },
-    on_finish: function() {
-      // ALICE - counterbalancing for now
-      if (subID % 2 == 0) {
-        window.location.replace("/simple_rl?subID="+subID+"&is_scanner="+is_scanner);
-      } else {
-        window.location.replace("/thankyou?subID="+subID+"&is_scanner="+is_scanner);
-      }
-    }
-  });
+</script>
 
- </script>
- </html>
+</html>
