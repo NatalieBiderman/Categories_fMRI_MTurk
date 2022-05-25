@@ -894,6 +894,9 @@ var block_over_trial = {
         return a + b;
     }, 0);
     block_bonus = sum_earnings / 100 * percent_bonus;
+    if (block_bonus > (max_earnings/n_blocks)){
+      block_bonus = max_earnings/n_blocks;
+    }
     block_bonus = block_bonus.toFixed(2);
     trial.stimulus = String.format(trial.stimulus, block_bonus);
 
