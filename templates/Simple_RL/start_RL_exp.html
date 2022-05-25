@@ -51,6 +51,7 @@ if (is_scanner == "scanner"){
 // assign folders
 var static_folder         = '/static/Simple_RL/'
 var data_folder           = '/data/Simple_RL/Individual_data/'
+var int_data_folder       = '/data/Simple_RL/Interactive_data/'
 var tools_folder          = '/static/Tools'
 
 // assign decision keys
@@ -573,10 +574,10 @@ rl_timeline.timeline.push(if_rl_choice_warning)
       // save data frame at the end of the task
       if (is_scanner == "scanner"){
         save_local_data(data_folder+'rl_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
-        save_local_data(data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
+        save_local_data(int_data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
       } else {
         save_server_data(data_folder+'rl_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(),tools_folder)
-        save_server_data(data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(),tools_folder)
+        save_server_data(int_data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(),tools_folder)
       }
     }
   }
@@ -624,10 +625,10 @@ var rl_final_tally = {
     on_finish: function() {
       if (is_scanner == "scanner"){
         save_local_data(data_folder+'rl_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
-        save_local_data(data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
+        save_local_data(int_data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
       } else {
         save_server_data(data_folder+'rl_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(),tools_folder)
-        save_server_data(data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(),tools_folder)
+        save_server_data(int_data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(),tools_folder)
       }
     } // on_finish}
   }

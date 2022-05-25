@@ -63,6 +63,7 @@ var duration              = 0;
 // assign folders
 var static_folder         = '/static/Category_learning/'
 var data_folder           = '/data/Category_learning/Individual_data/'
+var int_data_folder       = '/data/Category_learning/Interactive_data/'
 var tools_folder          = '/static/Tools'
 
 // assign decision keys
@@ -900,10 +901,10 @@ var block_over_trial = {
     // save data frame at the end of the task
     if (is_scanner == "scanner"){
       save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
-      save_local_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv()) // ALICE NOTE: this is ignored bc a POST request is sent to the server
+      save_local_data(int_data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv()) // ALICE NOTE: this is ignored bc a POST request is sent to the server
     } else {
       save_server_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
-      save_server_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder) // ALICE NOTE: this is ignored bc a POST request is sent to the server
+      save_server_data(int_data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder) // ALICE NOTE: this is ignored bc a POST request is sent to the server
     }*/
   }
 }
@@ -984,10 +985,10 @@ var if_decision_trial_node = {
     on_finish: function() {
       if (is_scanner == "scanner"){
         save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
-        save_local_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
+        save_local_data(int_data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
       } else {
         save_server_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
-        save_server_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder)
+        save_server_data(int_data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder)
       }
     } // on_finish
   }
@@ -1081,10 +1082,10 @@ var if_decision_trial_node = {
     on_finish: function() {
       if (is_scanner == "scanner"){
         save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
-        save_local_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
+        save_local_data(int_data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
       } else {
         save_server_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
-        save_server_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder)
+        save_server_data(int_data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder)
       }
       // ALICE - counterbalancing for now
       if (subID % 2 == 0) {

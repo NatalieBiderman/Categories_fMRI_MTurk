@@ -48,10 +48,11 @@ if (is_scanner == "scanner"){
   var max_earnings = 4; // maximum dollar earnings
 } else {
   var max_earnings = 1; // maximum dollar earnings
-  
+
 // assign folders
 var static_folder         = '/static/Size_judgement/'
 var data_folder           = '/data/Size_judgement/Individual_data/'
+var int_data_folder       = '/data/Size_judgement/Interactive_data/'
 var tools_folder          = '/static/Tools'
 
 // assign decision keys
@@ -511,10 +512,10 @@ var size_block_over = {
     // save data frame at the end of the task
     if (is_scanner == "scanner"){
       save_local_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
-      save_local_data(data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
+      save_local_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
     } else {
       save_server_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
-      save_server_data(data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv(), tools_folder)
+      save_server_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv(), tools_folder)
     }
   }
 }
@@ -562,10 +563,10 @@ var if_size_block_over = {
     on_finish: function() {
       if (is_scanner == "scanner"){
         save_local_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
-        save_local_data(data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
+        save_local_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
       } else {
         save_server_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
-        save_server_data(data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
+        save_server_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
       }
     } // on_finish}
   }
