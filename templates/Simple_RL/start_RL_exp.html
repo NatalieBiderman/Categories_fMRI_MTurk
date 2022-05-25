@@ -37,13 +37,16 @@ var timing_confirmation  = 0;//500;
 var timing_feedback      = 1000;
 var timing_warning       = timing_feedback;
 var percent_bonus        = 0.05; // what is the percentage of winnings participants get as bonus money
-var max_earnings         = 4; // maximum dollar earnings
 var keys_instructions    = [' '];
 var keys_start_run       = ['t'];
 var timeline             = [];
 var rl_timeline          = { timeline: []};
 var onset                = 0;
 var duration             = 0;
+if (is_scanner == "scanner"){
+  var max_earnings = 4; // maximum dollar earnings
+} else {
+  var max_earnings = 1; // maximum dollar earnings
 
 // assign folders
 var static_folder         = '/static/Simple_RL/'

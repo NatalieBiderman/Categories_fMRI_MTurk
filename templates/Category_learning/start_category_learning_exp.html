@@ -896,7 +896,7 @@ var block_over_trial = {
     block_bonus = block_bonus.toFixed(2);
     trial.stimulus = String.format(trial.stimulus, block_bonus);
 
-    // save data on every block
+    /*// save data on every block
     // save data frame at the end of the task
     if (is_scanner == "scanner"){
       save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
@@ -904,7 +904,7 @@ var block_over_trial = {
     } else {
       save_server_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
       save_server_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder) // ALICE NOTE: this is ignored bc a POST request is sent to the server
-    }
+    }*/
   }
 }
 
@@ -981,7 +981,7 @@ var if_decision_trial_node = {
        },
     choices: keys_decision[0],
     response_ends_trial: true
-    /*on_finish: function() {
+    on_finish: function() {
       if (is_scanner == "scanner"){
         save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
         save_local_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
@@ -989,7 +989,7 @@ var if_decision_trial_node = {
         save_server_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(), tools_folder)
         save_server_data(data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), tools_folder)
       }
-    } // on_finish*/
+    } // on_finish
   }
 
   var if_final_tally = {

@@ -2,9 +2,7 @@ from flask import Flask, render_template, request
 from flask import redirect, url_for
 from manage_subject_info import *
 from mturk_utils import *
-import pandas as pd
 from io import StringIO
-import json
 
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 
