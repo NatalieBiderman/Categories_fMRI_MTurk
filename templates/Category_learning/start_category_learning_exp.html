@@ -980,7 +980,7 @@ var if_decision_trial_node = {
              'Press the '+continue_key_text+' to continue.'
        },
     choices: keys_decision[0],
-    response_ends_trial: true
+    response_ends_trial: true,
     on_finish: function() {
       if (is_scanner == "scanner"){
         save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
