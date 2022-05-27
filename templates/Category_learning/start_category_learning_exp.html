@@ -46,7 +46,7 @@ var timing_confirmation   = 0;//500;
 var timing_feedback       = 1000;
 var timing_warning        = timing_feedback;
 var n_blocks_back_within_category = 1;
-var percent_bonus         = 0.05; // what is the percentage of winnings participants get as bonus money
+var percent_bonus         = 0.04; // what is the percentage of winnings participants get as bonus money
 if (is_scanner == "scanner"){
   var max_earnings = 12; // maximum dollar earnings
 } else {
@@ -882,7 +882,7 @@ var block_over_trial = {
     data: {ttype: 'block_over',
            index: t},
     stimulus: "The current block is over</br></br>"+
-              "You have earned extra &#36;{0} in the previous block</br></br>"+
+              "You have earned an extra &#36;{0} in the previous block</br></br>"+
               "When you are ready to start the next block, please press the "+continue_key_text,
     choices: keys_decision[0],
     response_ends_trial: true,
@@ -980,7 +980,7 @@ var if_decision_trial_node = {
       if (total_bonus > max_earnings){total_bonus = max_earnings}
       jsPsych.data.get().addToLast({total_bonus_tally: total_bonus});
       return 'You have completed the Objects game.<br></br>' +
-             'Congratulations! You earned extra $' +  total_bonus + ' across the game.<br></br>'  +
+             'Congratulations! You earned an extra $' +  total_bonus + ' across the game.<br></br>'  +
              'Press the '+continue_key_text+' to continue.'
        },
     choices: keys_decision[0],

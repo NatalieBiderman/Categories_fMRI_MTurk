@@ -37,7 +37,7 @@ var timing_max_choice    = 1500;
 var timing_confirmation  = 0;//500;
 var timing_feedback      = 1000;
 var timing_warning       = timing_feedback;
-var percent_bonus        = 0.05; // what is the percentage of winnings participants get as bonus money
+var percent_bonus        = 0.04; // what is the percentage of winnings participants get as bonus money
 var keys_instructions    = [' '];
 var keys_start_run       = ['t'];
 var timeline             = [];
@@ -83,7 +83,7 @@ if (is_scanner == "scanner") {
 var size_stims_csv;
 readTextFile(static_folder+'Stimuli/Stimuli_list/size_stimuli.csv', function(text){size_stims_csv = text;});
 var size_stims = csvJSON(size_stims_csv);
-size_stims = size_stims.filter(a => a.is_test_item==0).filter(a => typeof a.category !== 'undefined')
+size_stims = size_stims.filter(a => typeof a.category !== 'undefined')
 
 Instructions_stimuli = [static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task1.png',
                         static_folder+'Stimuli/Instructions/'+is_scanner+'/size_task2.png',
@@ -495,7 +495,7 @@ var size_block_over = {
     data: {ttype: 'block_over',
            index: t},
     stimulus: "The current block is over</br></br>"+
-              "You have earned extra &#36;{0} in the previous block</br></br>"+
+              "You have earned an extra &#36;{0} in the previous block</br></br>"+
               "When you are ready to start the next block, please press the "+continue_key_text,
     choices: keys_decision[0],
     response_ends_trial: true,
@@ -559,7 +559,7 @@ var size_final_tally = {
     total_bonus = total_bonus.toFixed(2);
     jsPsych.data.get().addToLast({size_final_tally: total_bonus});
     return 'You have completed the Size game.<br></br>' +
-           'Congratulations! You earned extra $' +  total_bonus + ' across the game.<br></br>'  +
+           'Congratulations! You earned an extra $' +  total_bonus + ' across the game.<br></br>'  +
            'Press the '+continue_key_text+' to continue.'
      },
     choices: keys_decision[0],
@@ -667,6 +667,13 @@ jsPsych.init({
       window.location.replace("/simple_rl?subID="+subID+"&is_scanner="+is_scanner);
     } else {
       window.location.replace("/thankyou?subID="+subID+"&is_scanner="+is_scanner);
+    }
+    if (is_scanner == "scanner"){
+      save_local_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
+      save_local_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
+    } else {
+      save_server_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv())
+      save_server_data(int_data_folder+'size_int_data_sub_'+subID+'.csv', jsPsych.data.getInteractionData().csv())
     }
   }
 });

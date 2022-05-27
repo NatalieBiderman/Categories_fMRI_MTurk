@@ -11,10 +11,6 @@ os.chdir(_thisDir)
 
 def save_data(filepath, data):
     df = pd.read_csv(data)
-    if os.path.exists(filepath):
-        currentTime = datetime.datetime.now()
-        currentTime = currentTime.strftime("%Y-%m-%d %H:%M:%S")
-        filepath = filepath.replace('.csv', '_%s.csv'%currentTime)
     df.to_csv(_thisDir + filepath)
 
 
