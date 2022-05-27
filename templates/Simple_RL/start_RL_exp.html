@@ -726,6 +726,13 @@ if (subID % 2 != 1){
       data.PID = subID;
     },
     on_finish: function() {
+      if (is_scanner == "scanner"){
+        save_local_data(data_folder+'rl_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
+        save_local_data(int_data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
+      } else {
+        save_server_data(data_folder+'rl_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(),tools_folder)
+        save_server_data(int_data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(),tools_folder)
+      }
       // ALICE - counterbalancing for now
       if (subID % 2 == 1) {
         window.location.replace("/size_judgement?subID="+subID+"&is_scanner="+is_scanner);
