@@ -881,8 +881,8 @@ var block_over_trial = {
     type: 'html-keyboard-response',
     data: {ttype: 'block_over',
            index: t},
-    stimulus: "The current block is over</br></br>"+
-              "You have earned an extra &#36;{0} in the previous block</br></br>"+
+    stimulus: "Block number {0} is over</br></br>"+
+              "You have earned an extra &#36;{1} in the previous block</br></br>"+
               "When you are ready to start the next block, please press the "+continue_key_text,
     choices: keys_decision[0],
     response_ends_trial: true,
@@ -898,7 +898,10 @@ var block_over_trial = {
       block_bonus = max_earnings/n_blocks;
     }
     block_bonus = block_bonus.toFixed(2);
-    trial.stimulus = String.format(trial.stimulus, block_bonus);
+
+    // block number
+    block_number = jsPsych.data.get().filter({ttype: 'choice'}).values().block
+    trial.stimulus = String.format(trial.stimulus, block_number, block_bonus);
 
     /*// save data on every block
     // save data frame at the end of the task
