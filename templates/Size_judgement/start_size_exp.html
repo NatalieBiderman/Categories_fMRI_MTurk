@@ -468,9 +468,13 @@ if (include_no_response_prompt == 1) {
         on_start: function(trial){
           // assign jitter timing
           curr_iti = jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].iti;
-          if (!jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].key_press){
-            curr_iti = curr_iti - timing_warning; // we remove the timing of warning from the iti, so as to make sure we don't add extra time to the experiment
+          // we adjust the time of iti to accomodate the no-response prompt
+          if (include_no_response_prompt == 1) {
+            if (!jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].key_press){
+              curr_iti = curr_iti - timing_warning; // we remove the timing of warning from the iti, so as to make sure we don't add extra time to the experiment
+            }
           }
+
           if (is_debug==1){
             trial.trial_duration = 100;
           } else {
