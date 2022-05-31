@@ -508,8 +508,8 @@ var size_block_over = {
 
     // compute earnings in the past block
     block_earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => a.block == size_trials[trial.data.index].block).map(a => a.accuracy).filter(a => !isNaN(a));
-    //n_trials = block_earnings.length
-    percent_earnings = block_earnings.reduce((a, b) => a + b, 0)/(n_size_trials/n_size_blocks);
+    n_valid_trials = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => a.left_size_num != a.right_size_num).length
+    percent_earnings = block_earnings.reduce((a, b) => a + b, 0)/n_valid_trials;
     block_bonus = percent_earnings * (max_earnings/n_size_blocks);
     if (block_bonus > (max_earnings/n_size_blocks)){
       block_bonus = max_earnings/n_size_blocks;
