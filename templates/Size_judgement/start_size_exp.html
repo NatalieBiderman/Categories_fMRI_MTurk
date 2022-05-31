@@ -32,6 +32,7 @@ var end_t                 = {{ end_t|safe }}; // 89; // 90 trials
 var subID                 = {{ subID|safe }}; // 1;
 
 var include_no_response_prompt = 0;
+var n_size_trials        = 90;
 var n_size_blocks        = 2;
 var timing_max_choice    = 1500;
 var timing_confirmation  = 0;//500;
@@ -498,23 +499,27 @@ var size_block_over = {
     type: 'html-keyboard-response',
     data: {ttype: 'block_over',
            index: t},
-    stimulus: "The current block is over</br></br>"+
-              "You have earned an extra &#36;{0} in the previous block</br></br>"+
-              "When you are ready to start the next block, please press the "+continue_key_text,
+    stimulus: "Round {0} (out of {1}) is over</br></br>"+
+              "You have earned an extra &#36;{2} in the previous round</br></br>"+
+              "When you are ready to start the next round, please press the "+continue_key_text,
     choices: keys_decision[0],
     response_ends_trial: true,
   on_start: function(trial){
 
     // compute earnings in the past block
     block_earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => a.block == size_trials[trial.data.index].block).map(a => a.accuracy).filter(a => !isNaN(a));
-    n_trials = block_earnings.length
-    percent_earnings = block_earnings.reduce((a, b) => a + b, 0)/n_trials;
-    block_bonus = percent_earnings * max_earnings;
+    //n_trials = block_earnings.length
+    percent_earnings = block_earnings.reduce((a, b) => a + b, 0)/(n_size_trials/n_size_blocks);
+    block_bonus = percent_earnings * (max_earnings/n_size_blocks);
     if (block_bonus > (max_earnings/n_size_blocks)){
       block_bonus = max_earnings/n_size_blocks;
     }
     block_bonus = block_bonus.toFixed(2);
-    trial.stimulus = String.format(trial.stimulus, block_bonus);
+
+    // block
+    curr_block = jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].block;
+
+    trial.stimulus = String.format(trial.stimulus, curr_block, n_size_blocks, block_bonus);
 
     // save data on every block
     // save data frame at the end of the task
@@ -557,9 +562,8 @@ var size_final_tally = {
   stimulus: function() {
     // compute earnings in the past block
     earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().map(a => a.accuracy).filter(a => !isNaN(a));
-    n_trials = earnings.length
-    percent_earnings = earnings.reduce((a, b) => a + b, 0)/n_trials;
-    total_bonus = percent_earnings*max_earnings
+    percent_earnings = block_earnings.reduce((a, b) => a + b, 0)/n_size_trials;
+    total_bonus = percent_earnings * max_earnings;
     total_bonus = total_bonus.toFixed(2);
     jsPsych.data.get().addToLast({size_final_tally: total_bonus});
     return 'You have completed the Size game.<br></br>' +
