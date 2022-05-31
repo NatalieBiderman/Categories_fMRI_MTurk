@@ -900,7 +900,7 @@ var block_over_trial = {
     block_bonus = block_bonus.toFixed(2);
 
     // block number
-    block_number = jsPsych.data.get().filter({ttype: 'choice'}).values().block
+    block_number = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].block
     trial.stimulus = String.format(trial.stimulus, block_number, n_blocks, block_bonus);
 
     /*// save data on every block
