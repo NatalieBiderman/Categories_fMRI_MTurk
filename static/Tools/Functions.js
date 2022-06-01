@@ -111,7 +111,7 @@ function transpose(a) {
 
 
 // Save data to file functions
-function save_server_data(name, data, tools_folder) {
+function save_server_data(name, data, nextURL, tools_folder) {
   /*
   var xhr = new XMLHttpRequest();
   //xhr.addEventListener("load", onComplete);
@@ -122,10 +122,10 @@ function save_server_data(name, data, tools_folder) {
     filedata: data
   }));
   */
-    save_data_to_flask_app(name, data);
+    save_data_to_flask_app(name, data, nextURL);
 }
 
-function save_local_data(name, data){
+function save_local_data(name, data, nextURL){
    /*
    var a         = document.createElement('a');
    a.href        = 'data:attachment/csv,' +  encodeURIComponent(data);
@@ -134,19 +134,24 @@ function save_local_data(name, data){
    document.body.appendChild(a);
    a.click();
    */
-   save_data_to_flask_app(name, data);
+   save_data_to_flask_app(name, data, nextURL);
 }
 
-function save_data_to_flask_app(name, data) {
+function save_data_to_flask_app(name, data, nextURL) {
     // send filename and data to flask as a json string
     $.ajax({
-        url: "/category_learning",
+        url: "/post_data",
         method: 'POST',
         data: JSON.stringify({"filename":name, "data":data}),
         contentType: "application/json; charset=utf-8",
     }).done(function(data, textStatus, jqXHR) {
+        console.log("done with ajax post");
         console.log(textStatus);
+        if (nextURL != "") {
+            window.location.replace(nextURL);
+        }
     }).fail(function(error) {
+        console.log("failed ajax post");
         console.log(error);
     });
 }

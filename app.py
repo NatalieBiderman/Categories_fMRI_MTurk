@@ -43,6 +43,15 @@ def category_form():
 def consent():
     return render_template('Category_learning/consent.html')
 
+@app.route('/post_data', methods=["POST"])
+def post_data():
+    if request.is_json:
+        ## Retrieve jsPsych data.
+        data = request.get_json()
+        filepath = data['filename']
+        save_data(filepath, StringIO(data['data']))
+    return ('', 200)
+
 @app.route('/category_index')
 def category_index():
     return render_template('Category_learning/index.html')
