@@ -205,7 +205,7 @@ var start_run = {
       jsPsych.data.addProperties({
         warning: 0,
         missed_checkup: 0,
-        PID: subID })
+        PID: subID})
     }
 }
 
@@ -331,15 +331,16 @@ for (t = start_t; t < end_t+1; t++){
       // save onset and duration
       if (data.key_press === null){
         duration = timing_max_choice/1000;
-        data.no_resposne = 1;
+        no_resposne = 1;
       } else {
         duration = jsPsych.data.get().last(1).values()[0].rt/1000;
-        data.no_response = 0;
+        no_resposne = 0;
       }
 
       onset = onset + duration;
       data.onset = onset;
       data.duration = duration;
+      data.no_response = no_response;
 
     } // on_finish
   } // decision trial
@@ -576,14 +577,14 @@ rl_timeline.timeline.push(if_rl_choice_warning)
       trial.stimulus = String.format(trial.stimulus, curr_block, n_rl_blocks, block_bonus);
 
       // save data on every block
-      // save data frame at the end of the task
+      /*// save data frame at the end of the task
       if (is_scanner == "scanner"){
         save_local_data(data_folder+'rl_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv())
         save_local_data(int_data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv())
       } else {
         save_server_data(data_folder+'rl_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(),tools_folder)
         save_server_data(int_data_folder+'rl_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(),tools_folder)
-      }
+      }*/
     }
   }
 
