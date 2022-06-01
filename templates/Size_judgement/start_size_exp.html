@@ -25,7 +25,7 @@
 // SET PARAMETERS
 // =============================================================================
 
-var is_debug              = 0;
+var is_debug              = 1;
 var is_scanner            = {{ is_scanner|tojson }}; //"mturk"; // "scanner" or "mturk"
 var start_t               = {{ start_t|safe }}; //0; // take into account 5 practice trials
 var end_t                 = {{ end_t|safe }}; // 89; // 90 trials
@@ -507,8 +507,9 @@ var size_block_over = {
   on_start: function(trial){
 
     // compute earnings in the past block
-    block_earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => a.block == size_trials[trial.data.index].block).map(a => a.accuracy).filter(a => !isNaN(a));
-    n_valid_trials = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => a.left_size_num != a.right_size_num).length
+    curr_block = jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].block;
+    block_earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => a.block == curr_block).map(a => a.accuracy).filter(a => !isNaN(a));
+    n_valid_trials = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => (a.left_size_num != a.right_size_num) & (a.block == curr_block)).length
     percent_earnings = block_earnings.reduce((a, b) => a + b, 0)/n_valid_trials;
     block_bonus = percent_earnings * (max_earnings/n_size_blocks);
     if (block_bonus > (max_earnings/n_size_blocks)){
@@ -517,7 +518,6 @@ var size_block_over = {
     block_bonus = block_bonus.toFixed(2);
 
     // block
-    curr_block = jsPsych.data.get().filter({ttype: 'size_choice'}).last(1).values()[0].block;
 
     trial.stimulus = String.format(trial.stimulus, curr_block, n_size_blocks, block_bonus);
 
@@ -562,7 +562,8 @@ var size_final_tally = {
   stimulus: function() {
     // compute earnings in the past block
     earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().map(a => a.accuracy).filter(a => !isNaN(a));
-    percent_earnings = block_earnings.reduce((a, b) => a + b, 0)/n_size_trials;
+    n_valid_trials = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => a.left_size_num != a.right_size_num).length
+    percent_earnings = earnings.reduce((a, b) => a + b, 0)/n_valid_trials;
     total_bonus = percent_earnings * max_earnings;
     total_bonus = total_bonus.toFixed(2);
     jsPsych.data.get().addToLast({size_final_tally: total_bonus});
