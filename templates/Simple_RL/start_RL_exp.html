@@ -331,10 +331,10 @@ for (t = start_t; t < end_t+1; t++){
       // save onset and duration
       if (data.key_press === null){
         duration = timing_max_choice/1000;
-        no_resposne = 1;
+        no_response = 1;
       } else {
         duration = jsPsych.data.get().last(1).values()[0].rt/1000;
-        no_resposne = 0;
+        no_response = 0;
       }
 
       onset = onset + duration;
