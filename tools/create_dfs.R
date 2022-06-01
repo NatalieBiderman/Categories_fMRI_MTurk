@@ -512,10 +512,10 @@ for (n in 1:n_designs){
     blocks = sort(rep(1:n_rl_blocks, (n_rl_trials/2)/n_rl_blocks));
     
     # assign stims according to n_design, so as to counterbalance the stims across participants
-    if (n %% n_designs == 1){if (condition=="easy") {high_stim = "A"; low_stim = "B"} else {high_stim = "C"; low_stim = "D"}}
-    if (n %% n_designs == 2){if (condition=="easy") {high_stim = "B"; low_stim = "A"} else {high_stim = "D"; low_stim = "C"}}
-    if (n %% n_designs == 3){if (condition=="easy") {high_stim = "C"; low_stim = "D"} else {high_stim = "A"; low_stim = "B"}}
-    if (n %% n_designs == 4){if (condition=="easy") {high_stim = "D"; low_stim = "C"} else {high_stim = "B"; low_stim = "A"}}
+    if (n %% n_designs == 0){if (condition=="easy") {high_stim = "A"; low_stim = "B"} else {high_stim = "C"; low_stim = "D"}}
+    if (n %% n_designs == 1){if (condition=="easy") {high_stim = "B"; low_stim = "A"} else {high_stim = "D"; low_stim = "C"}}
+    if (n %% n_designs == 2){if (condition=="easy") {high_stim = "C"; low_stim = "D"} else {high_stim = "A"; low_stim = "B"}}
+    if (n %% n_designs == 3){if (condition=="easy") {high_stim = "D"; low_stim = "C"} else {high_stim = "B"; low_stim = "A"}}
     
     # create high and low stims
     high_stims <- data.frame(img = high_stim, 
