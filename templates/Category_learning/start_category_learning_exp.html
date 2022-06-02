@@ -1059,9 +1059,11 @@ var if_decision_trial_node = {
         data.category = category_memory_trials[data.index].category;
         data.category_group_value = category_memory_trials[data.index].category_group_value;
         data.category_value_response = Number(jsPsych.data.get().filter({ttype: 'category_memory'}).last(1).values()[0].responses.match(/\d+/g)[1]);
+        data.did_not_enter_response = 0; // save room for this variable
       }
     } // category_memory_trial
 
+    // if there is no response, or it is out of range - show a warning message and add that info to the data.
     repeat_category_memory_trial = response_not_entered(category_memory_trial, "category_memory", "category_value_response")
 
     category_memory_timeline.timeline.push(repeat_category_memory_trial)
