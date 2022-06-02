@@ -57,6 +57,10 @@ var data_folder           = '/data/Size_judgement/Individual_data/'
 var int_data_folder       = '/data/Size_judgement/Interactive_data/'
 var tools_folder          = '/static/Tools'
 
+// synchronously save data
+var posted_task_data = false;
+var posted_int_data = false;
+
 // assign decision keys
 if (is_scanner == "scanner") {
   var keys_decision = ['2', '3']; // 2 - left, 3 - right

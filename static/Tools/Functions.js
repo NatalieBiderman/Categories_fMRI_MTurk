@@ -148,7 +148,19 @@ function save_data_to_flask_app(name, data, nextURL) {
         console.log("done with ajax post");
         console.log(textStatus);
         if (nextURL != "") {
-            window.location.replace(nextURL);
+            if (name.includes("_int_") && posted_task_data) {
+                // if just saved interactive data, and task data has already been saved
+                window.location.replace(nextURL);
+            } else if (name.includes("_int_") && !posted_task_data) {
+                // if just saved interactive data, and task data has NOT already been saved
+                posted_int_data = true;
+            } else if (!name.includes("_int_") && posted_int_data) {
+                // if just saved task data, and interactive data has already been saved
+                 window.location.replace(nextURL);
+            } else if (!name.includes("_int_") && !posted_int_data) {
+                // if just saved task data, and interactive data has NOT already been saved
+                posted_task_data = true;
+            }
         }
     }).fail(function(error) {
         console.log("failed ajax post");
