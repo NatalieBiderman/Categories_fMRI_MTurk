@@ -46,7 +46,7 @@ var timing_confirmation   = 0;//500;
 var timing_feedback       = 1000;
 var timing_warning        = timing_feedback;
 var n_blocks_back_within_category = 1;
-var percent_bonus         = 0.04; // what is the percentage of winnings participants get as bonus money
+var percent_bonus         = 0.015; // what is the percentage of winnings participants get as bonus money
 if (is_scanner == "scanner"){
   var max_earnings = 12; // maximum dollar earnings
 } else {
@@ -978,9 +978,7 @@ var if_decision_trial_node = {
     data: {ttype: 'final_tally'},
     stimulus: function() {
       earnings = jsPsych.data.get().filter({ttype: 'choice'}).values().map(a => a.chosen_exemplar_value).filter(a => !isNaN(a));
-      sum_earnings = earnings.reduce(function(a, b){
-          return a + b;
-      }, 0);
+      sum_earnings = earnings.reduce(function(a, b){return a + b;}, 0);
       decisions_bonus = sum_earnings / 100 * percent_bonus;
       total_bonus = decisions_bonus;
       total_bonus = total_bonus.toFixed(2);
