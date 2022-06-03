@@ -1,0 +1,7 @@
+,event,trial,time,PID
+0,fullscreenenter,0,2428,59346
+1,fullscreenexit,413,663320,59346
+2,blur,413,665205,59346
+3,focus,413,674035,59346
+4,blur,413,683263,59346
+5,focus,413,710635,59346
