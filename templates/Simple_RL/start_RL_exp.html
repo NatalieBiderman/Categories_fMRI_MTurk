@@ -25,7 +25,7 @@
 // SET PARAMETERS
 // =============================================================================
 
-var is_debug              = 0;
+var is_debug              = 1;
 var is_scanner            = {{ is_scanner|tojson }}; //"mturk"; // "scanner" or "mturk"
 var start_t               = {{ start_t|safe }}; //0; // take into account 5 practice trials
 var end_t                 = {{ end_t|safe }}; // 79; // 80 trials
@@ -368,6 +368,10 @@ for (t = start_t; t < end_t+1; t++){
       extra_confirmation_rt = timing_max_choice - decision_rt;
       trial.trial_duration = timing_confirmation + extra_confirmation_rt;
 
+      // add block info
+      curr_block = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].block;
+      trial.data.block = curr_block;
+
       // assign trial duration to onset and duration
       duration = timing_confirmation/1000 + extra_confirmation_rt/1000;
       onset = onset + duration;
@@ -416,13 +420,17 @@ for (t = start_t; t < end_t+1; t++){
 // respond faster
 var rl_choice_warning_trial = {
       type: 'html-keyboard-response',
-      data: {ttype: "rl_choice_warning"},
+      data: {ttype: "rl_choice_warning", index: t},
       stimulus: '<div style="font-size: 120%">TOO SLOW</div>',
       choices: jsPsych.NO_KEYS,
       trial_duration: timing_warning,
       on_finish: function(data){
         // tag the current trial so we can know there was a repeat
         data.warning = 1;
+
+        // add block info
+        curr_block = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].block;
+        data.block = curr_block;
 
         // assign trial duration to onset and duration
         duration = timing_warning/1000;
@@ -453,7 +461,7 @@ rl_timeline.timeline.push(if_rl_choice_warning)
         type: 'html-keyboard-response',
         stimulus: fixation_stim,
         choices: jsPsych.NO_KEYS,
-        data: {ttype: 'isi'},
+        data: {ttype: 'isi', index: t},
         on_start: function(trial){
           // assign jitter timing
           curr_isi = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].isi;
@@ -462,6 +470,9 @@ rl_timeline.timeline.push(if_rl_choice_warning)
           } else {
             trial.trial_duration = curr_isi;
           }
+
+          curr_block = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].block;
+          trial.data.block = curr_block;
 
           // assign trial duration to onset and duration
           duration = curr_isi/1000;
@@ -506,6 +517,10 @@ rl_timeline.timeline.push(if_rl_choice_warning)
             static_folder+'Stimuli/Values/' + chosen_value + '.png')//jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].exemplar_val_right)
         }
 
+        // add block info
+        curr_block = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].block;
+        trial.data.block = curr_block;
+
         // assign trial duration to onset and duration
         duration = timing_feedback/1000;
         onset = onset + duration;
@@ -534,7 +549,7 @@ rl_timeline.timeline.push(if_rl_choice_warning)
         type: 'html-keyboard-response',
         stimulus: fixation_stim,
         choices: jsPsych.NO_KEYS,
-        data: {ttype: 'iti'},
+        data: {ttype: 'iti', index: t},
         on_start: function(trial){
           // assign jitter timing
           curr_ITI = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].iti;
@@ -543,6 +558,11 @@ rl_timeline.timeline.push(if_rl_choice_warning)
           } else {
             trial.trial_duration = curr_ITI;
           }
+
+          // add block info
+          curr_block = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].block;
+          trial.data.block = curr_block;
+
           // assign trial duration to onset and duration
           duration = curr_ITI/1000;
           onset = onset + duration;
