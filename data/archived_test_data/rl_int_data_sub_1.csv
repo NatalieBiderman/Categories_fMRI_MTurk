@@ -1,3 +1,4 @@
 ,event,trial,time,PID
-0,focus,0,1004115,1
-1,fullscreenenter,0,1004246,1
+0,fullscreenenter,0,6115,1
+1,blur,222,167650,1
+2,focus,226,170403,1

@@ -25,7 +25,7 @@
 // SET PARAMETERS
 // =============================================================================
 
-var is_debug              = 0;
+var is_debug              = 1;
 var is_scanner            = {{ is_scanner|tojson }}; //"mturk"; // "scanner" or "mturk"
 var run_category_learning = {{ run_category_learning|safe }}; //1;
 var run_category_memory   = {{ run_category_memory|safe }}; // 1;
@@ -990,7 +990,13 @@ var if_decision_trial_node = {
        },
     choices: keys_decision[0],
     response_ends_trial: true,
-    on_finish: function() {
+    on_finish: function(data) {
+      // add category memory columns, so we could save the data frame properly in case participants skip the category memory task
+      data.category = NaN;
+      data.category_group_value = NaN;
+      data.category_value_response = NaN;
+      data.did_not_enter_response = NaN;
+      // save data
       if (is_scanner == "scanner"){
         save_local_data(data_folder+'category_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv(), "")
         save_local_data(int_data_folder+'category_int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv(), "")
