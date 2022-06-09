@@ -19,6 +19,15 @@
         <p>Enter the Subject ID number: </p>
           <input class="form-check-input" type="number" id="subID" name="subID" min="0" required><br><br>
 
+        <p>Which group does this participant belong to?</p>
+          <input class="form-check-input" type="radio" id="adults" name="group" value="adults" checked="checked" required>
+          <label class="form-check-label" for="adults">Adults</label><br>
+          <input class="form-check-input" type="radio" id="teens" name="group" value="teens" required>
+          <label class="form-check-label" for="teens">Teens</label><br><br>
+
+        <p>Enter the participant's age:</p>
+          <input class="form-check-input" type="number" id="age" name="age" min="0" value="18" required><br><br>
+
         <p>Are you running the experiment on MTurk or in the scanner?</p>
           <input class="form-check-input" type="radio" id="scanner" name="is_scanner" value="scanner" checked="checked" required>
           <label class="form-check-label" for="scanner">Scanner</label><br>

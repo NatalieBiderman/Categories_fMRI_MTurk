@@ -1,12 +1,5 @@
 ,event,trial,time,PID
-0,blur,0,2716,12
-1,focus,0,13007,12
-2,blur,0,32480,12
-3,focus,0,34111,12
-4,blur,0,35467,12
-5,focus,0,78376,12
-6,fullscreenenter,0,79128,12
-7,blur,2,88063,12
-8,focus,2,89758,12
-9,blur,2,91144,12
-10,focus,2,94807,12
+0,fullscreenenter,0,2926,12
+1,blur,9,17766,12
+2,focus,11,19236,12
+3,blur,335,756197,12

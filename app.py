@@ -3,6 +3,7 @@ from flask import redirect, url_for
 from manage_subject_info import *
 from mturk_utils import *
 from io import StringIO
+import pandas as pd
 
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 
@@ -29,6 +30,12 @@ def category_form():
             start_t_category_memory = request.form['start_t_category_memory']
             end_t_category_memory = request.form['end_t_category_memory']
             subID = request.form['subID']
+            group = request.form['group']
+            age = request.form['age']
+            if not os.path.exists(os.path.join('data','Subj_Info')):
+                os.mkdir(os.path.join('data','Subj_Info'))
+            data = pd.DataFrame.from_dict({"subID":[subID],"group":[group],"age":[age]})
+            data.to_csv(os.path.join('data','Subj_Info',"subj_info_sub_%s.csv"%subID), index=False)
             return redirect(url_for('category_learning',
                                     is_scanner=is_scanner,
                                     run_category_learning=run_category_learning,

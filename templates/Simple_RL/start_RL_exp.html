@@ -341,10 +341,10 @@ for (t = start_t; t < end_t+1; t++){
         no_response = 0;
       }
 
-      onset = onset + duration;
       data.onset = onset;
       data.duration = duration;
       data.no_response = no_response;
+      onset = onset + duration;
 
     } // on_finish
   } // decision trial
@@ -374,9 +374,9 @@ for (t = start_t; t < end_t+1; t++){
 
       // assign trial duration to onset and duration
       duration = timing_confirmation/1000 + extra_confirmation_rt/1000;
-      onset = onset + duration;
       trial.data.duration = duration;
       trial.data.onset = onset;
+      onset = onset + duration;
 
       // decide on which stimulus recieves a confirmation rectangle
       curr_ind = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].index;
@@ -434,9 +434,10 @@ var rl_choice_warning_trial = {
 
         // assign trial duration to onset and duration
         duration = timing_warning/1000;
-        onset = onset + duration;
         data.duration = duration;
         data.onset = onset;
+        onset = onset + duration;
+
       }
   } // choice_warning_trial faster trial
 
@@ -476,9 +477,10 @@ rl_timeline.timeline.push(if_rl_choice_warning)
 
           // assign trial duration to onset and duration
           duration = curr_isi/1000;
-          onset = onset + duration;
           trial.data.duration = duration;
           trial.data.onset = onset;
+          onset = onset + duration;
+
         }
   }
 
@@ -523,9 +525,10 @@ rl_timeline.timeline.push(if_rl_choice_warning)
 
         // assign trial duration to onset and duration
         duration = timing_feedback/1000;
-        onset = onset + duration;
         trial.data.duration = duration;
         trial.data.onset = onset;
+        onset = onset + duration;
+
       }
     } // confirmation trial
 
@@ -565,9 +568,10 @@ rl_timeline.timeline.push(if_rl_choice_warning)
 
           // assign trial duration to onset and duration
           duration = curr_ITI/1000;
-          onset = onset + duration;
           trial.data.duration = duration;
           trial.data.onset = onset;
+          onset = onset + duration;
+
         }
   }
 
