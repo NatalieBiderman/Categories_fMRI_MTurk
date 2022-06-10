@@ -8,6 +8,7 @@
 
 # general
 n_designs = 4
+task_folder <- "../static/"
 
 # category learning 
 n_novel_trials = 270; # should be divided by 10 (number of possible pairings)
@@ -31,9 +32,13 @@ n_size_cats_per_group = n_size_cats/length(size_groups);
 n_size_exemplars_per_cat = 9;
 n_total_size_stims = n_size_cats * n_size_exemplars_per_cat
 n_size_decisions_trials = n_total_size_stims/2;
-n_size_blocks = 2;
+n_size_blocks = 1;
 timing_size = data.frame(sec = c(1000, 1500, 2000, 3000, 3500), reps = c(18, 12, 8, 4, 3)) # isi and iti timings, taken from an exponential distribution, aevraged to 1700 ms.
-
+if (n_size_decisions_trials/n_size_blocks > sum(timing_size$reps)){
+  reps_multiplication <- (n_size_decisions_trials/n_size_blocks)/sum(timing_size$reps)
+  timing_size$reps <- timing_size$reps*reps_multiplication
+}
+  
 # RL task
 n_rl_trials = 80; # should be divided by 10
 n_rl_blocks = 2;
@@ -195,7 +200,7 @@ for (n in 1:n_designs){
   # ------------------------------------------------------------------------------
   
   # load stimuli csv
-  all_stims <- read.csv("../Category_learning/Task/Stimuli/Stimuli_list/category_learning_stimuli.csv")
+  all_stims <- read.csv(paste0(task_folder,"Category_learning/Stimuli/Stimuli_list/category_learning_stimuli.csv"))
   
   # remove test items from stimuli set and keep only the first 15 exemplars 
   all_stims = subset(all_stims, is_test_item==0) %>%
@@ -266,7 +271,7 @@ for (n in 1:n_designs){
   # ------------------------------------------------------------------------------
   
   # load practice stims 
-  practice_stims <- read.csv("../Category_learning/Task/Stimuli/Stimuli_list/practice_category_learning_stimuli.csv")
+  practice_stims <- read.csv(paste0(task_folder,"Category_learning/Stimuli/Stimuli_list/practice_category_learning_stimuli.csv"))
   
   # manually assign category groups and values for practice stims
   practice_stims <- mutate(practice_stims,
@@ -317,7 +322,7 @@ for (n in 1:n_designs){
   all_trials[,"trial_num"] = 0:(nrow(all_trials)-1)
   
   # save data frame
-  readr::write_csv(all_trials,file(sprintf("../Category_learning/Task/Design_matrix/category_learning_trials_v%d.csv",n),encoding="UTF-8"))
+  readr::write_csv(all_trials,file(sprintf("%sCategory_learning/Design_matrix/category_learning_trials_v%d.csv",task_folder,n),encoding="UTF-8"))
   
 }
 
@@ -325,7 +330,7 @@ for (n in 1:n_designs){
 # CREATE CATEGORY MEMORY DATA FRAME
 # ==============================================================================
 
-all_stims <- read.csv("../Category_learning/Task/Stimuli/Stimuli_list/category_learning_stimuli.csv")
+all_stims <- read.csv(paste0(task_folder,"Category_learning/Stimuli/Stimuli_list/category_learning_stimuli.csv"))
 
 for (n in 1:n_designs){
   
@@ -337,7 +342,7 @@ for (n in 1:n_designs){
                                 category = sample(categories))
   
   # load the relevant csv with info about values 
-  category_learning_trials <- read.csv(paste0("../Category_learning/Task/Design_matrix/category_learning_trials_v",n,".csv")) %>% subset(old_trial == 0 & is_practice==0)
+  category_learning_trials <- read.csv(paste0(task_folder,"Category_learning/Task/Design_matrix/category_learning_trials_v",n,".csv")) %>% subset(old_trial == 0 & is_practice==0)
   left_cats <- category_learning_trials[,c("left_category", "left_category_value")]
   left_cats <- left_cats[!duplicated(left_cats),]
   
@@ -347,7 +352,7 @@ for (n in 1:n_designs){
   }
   
   # save 
-  readr::write_csv(category_memory,file(sprintf("../static/Category_learning/Design_matrix/category_memory_trials_v%d.csv",n),encoding="UTF-8"))
+  readr::write_csv(category_memory,file(sprintf("%sCategory_learning/Design_matrix/category_memory_trials_v%d.csv",task_folder,n),encoding="UTF-8"))
 }
 
 # ==============================================================================
@@ -357,7 +362,7 @@ for (n in 1:n_designs){
 for (n in 1:n_designs){
   
   # load size stims 
-  size_stims <- read.csv("../Size_judgement/Task/Stimuli/Stimuli_list/size_stimuli.csv")
+  size_stims <- read.csv(paste0(task_folder,"Size_judgement/Stimuli/Stimuli_list/size_stimuli.csv"))
   
   # remove test items 
   #size_stims = subset(size_stims, is_test_item==0)
@@ -486,7 +491,7 @@ for (n in 1:n_designs){
   size_trials[,"trial_num"] = 0:(nrow(size_trials)-1)
   
   # save data frame
-  write.csv(size_trials,sprintf("../static/Size_judgement/Design_matrix/size_trials_v%d.csv",n), row.names = FALSE, fileEncoding = "UTF-8")
+  write.csv(size_trials,sprintf("%sSize_judgement/Design_matrix/size_trials_v%d.csv",task_folder,n), row.names = FALSE, fileEncoding = "UTF-8")
   
 }
 
@@ -588,7 +593,7 @@ for (n in 1:n_designs){
   rl_trials[,"trial_num"] <- 0:(nrow(rl_trials)-1)
 
   # save data frame
-  write.csv(rl_trials,sprintf("../static/Simple_RL/Design_matrix/RL_trials_v%d.csv",n), row.names = FALSE, fileEncoding = "UTF-8")
+  write.csv(rl_trials,sprintf("%sSimple_RL/Design_matrix/RL_trials_v%d.csv",task_folder,n), row.names = FALSE, fileEncoding = "UTF-8")
   
 }
   
