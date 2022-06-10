@@ -236,11 +236,18 @@ var missed_instruction_checkup = {
   // For scanned participants, this appears immediately after the quiz end.
   var passed_instructions = {
       type: 'html-keyboard-response',
-      stimulus: "Great, you're ready to start.</br></br>"+
-                "Please press the "+continue_key_text+" to start.",
-      choices: keys_decision[0],
+      stimulus: "Great job!</br></br>{0}",
+      choices: keys_start_block,
       response_ends_trial: true,
       trial_duration:null,
+      on_start: function(trial){
+        if (is_scanner == "scanner"){
+          start_prompt = " " // the experimental starts the experiment
+        } else {
+          start_prompt = "Please press the "+keys_start_block+" to start."
+        }
+        trial.stimulus = String.format(trial.stimulus, start_prompt);
+      }
   }
 
   // Instructions
@@ -277,7 +284,7 @@ var missed_instruction_checkup = {
   if (start_t == 0){
     size_timeline.timeline.push(repeat_size_instructions,passed_instructions);
   }
-
+  size_timeline.timeline.push(start_run);
   // ------------------------------- Decision ----------------------------------
 
 for (t = start_t; t < end_t+1; t++){
