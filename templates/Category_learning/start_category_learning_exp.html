@@ -74,9 +74,11 @@ var posted_int_data = false;
 if (is_scanner == "scanner") {
   var keys_decision = ['2', '3']; // 2 - left, 3 - right
   var continue_key_text = "pointer finger"
+  var keys_start_block = 'S'
 } else {
   var keys_decision = ['D', 'K']; // D - left, K - right
   var continue_key_text = "D key"
+  var keys_start_block = 'D'
 }
 
 // =============================================================================
@@ -912,8 +914,8 @@ var block_over_trial = {
            index: t},
     stimulus: "Round {0} (out of {1}) is over</br></br>"+
               "You have earned an extra &#36;{2} in the previous round</br></br>"+
-              "When you are ready to start the next round, please press the "+continue_key_text,
-    choices: keys_decision[0],
+              "{3}",
+    choices: keys_start_block,
     response_ends_trial: true,
   on_start: function(trial){
 
@@ -930,7 +932,14 @@ var block_over_trial = {
 
     // block number
     block_number = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].block
-    trial.stimulus = String.format(trial.stimulus, block_number, n_blocks, block_bonus);
+
+    if (is_scanner=="scanner"){
+      block_prompt = "" // subjects do not press anything here.
+      trial.stimulus = String.format(trial.stimulus, block_number, n_blocks, block_bonus, block_prompt);
+    } else {
+      block_prompt = "When you are ready to start the next round, please press the "+keys_start_block
+      trial.stimulus = String.format(trial.stimulus, block_number, n_blocks, block_bonus, block_prompt);
+    }
 
     /*// save data on every block
     // save data frame at the end of the task

@@ -46,9 +46,9 @@ var size_timeline = { timeline: []};
 var onset                = 0;
 var duration             = 0;
 if (is_scanner == "scanner"){
-  var max_earnings = 4; // maximum dollar earnings
+  var max_earnings = 2; // maximum dollar earnings
 } else {
-  var max_earnings = 1; // maximum dollar earnings
+  var max_earnings = 0.5; // maximum dollar earnings
 }
 
 // assign folders
@@ -65,9 +65,11 @@ var posted_int_data = false;
 if (is_scanner == "scanner") {
   var keys_decision = ['2', '3']; // 2 - left, 3 - right
   var continue_key_text = "pointer finger"
+  var keys_start_block = 'S'
 } else {
   var keys_decision = ['D', 'K']; // D - left, K - right
   var continue_key_text = "D key"
+  var keys_start_block = 'D'
 }
 
 // =============================================================================
@@ -521,7 +523,7 @@ var size_block_over = {
            index: t},
     stimulus: "Round {0} (out of {1}) is over</br></br>"+
               "You have earned an extra &#36;{2} in the previous round</br></br>"+
-              "When you are ready to start the next round, please press the "+continue_key_text,
+              "{3}",
     choices: keys_decision[0],
     response_ends_trial: true,
   on_start: function(trial){
@@ -537,9 +539,13 @@ var size_block_over = {
     }
     block_bonus = block_bonus.toFixed(2);
 
-    // block
-
-    trial.stimulus = String.format(trial.stimulus, curr_block, n_size_blocks, block_bonus);
+    if (is_scanner=="scanner"){
+      block_prompt = "" // subjects do not press anything here.
+      trial.stimulus = String.format(trial.stimulus, curr_block, n_size_blocks, block_bonus, block_prompt);
+    } else {
+      block_prompt = "When you are ready to start the next round, please press the "+keys_start_block
+      trial.stimulus = String.format(trial.stimulus, curr_block, n_size_blocks, block_bonus, block_prompt);
+    }
 
     /*// save data on every block
     // save data frame at the end of the task
