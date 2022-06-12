@@ -535,8 +535,8 @@ for (t = start_t; t < end_t+1; t++){
         // find current index
         var curr_ind = jsPsych.data.get().last(1).values()[0].index;
 
-        console.log("index: "+curr_ind); // ALICE
-        console.log("block counter: "+block_counter); // ALICE
+        //console.log("index: "+curr_ind); // ALICE
+        //console.log("block counter: "+block_counter); // ALICE
 
         // ------ register choices ------
 
@@ -887,10 +887,18 @@ var practice_over = {
     data: {ttype: 'practice_over',
            index: t},
     stimulus: "The practice block is over <br></br>"+
-              "You will now start the actual experiment.</br></br>"+
-              "When you are ready to start, please press the "+continue_key_text,
-    choices: keys_decision[0],
+              "You will now start the actual experiment.</br></br>{0}",
+    choices: keys_start_block,
     response_ends_trial: true,
+    on_start: function(trial){
+      if (is_scanner=="scanner"){
+        practice_over_prompt = "" // subjects do not press anything here.
+        trial.stimulus = String.format(trial.stimulus, practice_over_prompt);
+      } else {
+        practice_over_prompt = "When you are ready to start, please press the "+keys_start_block
+        trial.stimulus = String.format(trial.stimulus, practice_over_prompt);
+      }
+    }
 }
 
 var if_practice_over = {
@@ -919,6 +927,17 @@ var block_over_trial = {
     response_ends_trial: true,
   on_start: function(trial){
 
+    // compute accuracy measure for the last block:
+    // we take the difference between chosen and unchosen category value, remove
+    // all zeros, and sum up the number of positive instances, indicating choice
+    // of a higher category value
+    valid_trials = jsPsych.data.get().filter({ttype: 'choice'}).values().filter(a => a.block == jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].block).map(a => a.chosen_category_value - a.unchosen_category_value).filter(a => a != 0)
+    n_valid_trials = valid_trials.length
+    n_higher_category_chosen = valid_trials.filter(a => a>0).length
+    accuracy = n_higher_category_chosen/n_valid_trials
+    block_bonus = accuracy * max_earnings/n_blocks;
+
+    /*
     // compute earnings in the past block
     block_earnings = jsPsych.data.get().filter({ttype: 'choice'}).values().filter(a => a.block == jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].block).map(a => a.chosen_exemplar_value).filter(a => !isNaN(a));
     sum_earnings = block_earnings.reduce(function(a, b){
@@ -928,6 +947,7 @@ var block_over_trial = {
     if (block_bonus > (max_earnings/n_blocks)){
       block_bonus = max_earnings/n_blocks;
     }
+    */
     block_bonus = block_bonus.toFixed(2);
 
     // block number

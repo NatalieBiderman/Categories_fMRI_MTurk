@@ -601,6 +601,17 @@ rl_timeline.timeline.push(if_rl_choice_warning)
       response_ends_trial: true,
     on_start: function(trial){
 
+      // compute accuracy measure for the last block:
+      // we take the difference between chosen and unchosen group value, remove
+      // all zeros, and sum up the number of positive instances, indicating choice
+      // of a higher group value
+      valid_trials = jsPsych.data.get().filter({ttype: 'rl_choice'}).values().filter(a => a.block == jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].block).map(a => a.chosen_group_value - a.unchosen_group_value).filter(a => a != 0)
+      n_valid_trials = valid_trials.length
+      n_higher_group_chosen = valid_trials.filter(a => a>0).length
+      accuracy = n_higher_group_chosen/n_valid_trials
+      block_bonus = accuracy * max_earnings/n_rl_blocks;
+
+      /*
       // compute earnings in the past block
       block_earnings = jsPsych.data.get().filter({ttype: 'rl_choice'}).values().filter(a => a.block == RL_trials[trial.data.index].block).map(a => a.chosen_item_value).filter(a => !isNaN(a));
       sum_earnings = block_earnings.reduce(function(a, b){return a + b;}, 0);
@@ -608,6 +619,7 @@ rl_timeline.timeline.push(if_rl_choice_warning)
       if (block_bonus > (max_earnings/n_rl_blocks)){
         block_bonus = max_earnings/n_rl_blocks;
       }
+      */
       block_bonus = block_bonus.toFixed(2);
       // block
       curr_block = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].block;
