@@ -36,17 +36,17 @@ var timing_max_choice    = 1500;
 var timing_confirmation  = 0;//500;
 var timing_feedback      = 1000;
 var timing_warning       = timing_feedback;
-var percent_bonus        = 0.02; // what is the percentage of winnings participants get as bonus money
 var keys_instructions    = [' '];
 var keys_start_run       = ['t'];
 var timeline             = [];
 var rl_timeline          = { timeline: []};
 var onset                = 0;
 var duration             = 0;
-if (is_scanner == "scanner"){
-  var max_earnings = 4; // maximum dollar earnings
-} else {
-  var max_earnings = 1; // maximum dollar earnings
+var percent_bonus        = 0.075; // what is the percentage of winnings participants get as bonus money
+var max_earnings         = 4; // maximum dollar earnings
+if (is_scanner == "mturk"){
+  var percent_bonus = percent_bonus/4; // maximum dollar earnings
+  var max_earnings = max_earnings/4; // maximum dollar earnings
 }
 
 // assign folders
@@ -601,6 +601,7 @@ rl_timeline.timeline.push(if_rl_choice_warning)
       response_ends_trial: true,
     on_start: function(trial){
 
+      /*
       // compute accuracy measure for the last block:
       // we take the difference between chosen and unchosen group value, remove
       // all zeros, and sum up the number of positive instances, indicating choice
@@ -610,17 +611,17 @@ rl_timeline.timeline.push(if_rl_choice_warning)
       n_higher_group_chosen = valid_trials.filter(a => a>0).length
       accuracy = n_higher_group_chosen/n_valid_trials
       block_bonus = accuracy * max_earnings/n_rl_blocks;
+      */
 
-      /*
       // compute earnings in the past block
       block_earnings = jsPsych.data.get().filter({ttype: 'rl_choice'}).values().filter(a => a.block == RL_trials[trial.data.index].block).map(a => a.chosen_item_value).filter(a => !isNaN(a));
       sum_earnings = block_earnings.reduce(function(a, b){return a + b;}, 0);
-      block_bonus = sum_earnings / 100 * percent_bonus;
+      block_bonus = sum_earnings * (percent_bonus / 100);
       if (block_bonus > (max_earnings/n_rl_blocks)){
         block_bonus = max_earnings/n_rl_blocks;
       }
-      */
       block_bonus = block_bonus.toFixed(2);
+
       // block
       curr_block = jsPsych.data.get().filter({ttype: 'rl_choice'}).last(1).values()[0].block;
 

@@ -46,11 +46,11 @@ var timing_confirmation   = 0;//500;
 var timing_feedback       = 1000;
 var timing_warning        = timing_feedback;
 var n_blocks_back_within_category = 1;
-var percent_bonus         = 0.015; // what is the percentage of winnings participants get as bonus money
-if (is_scanner == "scanner"){
-  var max_earnings = 12; // maximum dollar earnings
-} else {
-  var max_earnings = 3; // maximum dollar earnings
+var max_earnings = 12; // maximum dollar earnings
+var percent_bonus = 0.055; // what is the percentage of winnings participants get as bonus money
+if (is_scanner == "mturk"){
+  var max_earnings = max_earnings/4;
+  var percent_bonus = percent_bonus/4;
 }
 var keys_instructions     = [' '];
 var keys_start_run        = ['t'];
@@ -927,6 +927,7 @@ var block_over_trial = {
     response_ends_trial: true,
   on_start: function(trial){
 
+    /*
     // compute accuracy measure for the last block:
     // we take the difference between chosen and unchosen category value, remove
     // all zeros, and sum up the number of positive instances, indicating choice
@@ -936,18 +937,15 @@ var block_over_trial = {
     n_higher_category_chosen = valid_trials.filter(a => a>0).length
     accuracy = n_higher_category_chosen/n_valid_trials
     block_bonus = accuracy * max_earnings/n_blocks;
+    */
 
-    /*
     // compute earnings in the past block
     block_earnings = jsPsych.data.get().filter({ttype: 'choice'}).values().filter(a => a.block == jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].block).map(a => a.chosen_exemplar_value).filter(a => !isNaN(a));
-    sum_earnings = block_earnings.reduce(function(a, b){
-        return a + b;
-    }, 0);
-    block_bonus = (sum_earnings / 100) * percent_bonus;
+    sum_earnings = block_earnings.reduce(function(a, b){return a + b;}, 0);
+    block_bonus = sum_earnings * (percent_bonus/100);
     if (block_bonus > (max_earnings/n_blocks)){
       block_bonus = max_earnings/n_blocks;
     }
-    */
     block_bonus = block_bonus.toFixed(2);
 
     // block number
