@@ -16,7 +16,9 @@
   <script src="/static/jquery-3.3.1/jquery.min.js"></script>
   <link href="/static/jspsych-6.0.5/css/jspsych.css" rel="stylesheet" type="text/css"/>
   <link href="/static/Tools/myCSSstyle.css" rel="stylesheet" type="text/css"/>
-  <style> </style>
+  <style>
+      .jspsych-display-element {font-size: 30px;}
+  </style>
 </head>
 <body> </body>
 <script>
@@ -26,6 +28,7 @@
 // =============================================================================
 
 var is_debug              = 0;
+var loop_over_instructions = 1;
 var is_scanner            = {{ is_scanner|tojson }}; //"mturk"; // "scanner" or "mturk"
 var start_t               = {{ start_t|safe }}; //0; // take into account 5 practice trials
 var end_t                 = {{ end_t|safe }}; // 89; // 90 trials
@@ -194,7 +197,7 @@ timeline.push(fullscreen);
 
 var start_run = {
     type: 'html-keyboard-response',
-    stimulus: "Great, you're ready to start.<br></br>{0}",
+    stimulus: "{0}",
     choices: keys_start_run,
     response_ends_trial: true,
     data: {ttype: "start_run"},
@@ -236,7 +239,7 @@ var missed_instruction_checkup = {
   // For scanned participants, this appears immediately after the quiz end.
   var passed_instructions = {
       type: 'html-keyboard-response',
-      stimulus: "Great job!</br></br>{0}",
+      stimulus: "We will now start the experiment.</br></br>{0}",
       choices: keys_start_block,
       response_ends_trial: true,
       trial_duration:null,
@@ -244,7 +247,7 @@ var missed_instruction_checkup = {
         if (is_scanner == "scanner"){
           start_prompt = " " // the experimental starts the experiment
         } else {
-          start_prompt = "Please press the "+keys_start_block+" to start."
+          start_prompt = "When you are ready to start, please press the "+keys_start_block
         }
         trial.stimulus = String.format(trial.stimulus, start_prompt);
       }
@@ -280,7 +283,7 @@ var missed_instruction_checkup = {
     quiz_answers.size[3] = "D for left and K for right";
   }
   // activate function to present a looping quiz (loops until you get all answers correctly)
-  repeat_size_instructions = present_quiz_instructions(size_instructions, 'size_comprehension_check', quiz_qs.size, quiz_answers.size, is_scanner)
+  repeat_size_instructions = present_quiz_instructions(size_instructions, 'size_comprehension_check', quiz_qs.size, quiz_answers.size, loop_over_instructions)
   if (start_t == 0){
     size_timeline.timeline.push(repeat_size_instructions,passed_instructions);
   }
@@ -531,7 +534,7 @@ var size_block_over = {
     stimulus: "Round {0} (out of {1}) is over</br></br>"+
               "You have earned an extra &#36;{2} in the previous round</br></br>"+
               "{3}",
-    choices: keys_decision[0],
+    choices: keys_start_block,
     response_ends_trial: true,
   on_start: function(trial){
 
@@ -592,7 +595,11 @@ var if_size_block_over = {
 var size_final_tally = {
   type: "html-keyboard-response",
   data: {ttype: 'size_final_tally'},
-  stimulus: function() {
+  stimulus: 'You have completed the Size game.<br></br>' +
+            'Congratulations! You earned an extra ${0} across the game.<br></br>{1}',
+  choices: keys_start_block,
+  response_ends_trial: true,
+  on_start: function(trial) {
     // compute earnings in the past block
     earnings = jsPsych.data.get().filter({ttype: 'size_choice'}).values().map(a => a.accuracy).filter(a => !isNaN(a));
     n_valid_trials = jsPsych.data.get().filter({ttype: 'size_choice'}).values().filter(a => a.left_size_num != a.right_size_num).length
@@ -600,12 +607,14 @@ var size_final_tally = {
     total_bonus = percent_earnings * max_earnings;
     total_bonus = total_bonus.toFixed(2);
     jsPsych.data.get().addToLast({size_final_tally: total_bonus});
-    return 'You have completed the Size game.<br></br>' +
-           'Congratulations! You earned an extra $' +  total_bonus + ' across the game.<br></br>'  +
-           'Press the '+continue_key_text+' to continue.'
-     },
-    choices: keys_decision[0],
-    response_ends_trial: true,
+    if (is_scanner=="scanner"){
+      prompt = "" // subjects do not press anything here.
+      trial.stimulus = String.format(trial.stimulus, total_bonus, prompt);
+    } else {
+      prompt = 'Press the'+keys_start_block+' to continue'
+      trial.stimulus = String.format(trial.stimulus, total_bonus, prompt);
+    }
+  },
   on_finish: function() {
     if (is_scanner == "scanner"){
       save_local_data(data_folder+'size_data_sub_'+subID+'.csv', jsPsych.data.get().ignore('stimulus').csv(), "");
@@ -626,7 +635,7 @@ if (subID % 2 == 1){
   if (is_scanner == "scanner"){
     var end_task = {
         type: "html-keyboard-response",
-        choices: keys_decision[0],
+        choices: keys_start_block,
         response_ends_trial: true,
         stimulus:  "You have completed the experiment. Thank you for participating!"+
                    "<br>Please remain still for 1 more minute while we complete a final scan.</br>"+

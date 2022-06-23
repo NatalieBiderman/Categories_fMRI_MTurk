@@ -342,7 +342,7 @@ for (n in 1:n_designs){
                                 category = sample(categories))
   
   # load the relevant csv with info about values 
-  category_learning_trials <- read.csv(paste0(task_folder,"Category_learning/Task/Design_matrix/category_learning_trials_v",n,".csv")) %>% subset(old_trial == 0 & is_practice==0)
+  category_learning_trials <- read.csv(paste0(task_folder,"Category_learning/Design_matrix/category_learning_trials_v",n,".csv")) %>% subset(old_trial == 0 & is_practice==0)
   left_cats <- category_learning_trials[,c("left_category", "left_category_value")]
   left_cats <- left_cats[!duplicated(left_cats),]
   
@@ -350,6 +350,10 @@ for (n in 1:n_designs){
   for (i in 1:nrow(category_memory)){
     category_memory[i,"category_group_value"] = left_cats$left_category_value[left_cats$left_category == category_memory$category[i]]
   }
+  
+  # change label of categories
+  category_memory$category[category_memory$category=="poker card"] = "playing card"
+  category_memory$category[category_memory$category=="trumpet"] = "brass instrument"
   
   # save 
   readr::write_csv(category_memory,file(sprintf("%sCategory_learning/Design_matrix/category_memory_trials_v%d.csv",task_folder,n),encoding="UTF-8"))

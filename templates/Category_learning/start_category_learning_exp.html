@@ -16,7 +16,9 @@
     <script src="/static/jquery-3.3.1/jquery.min.js"></script>
     <link href="/static/jspsych-6.0.5/css/jspsych.css" rel="stylesheet" type="text/css"/>
     <link href="/static/Tools/myCSSstyle.css" rel="stylesheet" type="text/css"/>
-    <style> </style>
+    <style>
+        .jspsych-display-element {font-size: 30px;}        
+    </style>
   </head>
   <body> </body>
   <script>
@@ -26,6 +28,7 @@
 // =============================================================================
 
 var is_debug              = 0;
+var loop_over_instructions = 1;
 var is_scanner            = {{ is_scanner|tojson }}; //"mturk"; // "scanner" or "mturk"
 var run_category_learning = {{ run_category_learning|safe }}; //1;
 var run_category_memory   = {{ run_category_memory|safe }}; // 1;
@@ -238,23 +241,30 @@ category_memory_trials = category_memory_trials.filter(a => a.category != null)
 if (start_t > n_practice_trials){
   // load subject df
   var sub_df_csv;
-  readTextFile(data_folder+"Data/Individual_data/category_data_sub_" + subID + ".csv", function(text){sub_df_csv = text;});
+  readTextFile('/static/Partial_data/Category_learning/category_data_sub_' + subID + ".csv", function(text){sub_df_csv = text;});
   sub_df_csv = sub_df_csv.replaceAll('"', '') // we remove strings that cause an error in uploading of the csvs
   var sub_df = csvJSON(sub_df_csv);
   sub_df_choices = sub_df.filter(a => a.ttype == "choice" & a.rt != 'null') // we look only at decision trials and remove non responses
+
   // find chosen exemplars
   chosen_exemplars = sub_df_choices.slice(n_practice_trials, start_t).filter(a => Number(a.is_practice)==0).map(a => a.chosen_exemplar)
   old_trials = sub_df_choices.slice(n_practice_trials, start_t).filter(a => Number(a.is_practice)==0 & Number(a.old_trial)==1)
   old_stims = old_trials.map(a => a.chosen_exemplar).concat(old_trials.map(a => a.unchosen_exemplar))
+
   // remove old_stims from chosen_stims
   chosen_exemplars = chosen_exemplars.filter(a => !old_stims.includes(a));
   chosen_stims = JSON.parse(JSON.stringify(category_learning_stims)).map(function(value,index) { return value; }).filter(a => chosen_exemplars.includes(a.exemplar))
+
   // add block info
   for (i=0; i<chosen_stims.length; i++){
     curr_item = chosen_stims[i].exemplar;
     curr_trial = sub_df_choices.filter(a => Number(a.old_trial)==0 & a.chosen_exemplar == curr_item)
     chosen_stims[i].block = Number(curr_trial[0].block)
   }
+
+  // adapt category_learning trials
+  category_learning_trials.slice(start_t, end_t);
+
 } else {
   chosen_stims = [];
 }
@@ -312,7 +322,7 @@ timeline.push(fullscreen);
 
 var start_run = {
     type: 'html-keyboard-response',
-    stimulus: "Great, you're ready to start.<br></br>{0}",
+    stimulus: "{0}",
     choices: keys_start_run,
     response_ends_trial: true,
     data: {ttype: "start_run"},
@@ -354,11 +364,19 @@ var missed_instruction_checkup = {
   // For scanned participants, this appears immediately after the quiz end.
   var passed_instructions = {
       type: 'html-keyboard-response',
-      stimulus: "Great, you're ready to start.</br></br>"+
-                "Please press the "+continue_key_text+" to start.",
-      choices: keys_decision[0],
+      stimulus: "We will now start the experiment.</br></br>{0}",
+      choices: keys_start_block,
       response_ends_trial: true,
       trial_duration:null,
+      on_start: function(trial){
+        if (is_scanner=="scanner"){
+          passed_instructions_prompt = "" // subjects do not press anything here.
+          trial.stimulus = String.format(trial.stimulus, passed_instructions_prompt);
+        } else {
+          passed_instructions_prompt = "When you are ready to start, please press the "+keys_start_block
+          trial.stimulus = String.format(trial.stimulus, passed_instructions_prompt);
+        }
+      }
   }
 
   // Instructions
@@ -392,13 +410,14 @@ var missed_instruction_checkup = {
     quiz_answers.category_learning[3] = "D for left and K for right";
   }
   // activate function to present a looping quiz (loops until you get all answers correctly)
-  repeat_category_learning_instructions = present_quiz_instructions(category_learning_instructions, 'category_learning_comprehension_check', quiz_qs.category_learning, quiz_answers.category_learning, is_scanner)
+  repeat_category_learning_instructions = present_quiz_instructions(category_learning_instructions, 'category_learning_comprehension_check', quiz_qs.category_learning, quiz_answers.category_learning, loop_over_instructions)
 
   // we push the instruction only when the experiment begins from the beginning (not from the middle)
   if (start_t == 0){
     category_learning_timeline.timeline.push(repeat_category_learning_instructions,passed_instructions)
+  } else {
+    category_learning_timeline.timeline.push(passed_instructions, start_run)
   }
-
 
   // ------------------------------- Decision ----------------------------------
 
@@ -679,7 +698,6 @@ confirmation_trial = {
 
 // ------------------------------- isi ---------------------------------
 
-  // Fixation for jitter and ITI
   var choice_isi_trial = {
         type: 'html-keyboard-response',
         stimulus: fixation_stim,
@@ -688,10 +706,11 @@ confirmation_trial = {
         on_start: function(trial){
           // assign jitter timing
           curr_isi = jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].isi;
-          // if the previous trial was a no-response trial, then use the iti of
+          // if the previous trial was a no-response trial, then use the isi of
           // the block's last trial (which was deleted), so we could keep the
           // timing of the experiment constant
-          if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].is_practice==0){
+          // we also make sure the last trial is defined (when we start the experiment in the middle there isn't a last trial)
+          if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].is_practice==0 & jsPsych.data.get().filter({ttype: 'choice'}).last(2).values()[0] != undefined ){
             if (jsPsych.data.get().filter({ttype: 'choice'}).last(2).values()[0].no_response==1){
               curr_isi = no_response_isi;
             }
@@ -855,7 +874,7 @@ var if_no_response = {
           // if the previous trial was a no-response trial, then use the iti of
           // the block's last trial (which was deleted), so we could keep the
           // timing of the experiment constant
-          if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].is_practice==0){
+          if (jsPsych.data.get().filter({ttype: 'choice'}).last(1).values()[0].is_practice==0 & jsPsych.data.get().filter({ttype: 'choice'}).last(2).values()[0] != undefined){
             if (jsPsych.data.get().filter({ttype: 'choice'}).last(2).values()[0].no_response==1){
               curr_iti = no_response_iti;
             }
@@ -1029,9 +1048,10 @@ var if_decision_trial_node = {
     type: "html-keyboard-response",
     data: {ttype: 'final_tally'},
     stimulus: function() {
+      // compute earnings in the past block
       earnings = jsPsych.data.get().filter({ttype: 'choice'}).values().map(a => a.chosen_exemplar_value).filter(a => !isNaN(a));
       sum_earnings = earnings.reduce(function(a, b){return a + b;}, 0);
-      decisions_bonus = sum_earnings / 100 * percent_bonus;
+      decisions_bonus = sum_earnings * (percent_bonus/100);
       total_bonus = decisions_bonus;
       total_bonus = total_bonus.toFixed(2);
       if (total_bonus > max_earnings){total_bonus = max_earnings}
@@ -1099,8 +1119,8 @@ var if_decision_trial_node = {
       preamble: '<div> What is the value of this category?<br>{0} a number between 0&#162 to 100&#162</br></div><br><div style="font-size:3em">{1}</div></br>',
       questions: [{
         prompt: '',//'<div style="font-size:3em">{0}</div></br>',
-        columns: 3,
-        rows: 3}],
+        columns: 4,
+        rows: 2}],
       //trial_duration: max_memory_time,
       on_start: function(trial) {
         // assign stimulus

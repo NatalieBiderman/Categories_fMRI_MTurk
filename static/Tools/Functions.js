@@ -195,7 +195,7 @@ function makeid(length) {
 }
 
 // Present quiz instructions using a loop function (until they get all qs right)
-function present_quiz_instructions(instructions_screen, ttype, quiz_qs, quiz_answers, is_scanner){
+function present_quiz_instructions(instructions_screen, ttype, quiz_qs, quiz_answers, loop_over_instructions){
 
     // Make sure participants understood the instructions, by giving them a short quiz.
     // if they got it wrong, present the instructions again, until they get it right.
@@ -228,7 +228,9 @@ function present_quiz_instructions(instructions_screen, ttype, quiz_qs, quiz_ans
       } // conditional function
     } // if_confirmation
 
-    if (is_scanner == "scanner"){
+
+
+    if (loop_over_instructions == 0){
       var show_instructions = {
         timeline: [instructions_screen,comprehension_check]
       }
@@ -242,8 +244,9 @@ function present_quiz_instructions(instructions_screen, ttype, quiz_qs, quiz_ans
             return false;
           } // else
         } // loop_function function
-      } // repeat_rating_instructions
+      } // show_instructions
     }
+
     return show_instructions
 }
 
@@ -379,4 +382,41 @@ function sum(input){
            }
        }
        rawFile.send(null);
+   }
+
+   function find_start_trial_of_next_block(subID, task){
+     // load data file of subject who stopped the experiment in the middle
+     let path;
+     switch (task){
+       case "category_learning":
+       partial_data_path = '/static/Partial_data/Category_learning/category_data_sub_';
+       design_matrix_path = '/static/Category_learning/Design_matrix/category_learning_trials_v';
+       break;
+       case "size":
+       partial_data_path = '/static/Partial_data/Size_judgement/size_data_sub_';
+       design_matrix_path = '/static/Size_judgement/Design_matrix/size_trials_v';
+       break;
+       case "rl":
+       partial_data_path = '/static/Partial_data/Simple_RL/rl_data_sub_';
+       design_matrix_path = '/static/Simple_RL/Design_matrix/rl_trials_v';
+       break;
+     }
+     var sub_df_csv;
+     readTextFile(partial_data_path + subID + ".csv", function(text){sub_df_csv = text;});
+     sub_df_csv = sub_df_csv.replaceAll('"', '') // we remove strings that cause an error in uploading of the csvs
+     var sub_df = csvJSON(sub_df_csv);
+
+     // find current block
+     block_vector = sub_df.filter(a => a.ttype == "choice").map(a => a.block)
+     curr_block = Number(block_vector[block_vector.length - 1]);
+
+     // find first trial in the next block 
+     var trials_df_csv;
+     var counterbalanced_df = (subID % 4) + 1; // we use the subject id to assign the relevant df
+     readTextFile(design_matrix_path + counterbalanced_df + '.csv', function(text){trials_df_csv = text;});
+     trials_df_csv = trials_df_csv.replaceAll('"', '') // we remove strings that cause an error in uploading of the csvs
+     var trials_df = csvJSON(trials_df_csv);
+
+     start_t = Number(trials_df.filter(a => a.block == curr_block+1).map(a => a.trial_num)[0])
+     return(start_t)
    }

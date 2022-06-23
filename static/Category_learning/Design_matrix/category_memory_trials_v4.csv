@@ -1,37 +1,37 @@
 trial_num,category,category_group_value
-0,license plate,20
-1,sofa,40
-2,bongo,80
-3,tent,60
-4,necklace,40
-5,seashell,40
-6,makeup compact,20
-7,dresser,80
-8,baby carriage,80
-9,microscope,20
+0,hat,20
+1,bench,80
+2,playing card,40
+3,motorcycle,20
+4,power strip,40
+5,stool,60
+6,nail polish,40
+7,makeup compact,20
+8,patio lounge chair,40
+9,yarn,60
 10,flashlight,80
-11,lipstick,20
-12,frame,20
-13,desk,80
-14,poker card,40
-15,motorcycle,20
-16,train,60
-17,key chain,20
-18,trumpet,60
-19,small table,40
-20,power strip,40
-21,hammer,20
-22,door knob,80
-23,pen,40
-24,stool,60
-25,nail polish,40
-26,bowl,80
-27,bench,80
-28,fan,80
-29,yarn,60
-30,vase,60
-31,hat,20
-32,watch,60
-33,patio lounge chair,40
-34,telescope,60
-35,tape,60
+11,bowl,80
+12,train,60
+13,tape,60
+14,lipstick,20
+15,baby carriage,80
+16,pen,40
+17,fan,80
+18,frame,20
+19,tent,60
+20,key chain,20
+21,necklace,40
+22,telescope,60
+23,dresser,80
+24,brass instrument,60
+25,sofa,40
+26,bongo,80
+27,door knob,80
+28,hammer,20
+29,seashell,40
+30,watch,60
+31,microscope,20
+32,desk,80
+33,license plate,20
+34,small table,40
+35,vase,60
